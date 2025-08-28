@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AQUALAB – Analize Apă • Pachete & Contact</title>
-  <meta name="description" content="Analize profesionale de apă: fântână, puț, potabilă, piscină și apă uzată. Pachete clare, raport detaliat și consultanță.">
+  <title>AQUALAB – Analize Apă • Pachete & Prețuri</title>
+  <meta name="description" content="Analize profesionale de apă pentru fântână, puț, potabilă, piscine și apă uzată. Pachete clare, prețuri transparente și consultanță.">
   <style>
     :root{
       --hanna-blue:#005baa;
@@ -22,9 +22,9 @@
     /* Header */
     header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e7edf6;z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand img{width:42px;height:42px;border-radius:10px;object-fit:contain;background:#fff}
-    .brand span{font-weight:800;font-size:18px;color:var(--hanna-blue)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:80px;height:80px;object-fit:contain}
+    .brand span{font-weight:800;font-size:28px;color:var(--hanna-blue)}
     nav a{margin-left:18px;font-weight:600}
     .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px}
 
@@ -67,6 +67,14 @@
     .step{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:14px;display:flex;gap:10px}
     .step svg{flex:0 0 22px}
 
+    /* Price list individual */
+    .price-box{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px}
+    .price-box h3{margin-bottom:8px;color:#0b2b52}
+    .prices{width:100%;border-collapse:collapse;margin-top:10px}
+    .prices th,.prices td{border-bottom:1px solid #eef6ff;padding:10px}
+    .prices th{background:#f7fbff}
+    .note{font-size:13px;color:#556;margin-top:10px}
+
     /* Contact */
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px}
@@ -87,19 +95,9 @@
 <body>
   <!-- SVG sprite pentru pictograme -->
   <svg style="display:none" aria-hidden="true">
-    <!-- picătură -->
-    <symbol id="ico-drop" viewBox="0 0 24 24">
-      <path fill="#005baa" d="M12 2c3.9 5.2 6.5 8.7 6.5 12A6.5 6.5 0 1 1 5.5 14C5.5 10.7 8.1 7.2 12 2z"/>
-    </symbol>
-    <!-- fântână (stilizat) -->
-    <symbol id="ico-well" viewBox="0 0 24 24">
-      <path fill="#005baa" d="M4 9h16v2H4zM6 11h12v9H6z" />
-      <path fill="#7fb2e6" d="M8 4h8l2 5H6z"/>
-      <path fill="#005baa" d="M8 13h8v5H8z"/>
-    </symbol>
-    <!-- check -->
+    <symbol id="ico-drop" viewBox="0 0 24 24"><path fill="#005baa" d="M12 2c3.9 5.2 6.5 8.7 6.5 12A6.5 6.5 0 1 1 5.5 14C5.5 10.7 8.1 7.2 12 2z"/></symbol>
+    <symbol id="ico-well" viewBox="0 0 24 24"><path fill="#005baa" d="M4 9h16v2H4zM6 11h12v9H6z"/><path fill="#7fb2e6" d="M8 4h8l2 5H6z"/><path fill="#005baa" d="M8 13h8v5H8z"/></symbol>
     <symbol id="ico-check" viewBox="0 0 24 24"><path fill="#1a7f37" d="M9.2 16.2 4.9 12l1.4-1.4 2.9 2.9 8.5-8.5L19 6.4z"/></symbol>
-    <!-- rocket/step -->
     <symbol id="ico-step" viewBox="0 0 24 24"><path fill="#005baa" d="M12 2l3 4-3 3-3-3 3-4zm0 8l3 3-3 9-3-9 3-3z"/></symbol>
   </svg>
 
@@ -107,20 +105,20 @@
   <header>
     <div class="container nav">
       <div class="brand">
-       <img src="./assets/logo.png?v=1" alt="AQUALAB logo">
-
+        <img src="./assets/logo.png?v=2" alt="AQUALAB logo">
         <span>AQUALAB</span>
       </div>
       <nav>
         <a href="#avantaje">Avantaje</a>
         <a href="#pachete">Pachete</a>
         <a href="#cum-func">Cum funcționează</a>
+        <a href="#individual" title="Prețuri pe indicatori">Prețuri indicatori</a>
         <a href="#contact" class="cta">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero (banner local) -->
   <section class="hero">
     <div class="container wrap">
       <div>
@@ -129,38 +127,25 @@
         <a href="#pachete" class="cta">Vezi pachete</a>
       </div>
       <div>
-        <!-- imagine laborator; poți schimba linkul -->
-        <img src="https://images.unsplash.com/photo-1581093588401-16ec8a4b3c92?q=80&w=1600&auto=format&fit=crop" alt="Laborator analize apă" loading="eager">
+        <img src="./assets/banner.jpg?v=1" alt="Banner AQUALAB – apă din robinet în pahar" loading="eager">
       </div>
     </div>
   </section>
 
-  <!-- Avantaje (chenar Hanna) -->
+  <!-- Avantaje -->
   <section id="avantaje" class="section">
     <div class="container hanna-card">
       <h2>De ce să ne alegi</h2>
       <div class="advantages">
-        <div class="adv">
-          <svg><use href="#ico-check"/></svg>
-          <div><b>Trasabilitate & calibrare</b><p>Echipamente calibrate, proceduri standardizate și control de calitate.</p></div>
-        </div>
-        <div class="adv">
-          <svg><use href="#ico-check"/></svg>
-          <div><b>Rapid & transparent</b><p>Termene clare, prețuri vizibile, raport ușor de înțeles.</p></div>
-        </div>
-        <div class="adv">
-          <svg><use href="#ico-check"/></svg>
-          <div><b>Consultanță utilă</b><p>Interpretăm rezultatele și îți oferim recomandări pentru corecții/tratare.</p></div>
-        </div>
-        <div class="adv">
-          <svg><use href="#ico-check"/></svg>
-          <div><b>Recoltare la locație</b><p>La cerere, în anumite zone.</p></div>
-        </div>
+        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Trasabilitate & calibrare</b><p>Echipamente calibrate, proceduri standardizate și control de calitate.</p></div></div>
+        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Rapid & transparent</b><p>Termene clare, prețuri vizibile, raport ușor de înțeles.</p></div></div>
+        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Consultanță utilă</b><p>Interpretăm rezultatele și oferim recomandări pentru corecții/tratare.</p></div></div>
+        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Recoltare la locație</b><p>La cerere, în anumite zone.</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- Pachete (carduri + tabel comparativ) -->
+  <!-- Pachete -->
   <section id="pachete" class="section">
     <div class="container">
       <h2>Pachete de analiză</h2>
@@ -192,7 +177,7 @@
         </div>
       </div>
 
-      <!-- TABEL COMPARATIV -->
+      <!-- Tabel comparativ -->
       <div class="compare-wrap">
         <table>
           <thead>
@@ -209,7 +194,7 @@
             <tr><td>pH</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
             <tr><td>Conductivitate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
             <tr><td>Total solide dizolvate (TDS)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>ORP (potențial oxido-reducere)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>ORP (potențial oxido-reducere) / Oxidabilitate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
             <tr><td>Culoare</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
             <tr><td>Nitriți</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
             <tr><td>Nitriți de sodiu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
@@ -225,7 +210,7 @@
 
             <!-- +6 în Standard -->
             <tr><td>Pentoxid de fosfor</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Oxidabilitate (Oxigen dizolvat)</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Oxigen dizolvat (oxidabilitate)</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
             <tr><td>Clor liber rezidual</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
             <tr><td>Sulfați</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
             <tr><td>Alcalinitate</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
@@ -269,12 +254,69 @@
     </div>
   </section>
 
+  <!-- Analize individuale (la bucată) -->
+  <section id="individual" class="section">
+    <div class="container">
+      <h2>Nu vrei un pachet? Alege doar indicatorii de care ai nevoie</h2>
+      <div class="price-box">
+        <h3>Analize individuale – prețuri (lei/probă, TVA inclus)</h3>
+        <table class="prices">
+          <thead><tr><th>Parametru</th><th>Preț</th></tr></thead>
+          <tbody>
+            <tr><td>pH</td><td>10</td></tr>
+            <tr><td>Conductivitate</td><td>10</td></tr>
+            <tr><td>Total solide dizolvate (TDS)</td><td>10</td></tr>
+            <tr><td>Oxidabilitate / Oxigen dizolvat</td><td>20</td></tr>
+            <tr><td>Culoare</td><td>10</td></tr>
+            <tr><td>Nitriți</td><td>25</td></tr>
+            <tr><td>Nitriți de sodiu</td><td>—</td></tr>
+            <tr><td>Nitrați</td><td>35</td></tr>
+            <tr><td>Duritate totală</td><td>25</td></tr>
+            <tr><td>Amoniu</td><td>25</td></tr>
+            <tr><td>Amoniac</td><td>—</td></tr>
+            <tr><td>Azot amoniacal (NH3-N)</td><td>—</td></tr>
+            <tr><td>Fosfați</td><td>35</td></tr>
+            <tr><td>Fosfor</td><td>—</td></tr>
+            <tr><td>Pentoxid de fosfor</td><td>15</td></tr>
+            <tr><td>Turbiditate</td><td>24</td></tr>
+            <tr><td>Fier</td><td>30</td></tr>
+            <tr><td>Clor liber rezidual</td><td>15</td></tr>
+            <tr><td>Sulfați</td><td>42</td></tr>
+            <tr><td>Alcalinitate</td><td>17</td></tr>
+            <tr><td>Brom</td><td>20</td></tr>
+            <tr><td>Clor total</td><td>17</td></tr>
+            <tr><td>Cloruri</td><td>20</td></tr>
+            <tr><td>Calciu</td><td>17</td></tr>
+            <tr><td>Magneziu</td><td>35</td></tr>
+            <tr><td>Zinc</td><td>37</td></tr>
+            <tr><td>Cupru</td><td>37</td></tr>
+            <tr><td>Salinitate</td><td>10</td></tr>
+            <tr><td>Mangan</td><td>30</td></tr>
+            <tr><td>Permanganat de potasiu (KMnO₄)</td><td>—</td></tr>
+            <tr><td>Permanganat (MnO₄⁻)</td><td>—</td></tr>
+            <tr><td>Crom</td><td>—</td></tr>
+            <tr><td>Dicromat</td><td>—</td></tr>
+            <tr><td>Aluminiu</td><td>30</td></tr>
+            <tr><td>Nichel</td><td>40</td></tr>
+            <tr><td>Acid cianuric</td><td>30</td></tr>
+            <tr><td>Dioxid de clor</td><td>15</td></tr>
+            <tr><td>Fluor</td><td>25</td></tr>
+            <tr><td>Iod</td><td>25</td></tr>
+            <tr><td>Argint</td><td>70</td></tr>
+            <tr><td>Potasiu</td><td>35</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Prețurile includ TVA și se aplică pe probă/parametru. Pentru comenzile cu mulți indicatori sau probe multiple, aplicăm discount; cere ofertă.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Cum funcționează -->
   <section id="cum-func" class="section">
     <div class="container">
       <h2>Cum funcționează</h2>
       <div class="steps">
-        <div class="step"><svg><use href="#ico-step"/></svg><div><b>1. Alegi pachetul</b><p>Fântână, Standard, Standard Plus sau Premium.</p></div></div>
+        <div class="step"><svg><use href="#ico-step"/></svg><div><b>1. Alegi pachetul/indicatorii</b><p>Selectezi pachetul sau bifezi din lista de prețuri.</p></div></div>
         <div class="step"><svg><use href="#ico-step"/></svg><div><b>2. Recoltare</b><p>Trimiți proba sau programăm recoltare la locație.</p></div></div>
         <div class="step"><svg><use href="#ico-step"/></svg><div><b>3. Analiză</b><p>Metode fotometrice/potențiometrice, trasabilitate & calibrare.</p></div></div>
         <div class="step"><svg><use href="#ico-step"/></svg><div><b>4. Raport & consultanță</b><p>Raport clar + recomandări de tratare/corecții.</p></div></div>
@@ -295,7 +337,7 @@
           <label for="telefon">Telefon</label>
           <input id="telefon" name="telefon">
           <label for="mesaj">Mesaj</label>
-          <textarea id="mesaj" name="mesaj"></textarea>
+          <textarea id="mesaj" name="mesaj" placeholder="Ce pachet/indicatori te interesează?"></textarea>
           <button class="cta submit" type="submit">Trimite</button>
           <p class="muted" style="font-size:12px;margin-top:6px">Prin trimitere ești de acord cu prelucrarea datelor pentru a-ți răspunde.</p>
         </form>
