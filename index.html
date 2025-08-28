@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AQUALAB – Analize Apă Cluj | Pachete, Prețuri & Comenzi</title>
-  <meta name="description" content="Analize profesionale de apă în Cluj-Napoca. Pachete clare, prețuri pe indicatori, formular de comandă online, rezultate rapide și consultanță.">
+  <meta name="description" content="Analize profesionale de apă în Cluj-Napoca. Pachete clare, prețuri pe indicatori, comandă online, rezultate rapide și consultanță.">
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="AQUALAB – Analize Apă Cluj">
   <meta property="og:description" content="Analize profesionale de apă: pachete, prețuri pe indicatori, comandă online. Cluj-Napoca.">
@@ -29,44 +29,47 @@
 
     /* Header */
     header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e7edf6;z-index:30}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{width:80px;height:80px;object-fit:contain}
     .brand span{font-weight:800;font-size:28px;color:var(--hanna-blue)}
-    nav a{margin-left:18px;font-weight:600}
-    .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px}
+    nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    nav a{font-weight:600}
+    .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px;white-space:nowrap}
+    .call-btn{display:inline-flex;align-items:center;gap:8px;background:#0a63a6;color:#fff;padding:9px 14px;border-radius:999px}
+    .call-btn svg{width:16px;height:16px}
 
     /* Badge */
     .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #cfe0f7;background:#ebf4ff;color:#0b2b52;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700}
 
-    /* HERO full-width background */
+    /* HERO full-width background — mai multă imagine vizibilă */
     .hero-fw{
       position:relative;
-      padding:96px 0 76px;
+      padding:110px 0 86px;
       background:
         linear-gradient(90deg,
-          rgba(255,255,255,.96) 0 44%,
-          rgba(255,255,255,.75) 44% 60%,
+          rgba(255,255,255,.92) 0 32%,
+          rgba(255,255,255,.65) 32% 52%,
           rgba(255,255,255,0) 100%
         ),
-        url("./assets/banner.jpg?v=1") center right / cover no-repeat;
+        url("./assets/banner.jpg?v=2") center right / cover no-repeat;
     }
     .hero-fw .hero-content{max-width:640px}
     .hero-fw h1{font-size:46px;line-height:1.16;color:#0b2b52;margin:12px 0 6px}
-    .hero-fw .subtitle{font-size:18px;color:#0b2b52;opacity:.85;margin-bottom:12px}
+    .hero-fw .subtitle{font-size:18px;color:#0b2b52;opacity:.9;margin-bottom:12px}
     .hero-fw p{color:#334;margin:10px 0 20px}
     .city-callout{display:flex;align-items:flex-start;gap:12px;background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:16px;padding:16px;margin-top:16px}
     .city-callout b{color:#0b2b52}
     @media(max-width:900px){
-      .hero-fw{padding:64px 0 56px;background:
+      .hero-fw{padding:72px 0 60px;background:
         linear-gradient(180deg,
-          rgba(255,255,255,.95) 0 40%,
-          rgba(255,255,255,.70) 40% 60%,
+          rgba(255,255,255,.93) 0 36%,
+          rgba(255,255,255,.60) 36% 56%,
           rgba(255,255,255,0) 100%
-        ), url("./assets/banner.jpg?v=1") center / cover no-repeat;}
+        ), url("./assets/banner.jpg?v=2") center / cover no-repeat;}
       .hero-fw h1{font-size:36px}
       body{font-size:17px}
-      nav a{margin-left:12px}
+      nav{gap:10px}
     }
 
     /* Sections */
@@ -112,8 +115,11 @@
     input,select,textarea{width:100%;padding:10px;border:1px solid #cfe0f7;border-radius:10px;margin-top:6px}
     textarea{min-height:120px}
     .help{font-size:13px;color:#556;margin-top:8px}
-    .aside{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:16px}
-    .aside h3{margin-bottom:6px;color:#0b2b52}
+    .aside{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:18px}
+    .aside h3{margin-bottom:8px;color:#0b2b52}
+    .aside ul{margin-left:18px}
+    .aside li{margin:6px 0}
+    .aside{font-size:17px}
     .submit{margin-top:14px}
     .gdpr-row{display:flex;align-items:flex-start;gap:10px;margin-top:12px;font-size:14px}
     .gdpr-row input{margin-top:3px}
@@ -131,11 +137,15 @@
     form.contact-form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px;position:relative}
     @media(max-width:900px){.contact{grid-template-columns:1fr}}
 
-    /* GDPR section */
-    .gdpr-box{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px}
-    .gdpr-box h3{color:#0b2b52;margin:8px 0}
-    .gdpr-box ul{margin-left:18px}
-    .gdpr-box li{margin:6px 0}
+    /* Footer */
+    footer{margin-top:0;background:var(--hanna-bg);border-top:1px solid #cfe0f7;color:#0b2b52}
+    .foot-wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:22px;padding:26px 0}
+    .foot h4{margin-bottom:8px}
+    .foot a{display:block;margin:4px 0}
+    .copy{border-top:1px solid #cfe0f7;text-align:center;font-size:14px;color:#556;padding:12px 0}
+    @media(max-width:900px){.foot-wrap{grid-template-columns:1fr}}
+    .foot .brand-small{display:flex;align-items:center;gap:10px}
+    .foot .brand-small img{width:40px;height:40px;object-fit:contain}
 
     /* Floating CTA */
     .float-cta{
@@ -156,7 +166,6 @@
     <symbol id="ico-price" viewBox="0 0 24 24"><path fill="#005baa" d="M3 12l9-9 9 9-9 9-9-9zm9-4a4 4 0 1 0 .001 8A4 4 0 0 0 12 8z"/></symbol>
     <symbol id="ico-steps" viewBox="0 0 24 24"><path fill="#005baa" d="M4 20h4v-4H4v4zm6 0h4V8h-4v12zm6 0h4V4h-4v16z"/></symbol>
     <symbol id="ico-form" viewBox="0 0 24 24"><path fill="#005baa" d="M5 3h14a2 2 0 0 1 2 2v14l-6-4H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></symbol>
-    <symbol id="ico-gdpr" viewBox="0 0 24 24"><path fill="#005baa" d="M12 2l7 4v6c0 5-3.5 9.7-7 10-3.5-.3-7-5-7-10V6l7-4z"/></symbol>
   </svg>
 
   <!-- HEADER -->
@@ -172,8 +181,11 @@
         <a href="#preturi">Prețuri</a>
         <a href="#cum-func">Cum funcționează</a>
         <a href="#formular" class="cta">Formular comandă</a>
-        <a href="#gdpr">GDPR</a>
-        <a href="#contact" class="cta" style="margin-left:8px;background:#0a63a6">Contact</a>
+        <a href="gdpr.html">GDPR</a>
+        <a class="call-btn" href="tel:+40790002963" title="Sună acum">
+          <svg viewBox="0 0 24 24"><path fill="#fff" d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.5 2.7.7 4.1.7.7 0 1.3.6 1.3 1.3v3.5c0 .7-.6 1.3-1.3 1.3C9.7 21.8 2.2 14.3 2.2 4.3c0-.7.6-1.3 1.3-1.3h3.5c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.7 4.1.1.4 0 .8-.3 1.1l-2.1 2.3z"/></svg>
+          Sună acum
+        </a>
       </nav>
     </div>
   </header>
@@ -187,8 +199,8 @@
       <p>Rezultate rapide și precise pentru fântâni, puțuri, apă potabilă, piscine și apă uzată. Pachete clare, raport detaliat și consultanță.</p>
       <a href="#pachete" class="cta">Vezi pachete</a>
       <div class="city-callout" style="margin-top:16px">
-        <svg width="22" height="22"><use href="#ico-pin"/></svg>
-        <p><b>Laborator în Cluj-Napoca</b> – deservim rapid municipiul și zonele limitrofe. Recoltări la locație, la cerere.</p>
+        <svg width="22" height="22"><use href="#ico-drop"/></svg>
+        <p><b>Laborator în Cluj-Napoca</b> – recoltări la locație în municipiu și zonele limitrofe.</p>
       </div>
     </div>
   </section>
@@ -196,7 +208,7 @@
   <!-- AVANTAJE -->
   <section id="avantaje" class="section">
     <div class="container hanna-card">
-      <h2><span class="sec-ico"><svg width="22" height="22"><use href="#ico-lab"/></svg></span>De ce să ne alegi</h2>
+      <h2>De ce să ne alegi</h2>
       <div class="advantages">
         <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Profesional & standardizat</b><p>Metodologii conform standardelor internaționale, trasabilitate și QC documentat.</p></div></div>
         <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Echipamente performante</b><p>Detecții precise cu spectrofotometru, conductometru, titrator – instrumente calibrate periodic.</p></div></div>
@@ -209,7 +221,7 @@
   <!-- PACHETE -->
   <section id="pachete" class="section">
     <div class="container">
-      <h2><span class="sec-ico"><svg width="22" height="22"><use href="#ico-drop"/></svg></span>Pachete de analiză</h2>
+      <h2>Pachete de analiză</h2>
 
       <div class="pack-grid">
         <div class="card">
@@ -286,7 +298,7 @@
             <tr><td>Cupru</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
             <tr><td>Salinitate</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
 
-            <!-- doar Premium (restul până la 50) -->
+            <!-- doar Premium -->
             <tr><td>Mangan</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
             <tr><td>Permanganat de potasiu (KMnO₄)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
             <tr><td>Permanganat (MnO₄⁻)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
@@ -318,38 +330,38 @@
   <!-- PREȚURI INDIVIDUALE -->
   <section id="preturi" class="section">
     <div class="container">
-      <h2><span class="sec-ico"><svg width="22" height="22"><use href="#ico-price"/></svg></span>Analize individuale – prețuri (lei/probă, TVA inclus)</h2>
-    <div class="price-box">
-      <table class="prices">
-        <thead><tr><th>Parametru</th><th>Preț</th><th>Parametru</th><th>Preț</th></tr></thead>
-        <tbody>
-          <tr><td>pH</td><td>10</td><td>Clor total</td><td>17</td></tr>
-          <tr><td>Conductivitate</td><td>10</td><td>Cloruri</td><td>20</td></tr>
-          <tr><td>Total solide dizolvate (TDS)</td><td>10</td><td>Calciu</td><td>17</td></tr>
-          <tr><td>Oxidabilitate / Oxigen dizolvat</td><td>20</td><td>Magneziu</td><td>35</td></tr>
-          <tr><td>Culoare</td><td>10</td><td>Zinc</td><td>37</td></tr>
-          <tr><td>Nitriți</td><td>25</td><td>Cupru</td><td>37</td></tr>
-          <tr><td>Nitrați</td><td>35</td><td>Salinitate</td><td>10</td></tr>
-          <tr><td>Duritate totală</td><td>25</td><td>Mangan</td><td>30</td></tr>
-          <tr><td>Amoniu</td><td>25</td><td>Aluminiu</td><td>30</td></tr>
-          <tr><td>Pentoxid de fosfor</td><td>15</td><td>Nichel</td><td>40</td></tr>
-          <tr><td>Turbiditate</td><td>24</td><td>Acid cianuric</td><td>30</td></tr>
-          <tr><td>Fier</td><td>30</td><td>Dioxid de clor</td><td>15</td></tr>
-          <tr><td>Clor liber rezidual</td><td>15</td><td>Fluor</td><td>25</td></tr>
-          <tr><td>Sulfați</td><td>42</td><td>Iod</td><td>25</td></tr>
-          <tr><td>Alcalinitate</td><td>17</td><td>Argint</td><td>70</td></tr>
-          <tr><td>Brom</td><td>20</td><td>Potasiu</td><td>35</td></tr>
-        </tbody>
-      </table>
-      <p class="note">Prețurile includ TVA și se aplică pe probă/parametru. Pentru analize neenumerate sau volume mari, cere o ofertă personalizată.</p>
-    </div>
+      <h2>Analize individuale – prețuri (lei/probă, TVA inclus)</h2>
+      <div class="price-box">
+        <table class="prices">
+          <thead><tr><th>Parametru</th><th>Preț</th><th>Parametru</th><th>Preț</th></tr></thead>
+          <tbody>
+            <tr><td>pH</td><td>10</td><td>Clor total</td><td>17</td></tr>
+            <tr><td>Conductivitate</td><td>10</td><td>Cloruri</td><td>20</td></tr>
+            <tr><td>Total solide dizolvate (TDS)</td><td>10</td><td>Calciu</td><td>17</td></tr>
+            <tr><td>Oxidabilitate / Oxigen dizolvat</td><td>20</td><td>Magneziu</td><td>35</td></tr>
+            <tr><td>Culoare</td><td>10</td><td>Zinc</td><td>37</td></tr>
+            <tr><td>Nitriți</td><td>25</td><td>Cupru</td><td>37</td></tr>
+            <tr><td>Nitrați</td><td>35</td><td>Salinitate</td><td>10</td></tr>
+            <tr><td>Duritate totală</td><td>25</td><td>Mangan</td><td>30</td></tr>
+            <tr><td>Amoniu</td><td>25</td><td>Aluminiu</td><td>30</td></tr>
+            <tr><td>Pentoxid de fosfor</td><td>15</td><td>Nichel</td><td>40</td></tr>
+            <tr><td>Turbiditate</td><td>24</td><td>Acid cianuric</td><td>30</td></tr>
+            <tr><td>Fier</td><td>30</td><td>Dioxid de clor</td><td>15</td></tr>
+            <tr><td>Clor liber rezidual</td><td>15</td><td>Fluor</td><td>25</td></tr>
+            <tr><td>Sulfați</td><td>42</td><td>Iod</td><td>25</td></tr>
+            <tr><td>Alcalinitate</td><td>17</td><td>Argint</td><td>70</td></tr>
+            <tr><td>Brom</td><td>20</td><td>Potasiu</td><td>35</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Prețurile includ TVA și se aplică pe probă/parametru. Pentru analize neenumerate sau volume mari, cere o ofertă personalizată.</p>
+      </div>
     </div>
   </section>
 
   <!-- CUM FUNCȚIONEAZĂ -->
   <section id="cum-func" class="section">
     <div class="container">
-      <h2><span class="sec-ico"><svg width="22" height="22"><use href="#ico-steps"/></svg></span>Cum funcționează</h2>
+      <h2>Cum funcționează</h2>
       <div class="steps">
         <div class="step"><svg><use href="#ico-steps"/></svg><div><b>1. Alegi pachetul/indicatorii</b><p>Selectezi pachetul potrivit sau comanzi analize individuale.</p></div></div>
         <div class="step"><svg><use href="#ico-steps"/></svg><div><b>2. Recoltare</b><p>Trimiți proba sau programăm recoltare la locație (Cluj-Napoca și împrejurimi).</p></div></div>
@@ -362,9 +374,9 @@
   <!-- FORMULAR COMANDĂ -->
   <section id="formular" class="section">
     <div class="container">
-      <h2><span class="sec-ico"><svg width="22" height="22"><use href="#ico-form"/></svg></span>Formular comandă analize</h2>
+      <h2>Formular comandă analize</h2>
       <div class="order">
-        <!-- Notă: înlocuiește YOUR_FORM_ID cu ID-ul tău Formspree -->
+        <!-- Înlocuiește YOUR_FORM_ID cu ID-ul tău Formspree -->
         <form id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data" novalidate>
           <label for="nume">Nume și prenume *</label>
           <input id="nume" name="nume" required>
@@ -402,7 +414,7 @@
 
           <div class="gdpr-row">
             <input id="agree" name="gdpr" type="checkbox" required>
-            <label for="agree">Sunt de acord cu prelucrarea datelor conform <a href="#gdpr">Politicii GDPR</a> și înțeleg că buletinul de analiză va fi transmis pe email după înregistrarea plății.</label>
+            <label for="agree">Sunt de acord cu prelucrarea datelor conform <a href="gdpr.html" target="_blank" rel="noopener">Politicii GDPR</a> și înțeleg că buletinul de analiză va fi transmis pe email după înregistrarea plății.</label>
           </div>
 
           <div class="gdpr-row">
@@ -420,52 +432,14 @@
         <div class="aside">
           <h3>Informații utile</h3>
           <ul>
-            <li>Proba se colectează în recipient curat (steril pentru microbiologie).</li>
-            <li>Volum recomandat: 1–2 L pentru analize fizico-chimice standard.</li>
-            <li>Program recoltări la locație (Cluj): la cerere, în funcție de rută.</li>
-            <li>Pentru pachete/indicatori suplimentari, menționați în Observații.</li>
+            <li><b>Recoltare:</b> poți trimite proba sau programăm recoltare la locație (în funcție de zonă).</li>
+            <li><b>Curier:</b> expediază proba bine închisă, în recipient curat (steril pentru microbiologie), către <b>Str. Tineretului nr. 13A, Florești, Cluj</b>.</li>
+            <li><b>Volum recomandat:</b> 1–2 L pentru analize fizico-chimice standard.</li>
+            <li><b>Program recoltări la locație (Cluj):</b> la cerere, în funcție de rută.</li>
+            <li><b>Rezultate & plată:</b> primești factura pe email; după plată, livrăm buletinul oficial de analiză.</li>
           </ul>
-          <p class="help" style="margin-top:10px">Preferi telefon? <b><a href="tel:+40790002963">+40 790 002 963</a></b> · <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
+          <p class="help" style="margin-top:10px">Întrebări rapide? <b><a href="tel:+40790002963">+40 790 002 963</a></b> · <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GDPR -->
-  <section id="gdpr" class="section">
-    <div class="container">
-      <h2><span class="sec-ico"><svg width="22" height="22"><use href="#ico-gdpr"/></svg></span>Politica de protecție a datelor (GDPR)</h2>
-      <div class="gdpr-box">
-        <h3>1. Operatorul de date</h3>
-        <p>AQUALAB – laborator analize apă, Cluj-Napoca, România. Contact: <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a>.</p>
-
-        <h3>2. Ce date colectăm</h3>
-        <ul>
-          <li>Date de identificare și contact (nume, email, telefon, adresă/facturare, firmă/CUI dacă este cazul).</li>
-          <li>Date operaționale privind comanda (sursa apei, pachet/indicatori selectați, observații, atașamente trimise de client).</li>
-        </ul>
-
-        <h3>3. Scop și temei legal</h3>
-        <ul>
-          <li>Preluarea și executarea comenzii, transmiterea ofertei/facturii și a buletinului de analiză – <b>art. 6(1)(b) GDPR</b> (executarea contractului).</li>
-          <li>Obligații fiscale și contabile – <b>art. 6(1)(c)</b> (obligație legală).</li>
-          <li>Comunicări operaționale și suport clienți – <b>interes legitim</b> (art. 6(1)(f)).</li>
-        </ul>
-
-        <h3>4. Durata de stocare</h3>
-        <p>Datele se păstrează pe perioada necesară executării contractului și conform termenelor legale de arhivare (de regulă 5–10 ani pentru documente fiscale).</p>
-
-        <h3>5. Destinatari</h3>
-        <p>Furnizori implicați în prestarea serviciilor (de ex. găzduire, trimitere formulare, contabilitate), cu care avem acorduri de prelucrare a datelor. Nu vindem date către terți.</p>
-
-        <h3>6. Drepturile dumneavoastră</h3>
-        <p>Dreptul de acces, rectificare, ștergere, restricționare, opoziție, portabilitate. Pentru exercitarea drepturilor, scrieți la <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a>.</p>
-
-        <h3>7. Securitate</h3>
-        <p>Aplicăm măsuri tehnice și organizatorice adecvate pentru protejarea datelor (control acces, criptare în tranzit, politici interne).</p>
-
-        <h3>8. Cookies & marketing</h3>
-        <p>Site-ul folosește cookies strict necesare funcționării. Nu realizăm profilare. Pentru instrumente suplimentare (ex. analytics), vom cere consimțământ explicit.</p>
       </div>
     </div>
   </section>
@@ -473,7 +447,7 @@
   <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container">
-      <h2><span class="sec-ico"><svg width="22" height="22"><use href="#ico-form"/></svg></span>Contact</h2>
+      <h2>Contact</h2>
       <div class="contact">
         <form id="contactForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
           <label for="cnume">Nume</label>
@@ -487,7 +461,7 @@
 
           <div class="gdpr-row">
             <input id="agree2" name="gdpr" type="checkbox" required>
-            <label for="agree2">Sunt de acord cu prelucrarea datelor conform <a href="#gdpr">Politicii GDPR</a>.</label>
+            <label for="agree2">Sunt de acord cu prelucrarea datelor conform <a href="gdpr.html" target="_blank" rel="noopener">Politicii GDPR</a>.</label>
           </div>
 
           <button class="cta submit" type="submit">Trimite</button>
@@ -498,6 +472,7 @@
         <div class="hanna-card">
           <p><b>Telefon:</b> <a href="tel:+40790002963">+40 790 002 963</a></p>
           <p><b>Email:</b> <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
+          <p><b>Adresă livrare probe:</b><br>Str. Tineretului nr. 13A, Florești, Cluj</p>
           <a class="cta" href="#formular" style="display:inline-block;margin-top:10px">Comandă analize</a>
           <p class="muted" style="margin-top:10px">Program: Luni–Vineri 9:00–15:00 · Recoltări la cerere</p>
         </div>
@@ -505,12 +480,40 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    © <span id="y"></span> AQUALAB • Toate drepturile rezervate • Cluj-Napoca
+    <div class="container foot-wrap">
+      <div class="foot">
+        <div class="brand-small">
+          <img src="./assets/logo.png" alt="AQUALAB logo">
+          <div>
+            <h4>AQUALAB</h4>
+            <p>Analize profesionale de apă în Cluj-Napoca.</p>
+          </div>
+        </div>
+        <p style="margin-top:10px"><b>Telefon:</b> <a href="tel:+40790002963">+40 790 002 963</a><br>
+          <b>Email:</b> <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a><br>
+          <b>Adresă probe:</b> Str. Tineretului nr. 13A, Florești, Cluj</p>
+      </div>
+      <div class="foot">
+        <h4>Pagini</h4>
+        <a href="#pachete">Pachete</a>
+        <a href="#preturi">Prețuri</a>
+        <a href="#formular">Formular comandă</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot">
+        <h4>Legal</h4>
+        <a href="gdpr.html">GDPR</a>
+        <a href="#contact">Termeni & Condiții (la cerere)</a>
+        <a href="#contact">Politica cookies (la cerere)</a>
+      </div>
+    </div>
+    <div class="copy">© <span id="y"></span> AQUALAB • Toate drepturile rezervate • RO51030820 • Cluj-Napoca</div>
   </footer>
 
   <!-- Floating CTA -->
-  <a href="#formular" class="float-cta">Programează recoltare</a>
+  <a href="tel:+40790002963" class="float-cta">Sună acum</a>
 
   <!-- JS: succes/eroare fără părăsirea paginii -->
   <script>
@@ -531,9 +534,8 @@
         const method = (form.getAttribute('method') || 'POST').toUpperCase();
 
         try{
-          let resp;
           const data = new FormData(form);
-          resp = await fetch(action, { method, body:data, headers:{ 'Accept':'application/json' }});
+          const resp = await fetch(action, { method, body:data, headers:{ 'Accept':'application/json' }});
           if(resp.ok){
             if(ok) ok.style.display='block';
             form.reset();
@@ -545,7 +547,6 @@
         }
       });
     }
-
     handleForm('orderForm','orderOk','orderErr');
     handleForm('contactForm','contactOk','contactErr');
   </script>
