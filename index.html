@@ -1,1 +1,291 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>AQUALAB</title></head><body><h1>Site AQUALAB</h1></body></html>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analize Apă – Pachete & Contact</title>
+  <meta name="description" content="Analize profesionale de apă potabilă și uzată. Pachete clare, rezultate rapide și consultanță.">
+  <style>
+    :root{
+      --hanna-blue:#005baa;
+      --hanna-bg:#e6f0fa;
+      --text:#222;
+      --radius:14px;
+      --ok:#1a7f37;
+      --no:#b91c1c;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);line-height:1.6}
+    a{color:var(--hanna-blue);text-decoration:none}
+    .container{max-width:1140px;margin:0 auto;padding:0 16px}
+
+    /* Header */
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e7edf6;z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{width:42px;height:42px;border-radius:10px;object-fit:contain;background:#fff}
+    .brand span{font-weight:800;font-size:18px;color:var(--hanna-blue)}
+    nav a{margin-left:18px;font-weight:600}
+    .cta{background:var(--hanna-blue);color:#fff;padding:8px 14px;border-radius:999px}
+
+    /* Hero */
+    .hero{padding:56px 0;background:linear-gradient(180deg,#f6fbff,#fff)}
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+    .hero h1{font-size:40px;color:#0b2b52;margin-bottom:10px}
+    .hero p{margin:10px 0 18px;color:#334}
+    .hero img{width:100%;border-radius:18px;display:block}
+
+    /* Section + Hanna card */
+    .section{padding:60px 0}
+    .section h2{font-size:28px;color:#0b2b52;text-align:center;margin-bottom:20px}
+    .hanna-card{background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:16px;padding:18px}
+    .advantages{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
+    .adv{background:#fff;border:1px solid #e7edf6;border-radius:14px;padding:14px}
+    .adv b{color:var(--hanna-blue)}
+
+    /* Packages summary cards */
+    .pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+    .card{background:#fff;border:1px solid #e7edf6;border-radius:16px;padding:16px}
+    .pill{display:inline-block;background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:10px;padding:6px 10px;margin-bottom:8px}
+    .price{font-size:22px;font-weight:800;margin:6px 0}
+
+    /* Comparison table */
+    .compare-wrap{margin-top:26px;overflow:auto;border:1px solid #e7edf6;border-radius:16px}
+    table{width:100%;border-collapse:collapse;font-size:15px;background:#fff}
+    thead th{position:sticky;top:0;background:#f7fbff}
+    th,td{border-bottom:1px solid #eef6ff;padding:10px;text-align:center}
+    th:first-child,td:first-child{text-align:left;min-width:220px}
+    .yes{font-weight:700;color:var(--ok)}
+    .no{font-weight:700;color:var(--no)}
+    .muted{color:#556}
+    .legend{font-size:13px;color:#556;margin-top:8px}
+
+    /* Steps */
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
+    .step{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:16px;padding:14px}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    form{background:#fff;border:1px solid #e7edf6;border-radius:16px;padding:16px}
+    label{font-weight:700;display:block;margin-top:10px}
+    input,textarea,select{width:100%;padding:10px;border:1px solid #cfe0f7;border-radius:10px;margin-top:6px}
+    textarea{min-height:110px}
+    .submit{margin-top:12px}
+    .whatsapp{display:inline-block;margin-top:10px;background:#25d366;color:#fff;padding:10px 16px;border-radius:999px}
+
+    footer{margin-top:36px;border-top:1px solid #eef;padding:14px 0;color:#667;text-align:center;font-size:14px}
+
+    @media(max-width:900px){
+      .hero .wrap{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <!-- 🔵 încarcă /assets/logo.png (logo-ul tău) -->
+        <img src="assets/logo.png" alt="AQUALAB logo">
+        <span>AQUALAB</span>
+      </div>
+      <nav>
+        <a href="#avantaje">Avantaje</a>
+        <a href="#pachete">Pachete</a>
+        <a href="#cum-func">Cum funcționează</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <h1>Analize profesionale de apă</h1>
+        <p>Rezultate rapide și precise pentru fântâni, puțuri, apă potabilă, piscine și apă uzată. Pachete clare, raport detaliat și consultanță.</p>
+        <a href="#pachete" class="cta">Vezi pachete</a>
+      </div>
+      <div>
+        <!-- 🔄 Alege UNA dintre imaginile de mai jos (las-o pe cea dorită) -->
+        <!-- Laborator / eprubete -->
+        <img src="https://images.unsplash.com/photo-1581594693700-6c08d1b9a9a4?q=80&w=1600&auto=format&fit=crop" alt="Laborator analize apă">
+        <!-- Robinet apă
+        <img src="https://images.unsplash.com/photo-1521207418485-99c705420785?q=80&w=1600&auto=format&fit=crop" alt="Apă curgând din robinet">
+        -->
+        <!-- Pahar cu apă
+        <img src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=1600&auto=format&fit=crop" alt="Pahar cu apă">
+        -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Avantaje (chenar Hanna) -->
+  <section id="avantaje" class="section">
+    <div class="container hanna-card">
+      <h2>De ce să ne alegi</h2>
+      <div class="advantages">
+        <div class="adv"><b>Trasabilitate & calibrare</b><p>Echipamente calibrate, proceduri standardizate, QC constant.</p></div>
+        <div class="adv"><b>Rapid & transparent</b><p>Termene clare, prețuri vizibile, raport ușor de înțeles.</p></div>
+        <div class="adv"><b>Consultanță utilă</b><p>Interpretare rezultate și recomandări pentru corecții/tratare.</p></div>
+        <div class="adv"><b>Recoltare la locație</b><p>La cerere, în anumite zone.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pachete (carduri + tabel comparativ) -->
+  <section id="pachete" class="section">
+    <div class="container">
+      <h2>Pachete de analiză</h2>
+
+      <div class="pack-grid">
+        <div class="card">
+          <div class="pill">Fântână</div>
+          <h3>16 indicatori</h3>
+          <div class="price">180 lei (TVA inclus)</div>
+          <p class="muted">Screening esențial pentru apă din fântână/puț.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Standard</div>
+          <h3>22 indicatori</h3>
+          <div class="price">280 lei (TVA inclus)</div>
+          <p class="muted">Toți din Fântână + 6 parametri suplimentari.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Standard Plus</div>
+          <h3>29 indicatori</h3>
+          <div class="price">400 lei (TVA inclus)</div>
+          <p class="muted">Toți din Standard + 7 parametri suplimentari.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Premium</div>
+          <h3>50 indicatori</h3>
+          <div class="price">800 lei (TVA inclus)</div>
+          <p class="muted">Pachet complet extins (metale, anioni/cationi, alți indicatori).</p>
+        </div>
+      </div>
+
+      <!-- TABEL COMPARATIV -->
+      <div class="compare-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>Fântână</th>
+              <th>Standard</th>
+              <th>Standard Plus</th>
+              <th>Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 16 de bază -->
+            <tr><td>pH</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Conductivitate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Total solide dizolvate (TDS)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>ORP (potențial oxido-reducere)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Culoare</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Nitriți</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Nitriți de sodiu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Nitrați</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Duritate totală</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Amoniu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Amoniac</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Azot amoniacal (NH3-N)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Fosfați</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Fosfor</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Turbiditate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Fier</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+
+            <!-- +6 în Standard -->
+            <tr><td>Pentoxid de fosfor</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Oxidabilitate (Oxigen dizolvat)</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Clor liber rezidual</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Sulfați</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Alcalinitate</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Brom</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+
+            <!-- +7 în Standard Plus -->
+            <tr><td>Clor total</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Cloruri</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Calciu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Magneziu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Zinc</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Cupru</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Salinitate</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+
+            <!-- doar Premium (restul până la 50) -->
+            <tr><td>Mangan</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Permanganat de potasiu (KMnO₄)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Permanganat (MnO₄⁻)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Crom</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Dicromat</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Aluminiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Oxid de aluminiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Nichel</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Acid cianuric</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Dioxid de clor</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Fluor</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Iod</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Argint</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Potasiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Oxid de potasiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Dioxid de siliciu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Siliciu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Molibden</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Molibdat</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Molibdat de sodiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>Ozon</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="legend">Legenda: <span class="yes">✅ inclus</span> · <span class="no">❌ neînclus</span></p>
+    </div>
+  </section>
+
+  <!-- Cum funcționează -->
+  <section id="cum-func" class="section">
+    <div class="container">
+      <h2>Cum funcționează</h2>
+      <div class="steps">
+        <div class="step"><b>1. Alegi pachetul</b><p>Fântână, Standard, Standard Plus sau Premium.</p></div>
+        <div class="step"><b>2. Recoltare</b><p>Trimiți proba sau programăm recoltare la locație.</p></div>
+        <div class="step"><b>3. Analiză</b><p>Metode fotometrice/potențiometrice, trasabilitate & calibrare.</p></div>
+        <div class="step"><b>4. Raport & consultanță</b><p>Raport clar + recomandări de tratare/corecții.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <label for="nume">Nume</label>
+          <input id="nume" name="nume" required>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required>
+          <label for="telefon">Telefon</label>
+          <input id="telefon" name="telefon">
+          <label for="mesaj">Mesaj</label>
+          <textarea id="mesaj" name="mesaj"></textarea>
+          <button class="cta submit" type="submit">Trimite</button>
+          <p class="muted" style="font-size:12px;margin-top:6px">Prin trimitere ești de acord cu prelucrarea datelor pentru a-ți răspunde.</p>
+        </form>
+        <div class="hanna-card">
+          <p><b>Telefon:</b> <a href="tel:+40700000000">+40 700 000 000</a></p>
+          <p><b>Email:</b> <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
+          <a class="whatsapp" href="https://wa.me/40700000000" target="_blank" rel="noopener">Scrie pe WhatsApp</a>
+          <p class="muted" style="margin-top:10px">Program: Luni–Vineri 9:00–17:00 · Recoltări la cerere</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> AQUALAB • Toate drepturile rezervate
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
