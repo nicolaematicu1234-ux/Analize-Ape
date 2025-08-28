@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AQUALAB – Analize Apă Cluj | Pachete, Prețuri & Comenzi</title>
   <meta name="description" content="Analize profesionale de apă în Cluj-Napoca. Pachete clare, prețuri pe indicatori, comandă online, rezultate rapide și consultanță.">
-  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="AQUALAB – Analize Apă Cluj">
   <meta property="og:description" content="Analize profesionale de apă: pachete, prețuri pe indicatori, comandă online. Cluj-Napoca.">
   <meta property="og:type" content="website">
@@ -33,16 +32,18 @@
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{width:80px;height:80px;object-fit:contain}
     .brand span{font-weight:800;font-size:28px;color:var(--hanna-blue)}
-    nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    nav a{font-weight:600}
+
+    /* nav desktop */
+    .nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
     .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px;white-space:nowrap}
     .call-btn{display:inline-flex;align-items:center;gap:8px;background:#0a63a6;color:#fff;padding:9px 14px;border-radius:999px}
     .call-btn svg{width:16px;height:16px}
+    .menu-toggle{display:none;background:#fff;border:1px solid #cfe0f7;border-radius:10px;padding:6px;cursor:pointer}
 
     /* Badge */
     .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #cfe0f7;background:#ebf4ff;color:#0b2b52;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700}
 
-    /* HERO full-width background — mai multă imagine vizibilă */
+    /* HERO full-width background */
     .hero-fw{
       position:relative;
       padding:110px 0 86px;
@@ -54,28 +55,16 @@
         ),
         url("./assets/banner.jpg?v=2") center right / cover no-repeat;
     }
-    .hero-fw .hero-content{max-width:640px}
+    .hero-content{max-width:640px}
     .hero-fw h1{font-size:46px;line-height:1.16;color:#0b2b52;margin:12px 0 6px}
     .hero-fw .subtitle{font-size:18px;color:#0b2b52;opacity:.9;margin-bottom:12px}
     .hero-fw p{color:#334;margin:10px 0 20px}
     .city-callout{display:flex;align-items:flex-start;gap:12px;background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:16px;padding:16px;margin-top:16px}
     .city-callout b{color:#0b2b52}
-    @media(max-width:900px){
-      .hero-fw{padding:72px 0 60px;background:
-        linear-gradient(180deg,
-          rgba(255,255,255,.93) 0 36%,
-          rgba(255,255,255,.60) 36% 56%,
-          rgba(255,255,255,0) 100%
-        ), url("./assets/banner.jpg?v=2") center / cover no-repeat;}
-      .hero-fw h1{font-size:36px}
-      body{font-size:17px}
-      nav{gap:10px}
-    }
 
     /* Sections */
     .section{padding:56px 0}
     .section h2{font-size:28px;color:#0b2b52;text-align:center;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px}
-    .sec-ico{width:22px;height:22px;display:inline-block}
 
     /* Advantages */
     .hanna-card{background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:var(--radius);padding:18px}
@@ -125,17 +114,10 @@
     .gdpr-row input{margin-top:3px}
     .success{display:none;margin-top:12px;padding:10px;border-radius:10px;background:#e7f8ee;border:1px solid #bfe7cf;color:#115c2a;font-weight:700}
     .error{display:none;margin-top:12px;padding:10px;border-radius:10px;background:#feefef;border:1px solid #ffd0d0;color:#8a1313;font-weight:700}
-    @media(max-width:900px){.order{grid-template-columns:1fr}}
-
-    /* Steps */
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
-    .step{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:14px;display:flex;gap:10px}
-    .step svg{flex:0 0 22px}
 
     /* Contact */
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     form.contact-form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px;position:relative}
-    @media(max-width:900px){.contact{grid-template-columns:1fr}}
 
     /* Footer */
     footer{margin-top:0;background:var(--hanna-bg);border-top:1px solid #cfe0f7;color:#0b2b52}
@@ -143,15 +125,35 @@
     .foot h4{margin-bottom:8px}
     .foot a{display:block;margin:4px 0}
     .copy{border-top:1px solid #cfe0f7;text-align:center;font-size:14px;color:#556;padding:12px 0}
-    @media(max-width:900px){.foot-wrap{grid-template-columns:1fr}}
     .foot .brand-small{display:flex;align-items:center;gap:10px}
     .foot .brand-small img{width:40px;height:40px;object-fit:contain}
 
-    /* Floating CTA */
-    .float-cta{
-      position:fixed; right:18px; bottom:18px; z-index:40;
-      background:#0a63a6;color:#fff;padding:12px 16px;border-radius:999px;
-      box-shadow:0 8px 24px rgba(0,0,0,.18); font-weight:800
+    /* NAV responsive */
+    @media (max-width: 900px){
+      .brand img{width:56px;height:56px}
+      .brand span{font-size:22px}
+      .menu-toggle{display:block}
+      .nav-links{
+        display:none;               /* ascuns inițial */
+        position:fixed;
+        top:72px; left:12px; right:12px;
+        background:#fff;
+        border:1px solid #e7edf6;
+        border-radius:16px;
+        box-shadow:0 16px 46px rgba(0,0,0,.08);
+        padding:14px;
+        flex-direction:column;
+        gap:12px;
+        z-index:35;
+      }
+      .nav-links.open{display:flex}
+      .nav-links a{width:100%; text-align:center; padding:10px 12px; border-radius:12px; border:1px solid #e7edf6}
+      .nav-links a.cta{border:none}
+      .nav-links .call-btn{justify-content:center}
+      header .nav{padding:10px 0}
+      .hero-fw{padding-top:88px; /* ca panoul să nu acopere începutul */ }
+      .order{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -160,12 +162,8 @@
   <!-- SVG icons -->
   <svg style="display:none" aria-hidden="true">
     <symbol id="ico-check" viewBox="0 0 24 24"><path fill="#1a7f37" d="M9.2 16.2 4.9 12l1.4-1.4 2.9 2.9 8.5-8.5L19 6.4z"/></symbol>
-    <symbol id="ico-pin" viewBox="0 0 24 24"><path fill="#005baa" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 10.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4z"/></symbol>
     <symbol id="ico-drop" viewBox="0 0 24 24"><path fill="#005baa" d="M12 2c3.9 5.2 6.5 8.7 6.5 12A6.5 6.5 0 1 1 5.5 14C5.5 10.7 8.1 7.2 12 2z"/></symbol>
-    <symbol id="ico-lab" viewBox="0 0 24 24"><path fill="#005baa" d="M7 2h10v2H7v3l4 7v6H9v2h6v-2h-2v-6l4-7V4H7z"/></symbol>
-    <symbol id="ico-price" viewBox="0 0 24 24"><path fill="#005baa" d="M3 12l9-9 9 9-9 9-9-9zm9-4a4 4 0 1 0 .001 8A4 4 0 0 0 12 8z"/></symbol>
     <symbol id="ico-steps" viewBox="0 0 24 24"><path fill="#005baa" d="M4 20h4v-4H4v4zm6 0h4V8h-4v12zm6 0h4V4h-4v16z"/></symbol>
-    <symbol id="ico-form" viewBox="0 0 24 24"><path fill="#005baa" d="M5 3h14a2 2 0 0 1 2 2v14l-6-4H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></symbol>
   </svg>
 
   <!-- HEADER -->
@@ -175,7 +173,15 @@
         <img src="./assets/logo.png" alt="AQUALAB logo" loading="eager">
         <span>AQUALAB</span>
       </div>
-      <nav>
+
+      <!-- hamburger (mobil) -->
+      <button class="menu-toggle" aria-label="Deschide meniul" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="#005baa" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav class="nav-links">
         <a href="#avantaje">Avantaje</a>
         <a href="#pachete">Pachete</a>
         <a href="#preturi">Prețuri</a>
@@ -183,7 +189,7 @@
         <a href="#formular" class="cta">Formular comandă</a>
         <a href="gdpr.html">GDPR</a>
         <a class="call-btn" href="tel:+40790002963" title="Sună acum">
-          <svg viewBox="0 0 24 24"><path fill="#fff" d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.5 2.7.7 4.1.7.7 0 1.3.6 1.3 1.3v3.5c0 .7-.6 1.3-1.3 1.3C9.7 21.8 2.2 14.3 2.2 4.3c0-.7.6-1.3 1.3-1.3h3.5c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.7 4.1.1.4 0 .8-.3 1.1l-2.1 2.3z"/></svg>
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="#fff" d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.5 2.7.7 4.1.7.7 0 1.3.6 1.3 1.3v3.5c0 .7-.6 1.3-1.3 1.3C9.7 21.8 2.2 14.3 2.2 4.3c0-.7.6-1.3 1.3-1.3h3.5c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.7 4.1.1.4 0 .8-.3 1.1l-2.1 2.3z"/></svg>
           Sună acum
         </a>
       </nav>
@@ -250,76 +256,76 @@
         </div>
       </div>
 
-      <!-- Tabel comparativ DETALIAT -->
+      <!-- Tabel comparativ -->
       <div class="compare-wrap" style="margin-top:18px">
         <table>
           <thead>
-            <tr>
-              <th>Indicator</th>
-              <th>Fântână</th>
-              <th>Standard</th>
-              <th>Standard Plus</th>
-              <th>Premium</th>
-            </tr>
+          <tr>
+            <th>Indicator</th>
+            <th>Fântână</th>
+            <th>Standard</th>
+            <th>Standard Plus</th>
+            <th>Premium</th>
+          </tr>
           </thead>
           <tbody>
-            <!-- 16 de bază -->
-            <tr><td>pH</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Conductivitate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Total solide dizolvate (TDS)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>ORP (potențial oxido-reducere)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Culoare</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Nitriți</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Nitriți de sodiu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Nitrați</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Duritate totală</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Amoniu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Amoniac</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Azot amoniacal (NH3-N)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Fosfați</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Fosfor</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Turbiditate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Fier</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <!-- 16 de bază -->
+          <tr><td>pH</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Conductivitate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Total solide dizolvate (TDS)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>ORP (potențial oxido-reducere)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Culoare</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Nitriți</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Nitriți de sodiu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Nitrați</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Duritate totală</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Amoniu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Amoniac</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Azot amoniacal (NH3-N)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Fosfați</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Fosfor</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Turbiditate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Fier</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
 
-            <!-- +6 în Standard -->
-            <tr><td>Pentoxid de fosfor</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Oxidabilitate (Oxigen dizolvat)</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Clor liber rezidual</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Sulfați</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Alcalinitate</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Brom</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <!-- +6 în Standard -->
+          <tr><td>Pentoxid de fosfor</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Oxidabilitate (Oxigen dizolvat)</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Clor liber rezidual</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Sulfați</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Alcalinitate</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Brom</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
 
-            <!-- +7 în Standard Plus -->
-            <tr><td>Clor total</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Cloruri</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Calciu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Magneziu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Zinc</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Cupru</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Salinitate</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <!-- +7 în Standard Plus -->
+          <tr><td>Clor total</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Cloruri</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Calciu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Magneziu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Zinc</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Cupru</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Salinitate</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
 
-            <!-- doar Premium -->
-            <tr><td>Mangan</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Permanganat de potasiu (KMnO₄)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Permanganat (MnO₄⁻)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Crom</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Dicromat</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Aluminiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Oxid de aluminiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Nichel</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Acid cianuric</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Dioxid de clor</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Fluor</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Iod</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Argint</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Potasiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Oxid de potasiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Dioxid de siliciu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Siliciu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Molibden</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Molibdat</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Molibdat de sodiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>Ozon</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <!-- doar Premium -->
+          <tr><td>Mangan</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Permanganat de potasiu (KMnO₄)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Permanganat (MnO₄⁻)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Crom</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Dicromat</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Aluminiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Oxid de aluminiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Nichel</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Acid cianuric</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Dioxid de clor</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Fluor</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Iod</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Argint</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Potasiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Oxid de potasiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Dioxid de siliciu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Siliciu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Molibden</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Molibdat</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Molibdat de sodiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Ozon</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
           </tbody>
         </table>
       </div>
@@ -335,22 +341,22 @@
         <table class="prices">
           <thead><tr><th>Parametru</th><th>Preț</th><th>Parametru</th><th>Preț</th></tr></thead>
           <tbody>
-            <tr><td>pH</td><td>10</td><td>Clor total</td><td>17</td></tr>
-            <tr><td>Conductivitate</td><td>10</td><td>Cloruri</td><td>20</td></tr>
-            <tr><td>Total solide dizolvate (TDS)</td><td>10</td><td>Calciu</td><td>17</td></tr>
-            <tr><td>Oxidabilitate / Oxigen dizolvat</td><td>20</td><td>Magneziu</td><td>35</td></tr>
-            <tr><td>Culoare</td><td>10</td><td>Zinc</td><td>37</td></tr>
-            <tr><td>Nitriți</td><td>25</td><td>Cupru</td><td>37</td></tr>
-            <tr><td>Nitrați</td><td>35</td><td>Salinitate</td><td>10</td></tr>
-            <tr><td>Duritate totală</td><td>25</td><td>Mangan</td><td>30</td></tr>
-            <tr><td>Amoniu</td><td>25</td><td>Aluminiu</td><td>30</td></tr>
-            <tr><td>Pentoxid de fosfor</td><td>15</td><td>Nichel</td><td>40</td></tr>
-            <tr><td>Turbiditate</td><td>24</td><td>Acid cianuric</td><td>30</td></tr>
-            <tr><td>Fier</td><td>30</td><td>Dioxid de clor</td><td>15</td></tr>
-            <tr><td>Clor liber rezidual</td><td>15</td><td>Fluor</td><td>25</td></tr>
-            <tr><td>Sulfați</td><td>42</td><td>Iod</td><td>25</td></tr>
-            <tr><td>Alcalinitate</td><td>17</td><td>Argint</td><td>70</td></tr>
-            <tr><td>Brom</td><td>20</td><td>Potasiu</td><td>35</td></tr>
+          <tr><td>pH</td><td>10</td><td>Clor total</td><td>17</td></tr>
+          <tr><td>Conductivitate</td><td>10</td><td>Cloruri</td><td>20</td></tr>
+          <tr><td>Total solide dizolvate (TDS)</td><td>10</td><td>Calciu</td><td>17</td></tr>
+          <tr><td>Oxidabilitate / Oxigen dizolvat</td><td>20</td><td>Magneziu</td><td>35</td></tr>
+          <tr><td>Culoare</td><td>10</td><td>Zinc</td><td>37</td></tr>
+          <tr><td>Nitriți</td><td>25</td><td>Cupru</td><td>37</td></tr>
+          <tr><td>Nitrați</td><td>35</td><td>Salinitate</td><td>10</td></tr>
+          <tr><td>Duritate totală</td><td>25</td><td>Mangan</td><td>30</td></tr>
+          <tr><td>Amoniu</td><td>25</td><td>Aluminiu</td><td>30</td></tr>
+          <tr><td>Pentoxid de fosfor</td><td>15</td><td>Nichel</td><td>40</td></tr>
+          <tr><td>Turbiditate</td><td>24</td><td>Acid cianuric</td><td>30</td></tr>
+          <tr><td>Fier</td><td>30</td><td>Dioxid de clor</td><td>15</td></tr>
+          <tr><td>Clor liber rezidual</td><td>15</td><td>Fluor</td><td>25</td></tr>
+          <tr><td>Sulfați</td><td>42</td><td>Iod</td><td>25</td></tr>
+          <tr><td>Alcalinitate</td><td>17</td><td>Argint</td><td>70</td></tr>
+          <tr><td>Brom</td><td>20</td><td>Potasiu</td><td>35</td></tr>
           </tbody>
         </table>
         <p class="note">Prețurile includ TVA și se aplică pe probă/parametru. Pentru analize neenumerate sau volume mari, cere o ofertă personalizată.</p>
@@ -376,17 +382,13 @@
     <div class="container">
       <h2>Formular comandă analize</h2>
       <div class="order">
-        <!-- Înlocuiește YOUR_FORM_ID cu ID-ul tău Formspree -->
         <form id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data" novalidate>
           <label for="nume">Nume și prenume *</label>
           <input id="nume" name="nume" required>
-
           <label for="email">Adresa de email *</label>
           <input id="email" type="email" name="email" required>
-
           <label for="telefon">Telefon *</label>
           <input id="telefon" name="telefon" required>
-
           <label for="sursa">Sursa apei *</label>
           <select id="sursa" name="sursa" required>
             <option value="">Alege...</option>
@@ -396,34 +398,25 @@
             <option>Apă uzată</option>
             <option>Altă sursă</option>
           </select>
-
           <label for="firma">Firmă (opțional)</label>
           <input id="firma" name="firma" placeholder="Nume firmă (dacă este cazul)">
-
           <label for="cui">CUI (opțional)</label>
           <input id="cui" name="cui" placeholder="RO...">
-
           <label for="facturare">Adresă de facturare (opțional)</label>
           <textarea id="facturare" name="facturare" placeholder="Stradă, număr, localitate, județ"></textarea>
-
           <label for="observatii">Observații (opțional)</label>
           <textarea id="observatii" name="observatii" placeholder="Pachet dorit / indicatori, recoltare la locație etc."></textarea>
-
           <label for="attach">Încarcă poză/raport existent (opțional)</label>
           <input id="attach" name="attachment" type="file" accept=".pdf,.jpg,.jpeg,.png,.heic">
-
           <div class="gdpr-row">
             <input id="agree" name="gdpr" type="checkbox" required>
             <label for="agree">Sunt de acord cu prelucrarea datelor conform <a href="gdpr.html" target="_blank" rel="noopener">Politicii GDPR</a> și înțeleg că buletinul de analiză va fi transmis pe email după înregistrarea plății.</label>
           </div>
-
           <div class="gdpr-row">
             <input id="news" name="newsletter" type="checkbox">
             <label for="news">Vreau noutăți/sfaturi despre calitatea apei (opțional).</label>
           </div>
-
           <p class="help">După prelucrare, <b>veți primi factura pe email</b>. După înregistrarea plății, <b>trimitem buletinul oficial de analiză</b>.</p>
-
           <button class="cta submit" type="submit">Trimite comanda</button>
           <div class="success" id="orderOk">Comanda a fost trimisă cu succes. Revenim pe email în scurt timp!</div>
           <div class="error" id="orderErr">Ups, nu am putut trimite. Verifică datele sau încearcă mai târziu.</div>
@@ -433,8 +426,8 @@
           <h3>Informații utile</h3>
           <ul>
             <li><b>Recoltare:</b> poți trimite proba sau programăm recoltare la locație (în funcție de zonă).</li>
-            <li><b>Curier:</b> expediază proba bine închisă, în recipient curat (steril pentru microbiologie), către <b>Str. Tineretului nr. 13A, Florești, Cluj</b>.</li>
-            <li><b>Volum recomandat:</b> 1–2 L pentru analize fizico-chimice standard.</li>
+            <li><b>Curier:</b> expediază proba bine închisă către <b>Str. Tineretului nr. 13A, Florești, Cluj</b>.</li>
+            <li><b>Volum recomandat:</b> 1–2 L pentru fizico-chimice standard.</li>
             <li><b>Program recoltări la locație (Cluj):</b> la cerere, în funcție de rută.</li>
             <li><b>Rezultate & plată:</b> primești factura pe email; după plată, livrăm buletinul oficial de analiză.</li>
           </ul>
@@ -458,12 +451,10 @@
           <input id="ctel" name="telefon">
           <label for="cmsg">Mesaj</label>
           <textarea id="cmsg" name="mesaj"></textarea>
-
           <div class="gdpr-row">
             <input id="agree2" name="gdpr" type="checkbox" required>
             <label for="agree2">Sunt de acord cu prelucrarea datelor conform <a href="gdpr.html" target="_blank" rel="noopener">Politicii GDPR</a>.</label>
           </div>
-
           <button class="cta submit" type="submit">Trimite</button>
           <div class="success" id="contactOk">Mesaj trimis. Îți răspundem pe email cât de repede!</div>
           <div class="error" id="contactErr">Nu am putut trimite mesajul. Încearcă din nou sau scrie-ne direct pe email.</div>
@@ -513,38 +504,45 @@
   </footer>
 
   <!-- Floating CTA -->
-  <a href="tel:+40790002963" class="float-cta">Sună acum</a>
+  <a href="tel:+40790002963" class="float-cta" style="position:fixed;right:18px;bottom:18px;z-index:40;background:#0a63a6;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.18);font-weight:800">Sună acum</a>
 
-  <!-- JS: succes/eroare fără părăsirea paginii -->
   <script>
+    // an
     document.getElementById('y').textContent = new Date().getFullYear();
 
+    // nav toggle (mobil)
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const links = document.querySelector('.nav-links');
+      if(!btn || !links) return;
+      function closeMenu(){ links.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+      function toggleMenu(){
+        const isOpen = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      }
+      btn.addEventListener('click', toggleMenu);
+      links.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
+    })();
+
+    // submit AJAX pentru formulare (mesaje de succes/eroare)
     async function handleForm(formId, okId, errId){
       const form = document.getElementById(formId);
       const ok = document.getElementById(okId);
       const err = document.getElementById(errId);
       if(!form) return;
-
       form.addEventListener('submit', async (e)=>{
         e.preventDefault();
         if(ok) ok.style.display='none';
         if(err) err.style.display='none';
-
         const action = form.getAttribute('action');
         const method = (form.getAttribute('method') || 'POST').toUpperCase();
-
         try{
           const data = new FormData(form);
           const resp = await fetch(action, { method, body:data, headers:{ 'Accept':'application/json' }});
-          if(resp.ok){
-            if(ok) ok.style.display='block';
-            form.reset();
-          }else{
-            if(err) err.style.display='block';
-          }
-        }catch(_){
-          if(err) err.style.display='block';
-        }
+          if(resp.ok){ if(ok) ok.style.display='block'; form.reset(); }
+          else{ if(err) err.style.display='block'; }
+        }catch(_){ if(err) err.style.display='block'; }
       });
     }
     handleForm('orderForm','orderOk','orderErr');
