@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AQUALAB – Analize Apă • Pachete & Prețuri</title>
-  <meta name="description" content="Analize profesionale de apă pentru fântână, puț, apă potabilă și piscină. Pachete clare, prețuri pe parametri și consultanță. Laborator în Cluj-Napoca.">
+  <title>AQUALAB – Analize Apă Cluj</title>
+  <meta name="description" content="Analize profesionale de apă potabilă și uzată în Cluj-Napoca. Pachete clare, prețuri pe indicatori, comandă online, consultanță.">
   <style>
     :root{
       --hanna-blue:#005baa;
@@ -28,22 +28,35 @@
     nav a{margin-left:18px;font-weight:600}
     .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px}
 
-    /* Badges */
-    .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #cfe0f7;background:#ebf4ff;color:#0b2b52;
-      border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+    /* Badge */
+    .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #cfe0f7;background:#ebf4ff;color:#0b2b52;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700}
 
-    /* Hero – banner mare */
-    .hero{padding:70px 0;background:linear-gradient(180deg,#f6fbff,#fff)}
-    .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center}
-    .hero h1{font-size:44px;color:#0b2b52;margin-bottom:12px}
-    .hero p{margin:12px 0 20px;color:#334}
-    .hero .hero-media{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 12px 28px rgba(0,0,0,.08)}
-    .hero .hero-media img{width:100%;height:560px;object-fit:cover;display:block;border-radius:22px}
-
-    /* City callout */
-    .city-callout{display:flex;align-items:flex-start;gap:12px;background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);
-      border-radius:16px;padding:14px;margin-top:16px}
+    /* HERO full-width background */
+    .hero-fw{
+      position:relative;
+      padding:96px 0 76px;
+      background:
+        linear-gradient(90deg,
+          rgba(255,255,255,.96) 0 44%,
+          rgba(255,255,255,.75) 44% 60%,
+          rgba(255,255,255,0) 100%
+        ),
+        url("./assets/banner.jpg?v=1") center right / cover no-repeat;
+    }
+    .hero-fw .hero-content{max-width:640px}
+    .hero-fw h1{font-size:46px;line-height:1.16;color:#0b2b52;margin:12px 0}
+    .hero-fw p{color:#334;margin:10px 0 20px}
+    .city-callout{display:flex;align-items:flex-start;gap:12px;background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:16px;padding:16px;margin-top:16px}
     .city-callout b{color:#0b2b52}
+    @media(max-width:900px){
+      .hero-fw{padding:64px 0 56px;background:
+        linear-gradient(180deg,
+          rgba(255,255,255,.95) 0 40%,
+          rgba(255,255,255,.70) 40% 60%,
+          rgba(255,255,255,0) 100%
+        ), url("./assets/banner.jpg?v=1") center / cover no-repeat;}
+      .hero-fw h1{font-size:36px}
+    }
 
     /* Sections */
     .section{padding:56px 0}
@@ -52,198 +65,146 @@
     /* Advantages */
     .hanna-card{background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:var(--radius);padding:18px}
     .advantages{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
-    .adv{background:#fff;border:1px solid #e7edf6;border-radius:14px;padding:14px;display:flex;gap:10px;align-items:flex-start}
-    .adv svg{flex:0 0 22px;margin-top:2px}
+    .adv{background:#fff;border:1px solid #e7edf6;border-radius:14px;padding:14px;text-align:center}
     .adv b{color:var(--hanna-blue)}
 
     /* Packages */
     .pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:16px}
-    .card{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px;text-align:center}
-    .pill{display:inline-flex;align-items:center;gap:8px;background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);
-      border-radius:14px;padding:8px 14px;margin-bottom:10px;font-weight:700;font-size:15px}
-    .pill svg{width:16px;height:16px}
+    .card{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:20px;text-align:center}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:14px;padding:8px 14px;margin-bottom:10px;font-weight:700;font-size:15px}
     .card h3{font-size:22px}
     .price{font-size:21px;font-weight:800;margin:8px 0}
     .muted{color:#556}
 
-    /* Comparison table */
+    /* Comparison */
     .compare-wrap{margin-top:22px;overflow:auto;border:1px solid #e7edf6;border-radius:var(--radius)}
     table{width:100%;border-collapse:collapse;font-size:15px;background:#fff}
     thead th{position:sticky;top:0;background:#f7fbff}
     th,td{border-bottom:1px solid #eef6ff;padding:10px;text-align:center}
     th:first-child,td:first-child{text-align:left;min-width:220px}
-    .yes{font-weight:700;color:var(--ok)}
-    .no{font-weight:700;color:var(--no)}
+    .yes{font-weight:700;color:var(--ok)} .no{font-weight:700;color:var(--no)}
     .legend{font-size:13px;color:#556;margin-top:8px}
 
-    /* Individual prices */
+    /* Price list */
     .price-box{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px}
     .prices{width:100%;border-collapse:collapse;margin-top:10px}
     .prices th,.prices td{border-bottom:1px solid #eef6ff;padding:10px}
     .prices th{background:#f7fbff}
     .note{font-size:13px;color:#556;margin-top:10px}
 
+    /* Order Form */
+    .order{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    .order form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px}
+    label{display:block;margin-top:10px;font-weight:700}
+    input,select,textarea{width:100%;padding:10px;border:1px solid #cfe0f7;border-radius:10px;margin-top:6px}
+    textarea{min-height:120px}
+    .help{font-size:13px;color:#556;margin-top:8px}
+    .aside{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:16px}
+    .aside h3{margin-bottom:6px;color:#0b2b52}
+    .submit{margin-top:14px}
+    @media(max-width:900px){.order{grid-template-columns:1fr}}
+
     /* Steps */
     .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
-    .step{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:14px;display:flex;gap:10px}
-    .step svg{flex:0 0 22px}
+    .step{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:14px}
 
     /* Contact */
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px}
-    label{font-weight:700;display:block;margin-top:10px}
-    input,textarea,select{width:100%;padding:10px;border:1px solid #cfe0f7;border-radius:10px;margin-top:6px}
-    textarea{min-height:110px}
-    .submit{margin-top:12px}
-    .whatsapp{display:inline-block;margin-top:10px;background:#25d366;color:#fff;padding:10px 16px;border-radius:999px}
+    form.contact-form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px}
+    @media(max-width:900px){.contact{grid-template-columns:1fr}}
 
     footer{margin-top:34px;border-top:1px solid #eef;padding:14px 0;color:#667;text-align:center;font-size:14px}
-
-    @media(max-width:900px){
-      .hero .wrap{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .hero .hero-media img{height:420px}
-    }
   </style>
 </head>
 <body>
-  <!-- SVG sprite (icons) -->
-  <svg style="display:none" aria-hidden="true">
-    <symbol id="ico-drop" viewBox="0 0 24 24"><path fill="#005baa" d="M12 2c3.9 5.2 6.5 8.7 6.5 12A6.5 6.5 0 1 1 5.5 14C5.5 10.7 8.1 7.2 12 2z"/></symbol>
-    <symbol id="ico-well" viewBox="0 0 24 24"><path fill="#005baa" d="M4 9h16v2H4zM6 11h12v9H6z"/><path fill="#7fb2e6" d="M8 4h8l2 5H6z"/><path fill="#005baa" d="M8 13h8v5H8z"/></symbol>
-    <symbol id="ico-check" viewBox="0 0 24 24"><path fill="#1a7f37" d="M9.2 16.2 4.9 12l1.4-1.4 2.9 2.9 8.5-8.5L19 6.4z"/></symbol>
-    <symbol id="ico-pin" viewBox="0 0 24 24"><path fill="#005baa" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 10.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4z"/></symbol>
-    <symbol id="ico-step" viewBox="0 0 24 24"><path fill="#005baa" d="M12 2l3 4-3 3-3-3 3-4zm0 8l3 3-3 9-3-9 3-3z"/></symbol>
-  </svg>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="./assets/logo.png?v=2" alt="AQUALAB logo" />
+        <img src="./assets/logo.png" alt="AQUALAB logo">
         <span>AQUALAB</span>
       </div>
       <nav>
         <a href="#avantaje">Avantaje</a>
         <a href="#pachete">Pachete</a>
-        <a href="#individual">Prețuri</a>
+        <a href="#preturi">Prețuri</a>
         <a href="#cum-func">Cum funcționează</a>
-        <a href="#contact" class="cta">Contact</a>
+        <a href="#formular" class="cta">Formular comandă</a>
+        <a href="#contact" class="cta" style="margin-left:8px;background:#0a63a6">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container wrap">
-      <div>
-        <span class="badge">Laborator analize apă</span>
-        <h1>Analize profesionale de apă</h1>
-        <p>Rezultate rapide și precise pentru fântâni, puțuri, apă potabilă, piscine și apă uzată. Pachete clare, raport detaliat și consultanță.</p>
-        <a href="#pachete" class="cta">Vezi pachete</a>
-
-        <div class="city-callout">
-          <svg width="22" height="22"><use href="#ico-pin"/></svg>
-          <p><b>Laborator în Cluj-Napoca</b> – deservim rapid municipiul și zonele limitrofe. Recoltări la locație, la cerere.</p>
-        </div>
-      </div>
-      <div class="hero-media">
-        <img src="./assets/banner.jpg?v=1" alt="Apă din robinet turnată în pahar – AQUALAB">
-      </div>
+  <!-- HERO -->
+  <section class="hero-fw">
+    <div class="container hero-content">
+      <span class="badge">Laborator analize apă</span>
+      <h1>Analize profesionale de apă</h1>
+      <p>Rezultate rapide și precise pentru fântâni, puțuri, apă potabilă, piscine și apă uzată. Pachete clare, raport detaliat și consultanță.</p>
+      <a href="#pachete" class="cta">Vezi pachete</a>
+      <div class="city-callout"><p><b>Laborator în Cluj-Napoca</b> – deservim rapid municipiul și zonele limitrofe. Recoltări la locație, la cerere.</p></div>
     </div>
   </section>
 
-  <!-- Avantaje -->
+  <!-- AVANTAJE -->
   <section id="avantaje" class="section">
     <div class="container hanna-card">
       <h2>De ce să ne alegi</h2>
       <div class="advantages">
-        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Profesional & standardizat</b><p>Metodologii conform standardelor internaționale, cu proceduri documentate și trasabilitate completă.</p></div></div>
-        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Echipamente performante</b><p>Detecții precise cu <b>spectrofotometru</b> și instrumente calibrate periodic (QC intern).</p></div></div>
-        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Rapid & transparent</b><p>Termene clare, prețuri vizibile, raport ușor de înțeles + consultanță pentru corecții/tratare.</p></div></div>
-        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Recoltare la locație</b><p>La cerere, în Cluj-Napoca și împrejurimi.</p></div></div>
+        <div class="adv"><b>Profesional & standardizat</b><p>Metodologii conform standardelor internaționale, trasabilitate și QC documentat.</p></div>
+        <div class="adv"><b>Echipamente performante</b><p>Detecții precise cu spectrofotometru, conductometru, titrator – instrumente calibrate periodic.</p></div>
+        <div class="adv"><b>Rapid & transparent</b><p>Termene clare, prețuri vizibile, raport ușor de înțeles + recomandări de corecții/tratare.</p></div>
+        <div class="adv"><b>Recoltare la locație</b><p>La cerere, în Cluj-Napoca și împrejurimi.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Pachete -->
+  <!-- PACHETE -->
   <section id="pachete" class="section">
     <div class="container">
       <h2>Pachete de analiză</h2>
 
       <div class="pack-grid">
         <div class="card">
-          <div class="pill"><svg><use href="#ico-well"/></svg><span>Fântână</span></div>
+          <div class="pill">Fântână</div>
           <h3>16 indicatori</h3>
           <div class="price">180 lei (TVA inclus)</div>
           <p class="muted">Screening esențial pentru apă din fântână/puț.</p>
         </div>
         <div class="card">
-          <div class="pill"><svg><use href="#ico-drop"/></svg><span>Standard</span></div>
+          <div class="pill">Standard</div>
           <h3>22 indicatori</h3>
           <div class="price">280 lei (TVA inclus)</div>
           <p class="muted">Toți din Fântână + 6 parametri suplimentari.</p>
         </div>
         <div class="card">
-          <div class="pill"><svg><use href="#ico-drop"/></svg><span>Standard Plus</span></div>
+          <div class="pill">Standard Plus</div>
           <h3>29 indicatori</h3>
           <div class="price">400 lei (TVA inclus)</div>
           <p class="muted">Toți din Standard + 7 parametri suplimentari.</p>
         </div>
         <div class="card">
-          <div class="pill"><svg><use href="#ico-drop"/></svg><span>Premium</span></div>
+          <div class="pill">Premium</div>
           <h3>50 indicatori</h3>
           <div class="price">800 lei (TVA inclus)</div>
           <p class="muted">Pachet complet extins (metale, anioni/cationi, alți indicatori).</p>
         </div>
       </div>
 
-      <!-- Tabel comparativ (prescurtat la 50 de rânduri) -->
-      <div class="compare-wrap">
+      <!-- Tabel comparativ (prescurtat) -->
+      <div class="compare-wrap" style="margin-top:18px">
         <table>
-          <thead>
-            <tr>
-              <th>Indicator</th><th>Fântână</th><th>Standard</th><th>Standard Plus</th><th>Premium</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Indicator</th><th>Fântână</th><th>Standard</th><th>Standard Plus</th><th>Premium</th></tr></thead>
           <tbody>
-            <!-- 16 de bază -->
-            <tr><td>pH</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Conductivitate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Total solide dizolvate (TDS)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>ORP / Oxidabilitate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Culoare</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Nitriți</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Nitriți de sodiu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Nitrați</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Duritate totală</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Amoniu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Amoniac</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Azot amoniacal (NH3-N)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Fosfați</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Fosfor</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Turbiditate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Fier</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-
-            <!-- +6 în Standard -->
-            <tr><td>Pentoxid de fosfor</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Clor liber rezidual</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Sulfați</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Alcalinitate</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Brom</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-
-            <!-- +7 în Standard Plus -->
-            <tr><td>Clor total</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Cloruri</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Calciu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Magneziu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Zinc</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Cupru</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-            <tr><td>Salinitate</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
-
-            <!-- doar Premium (rest) -->
-            <tr><td>Mangan</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
-            <tr><td>… (metale/anioni suplimentari)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+            <tr><td>pH / Conductivitate / TDS</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>ORP / Oxidabilitate, Culoare</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Nitriți, Nitrați, Duritate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Amoniu, Amoniac, NH3-N</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Fosfați, Fosfor, Turbiditate, Fier</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Pentoxid de fosfor, Clor liber, Sulfați, Alcalinitate, Brom</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Clor total, Cloruri, Calciu, Magneziu, Zinc, Cupru, Salinitate</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+            <tr><td>Metale/ioni ext. (Mangan, etc.)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
           </tbody>
         </table>
       </div>
@@ -251,97 +212,127 @@
     </div>
   </section>
 
-  <!-- Analize individuale (la bucată) -->
-  <section id="individual" class="section">
+  <!-- PREȚURI INDIVIDUALE -->
+  <section id="preturi" class="section">
     <div class="container">
-      <h2>Nu vrei un pachet? Alege doar indicatorii de care ai nevoie</h2>
+      <h2>Analize individuale – prețuri (lei/probă, TVA inclus)</h2>
       <div class="price-box">
-        <h3>Analize individuale – prețuri (lei/probă, TVA inclus)</h3>
         <table class="prices">
-          <thead><tr><th>Parametru</th><th>Preț</th></tr></thead>
+          <thead><tr><th>Parametru</th><th>Preț</th><th>Parametru</th><th>Preț</th></tr></thead>
           <tbody>
-            <tr><td>pH</td><td>10</td></tr>
-            <tr><td>Conductivitate</td><td>10</td></tr>
-            <tr><td>Total solide dizolvate (TDS)</td><td>10</td></tr>
-            <tr><td>Oxidabilitate / Oxigen dizolvat</td><td>20</td></tr>
-            <tr><td>Culoare</td><td>10</td></tr>
-            <tr><td>Nitriți</td><td>25</td></tr>
-            <tr><td>Nitriți de sodiu</td><td>—</td></tr>
-            <tr><td>Nitrați</td><td>35</td></tr>
-            <tr><td>Duritate totală</td><td>25</td></tr>
-            <tr><td>Amoniu</td><td>25</td></tr>
-            <tr><td>Amoniac</td><td>—</td></tr>
-            <tr><td>Azot amoniacal (NH3-N)</td><td>—</td></tr>
-            <tr><td>Fosfați</td><td>35</td></tr>
-            <tr><td>Fosfor</td><td>—</td></tr>
-            <tr><td>Pentoxid de fosfor</td><td>15</td></tr>
-            <tr><td>Turbiditate</td><td>24</td></tr>
-            <tr><td>Fier</td><td>30</td></tr>
-            <tr><td>Clor liber rezidual</td><td>15</td></tr>
-            <tr><td>Sulfați</td><td>42</td></tr>
-            <tr><td>Alcalinitate</td><td>17</td></tr>
-            <tr><td>Brom</td><td>20</td></tr>
-            <tr><td>Clor total</td><td>17</td></tr>
-            <tr><td>Cloruri</td><td>20</td></tr>
-            <tr><td>Calciu</td><td>17</td></tr>
-            <tr><td>Magneziu</td><td>35</td></tr>
-            <tr><td>Zinc</td><td>37</td></tr>
-            <tr><td>Cupru</td><td>37</td></tr>
-            <tr><td>Salinitate</td><td>10</td></tr>
-            <tr><td>Mangan</td><td>30</td></tr>
-            <tr><td>Permanganat de potasiu (KMnO₄)</td><td>—</td></tr>
-            <tr><td>Permanganat (MnO₄⁻)</td><td>—</td></tr>
-            <tr><td>Crom</td><td>—</td></tr>
-            <tr><td>Dicromat</td><td>—</td></tr>
-            <tr><td>Aluminiu</td><td>30</td></tr>
-            <tr><td>Nichel</td><td>40</td></tr>
-            <tr><td>Acid cianuric</td><td>30</td></tr>
-            <tr><td>Dioxid de clor</td><td>15</td></tr>
-            <tr><td>Fluor</td><td>25</td></tr>
-            <tr><td>Iod</td><td>25</td></tr>
-            <tr><td>Argint</td><td>70</td></tr>
-            <tr><td>Potasiu</td><td>35</td></tr>
+            <tr><td>pH</td><td>10</td><td>Clor total</td><td>17</td></tr>
+            <tr><td>Conductivitate</td><td>10</td><td>Cloruri</td><td>20</td></tr>
+            <tr><td>Total solide dizolvate (TDS)</td><td>10</td><td>Calciu</td><td>17</td></tr>
+            <tr><td>Oxidabilitate / Oxigen dizolvat</td><td>20</td><td>Magneziu</td><td>35</td></tr>
+            <tr><td>Culoare</td><td>10</td><td>Zinc</td><td>37</td></tr>
+            <tr><td>Nitriți</td><td>25</td><td>Cupru</td><td>37</td></tr>
+            <tr><td>Nitrați</td><td>35</td><td>Salinitate</td><td>10</td></tr>
+            <tr><td>Duritate totală</td><td>25</td><td>Mangan</td><td>30</td></tr>
+            <tr><td>Amoniu</td><td>25</td><td>Aluminiu</td><td>30</td></tr>
+            <tr><td>Pentoxid de fosfor</td><td>15</td><td>Nichel</td><td>40</td></tr>
+            <tr><td>Turbiditate</td><td>24</td><td>Acid cianuric</td><td>30</td></tr>
+            <tr><td>Fier</td><td>30</td><td>Dioxid de clor</td><td>15</td></tr>
+            <tr><td>Clor liber rezidual</td><td>15</td><td>Fluor</td><td>25</td></tr>
+            <tr><td>Sulfați</td><td>42</td><td>Iod</td><td>25</td></tr>
+            <tr><td>Alcalinitate</td><td>17</td><td>Argint</td><td>70</td></tr>
+            <tr><td>Brom</td><td>20</td><td>Potasiu</td><td>35</td></tr>
           </tbody>
         </table>
-        <p class="note">Prețurile includ TVA și se aplică pe probă/parametru. Pentru volume mari sau analize neenumerate, cere o ofertă personalizată.</p>
+        <p class="note">Prețurile includ TVA și se aplică pe probă/parametru. Pentru analize neenumerate sau volume mari, cere o ofertă personalizată.</p>
       </div>
     </div>
   </section>
 
-  <!-- Cum funcționează -->
+  <!-- CUM FUNCȚIONEAZĂ -->
   <section id="cum-func" class="section">
     <div class="container">
       <h2>Cum funcționează</h2>
       <div class="steps">
-        <div class="step"><svg><use href="#ico-step"/></svg><div><b>1. Alegi pachetul/indicatorii</b><p>Selectezi pachetul potrivit sau comanzi analize individuale.</p></div></div>
-        <div class="step"><svg><use href="#ico-step"/></svg><div><b>2. Recoltare</b><p>Trimiți proba sau programăm recoltare la locație în Cluj-Napoca și împrejurimi.</p></div></div>
-        <div class="step"><svg><use href="#ico-step"/></svg><div><b>3. Analiză</b><p>Metode fotometrice/potențiometrice, spectrofotometru, trasabilitate & calibrare.</p></div></div>
-        <div class="step"><svg><use href="#ico-step"/></svg><div><b>4. Raport & consultanță</b><p>Primești raport clar și recomandări de corecții/tratare.</p></div></div>
+        <div class="step"><b>1. Alegi pachetul/indicatorii</b><p>Selectezi pachetul potrivit sau comanzi analize individuale.</p></div>
+        <div class="step"><b>2. Recoltare</b><p>Trimiți proba sau programăm recoltare la locație (Cluj-Napoca și împrejurimi).</p></div>
+        <div class="step"><b>3. Analiză</b><p>Metode fotometrice/potențiometrice, spectrofotometru, trasabilitate & calibrare.</p></div>
+        <div class="step"><b>4. Raport & facturare</b><p>Primești rezultatele, apoi factura pe email. După plată, livrăm buletinul oficial.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- FORMULAR COMANDĂ -->
+  <section id="formular" class="section">
+    <div class="container">
+      <h2>Formular comandă analize</h2>
+      <div class="order">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <label for="nume">Nume și prenume *</label>
+          <input id="nume" name="nume" required>
+
+          <label for="email">Adresa de email *</label>
+          <input id="email" type="email" name="email" required>
+
+          <label for="telefon">Telefon *</label>
+          <input id="telefon" name="telefon" required>
+
+          <label for="sursa">Sursa apei *</label>
+          <select id="sursa" name="sursa" required>
+            <option value="">Alege...</option>
+            <option>Fântână / Puț</option>
+            <option>Rețea (apă potabilă)</option>
+            <option>Piscină</option>
+            <option>Apă uzată</option>
+            <option>Altă sursă</option>
+          </select>
+
+          <label for="firma">Firmă (opțional)</label>
+          <input id="firma" name="firma" placeholder="Nume firmă (dacă este cazul)">
+
+          <label for="cui">CUI (opțional)</label>
+          <input id="cui" name="cui" placeholder="RO...">
+
+          <label for="facturare">Adresă de facturare (opțional)</label>
+          <textarea id="facturare" name="facturare" placeholder="Stradă, număr, localitate, județ"></textarea>
+
+          <label for="observatii">Observații (opțional)</label>
+          <textarea id="observatii" name="observatii" placeholder="Pachet dorit / indicatori doriți, recoltare la locație etc."></textarea>
+
+          <p class="help">După prelucrare, <b>veți primi factura pe email</b>. <br>După înregistrarea plății, <b>trimitem buletinul oficial de analiză pe email</b>.</p>
+
+          <button class="cta submit" type="submit">Trimite comanda</button>
+        </form>
+
+        <div class="aside">
+          <h3>Informații utile</h3>
+          <ul>
+            <li>Proba trebuie colectată în recipient curat (ideal, steril pentru microbiologie – dacă este cazul).</li>
+            <li>Volum recomandat: 1–2 L pentru analize fizico-chimice standard.</li>
+            <li>Program recoltări la locație (Cluj): la cerere, în funcție de rută.</li>
+            <li>Pentru pachete/indicatori suplimentari, menționați în Observații.</li>
+          </ul>
+          <p class="help" style="margin-top:10px">Preferi telefon? <b>+40 756 118 394</b> · <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container">
       <h2>Contact</h2>
       <div class="contact">
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <label for="nume">Nume</label>
-          <input id="nume" name="nume" required>
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" required>
-          <label for="telefon">Telefon</label>
-          <input id="telefon" name="telefon">
-          <label for="mesaj">Mesaj</label>
-          <textarea id="mesaj" name="mesaj" placeholder="Ce pachet/indicatori te interesează?"></textarea>
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <label for="cnume">Nume</label>
+          <input id="cnume" name="nume" required>
+          <label for="cemail">Email</label>
+          <input id="cemail" type="email" name="email" required>
+          <label for="ctel">Telefon</label>
+          <input id="ctel" name="telefon">
+          <label for="cmsg">Mesaj</label>
+          <textarea id="cmsg" name="mesaj"></textarea>
           <button class="cta submit" type="submit">Trimite</button>
           <p class="muted" style="font-size:12px;margin-top:6px">Prin trimitere ești de acord cu prelucrarea datelor pentru a-ți răspunde.</p>
         </form>
         <div class="hanna-card">
           <p><b>Telefon:</b> <a href="tel:+40756118394">+40 756 118 394</a></p>
           <p><b>Email:</b> <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
-          <a class="whatsapp" href="https://wa.me/40756118394" target="_blank" rel="noopener">Scrie pe WhatsApp</a>
+          <a class="cta" href="#formular" style="display:inline-block;margin-top:10px">Comandă analize</a>
           <p class="muted" style="margin-top:10px">Program: Luni–Vineri 9:00–15:00 · Recoltări la cerere</p>
         </div>
       </div>
@@ -349,7 +340,7 @@
   </section>
 
   <footer>
-    © <span id="y"></span> AQUALAB • Toate drepturile rezervate • RO51030820 • Str. Tineretului, Florești, Cluj
+    © <span id="y"></span> AQUALAB • Toate drepturile rezervate • RO51030820 • Cluj-Napoca
   </footer>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
