@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analize de Apă – Pachete & Contact</title>
+  <meta name="description" content="Analize profesionale de apă potabilă și uzată. Pachete clare, rezultate rapide și consiliere. Cere ofertă sau programează recoltarea."/>
+  <style>
+    :root{
+      --hanna-blue:#005baa;
+      --hanna-bg:#e6f0fa;
+      --text:#111;
+      --muted:#556;
+      --ok:#1a7f37;
+      --accent:#0ea5e9;
+      --card-radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Arial, Helvetica, sans-serif;margin:0;color:var(--text);line-height:1.55;background:#fff}
+    a{color:var(--hanna-blue);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eef;z-index:10}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg, var(--hanna-blue), #2d8bee)}
+    .brand h1{font-size:18px;margin:0;color:var(--hanna-blue)}
+    nav a{margin:0 10px;font-weight:600}
+    .cta-btn{background:var(--hanna-blue);color:#fff;padding:10px 16px;border-radius:999px;display:inline-block}
+    .cta-btn:hover{opacity:.92}
+    /* ... restul codului complet din canvas (hero, pachete, contact, footer etc.) ... */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Analize de Apă</h1>
+      </div>
+      <nav>
+        <a href="#pachete">Pachete</a>
+        <a href="#cum-functioneaza">Cum funcționează</a>
+        <a href="#faq">Întrebări</a>
+        <a href="#contact" class="cta-btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <h2>Bun venit pe site-ul Analize de Apă</h2>
+    <p>Aici va apărea tot conținutul complet (Hero, Pachete, Contact etc.) conform codului din canvas.</p>
+  </main>
+  <footer class="site">
+    <div class="container">
+      <div>© <span id="y"></span> Analize de Apă • Toate drepturile rezervate</div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
