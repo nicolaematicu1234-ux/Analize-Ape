@@ -31,12 +31,12 @@
     header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e7edf6;z-index:30}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;align-items:center;gap:12px}
-    .brand img{width:80px;height:80px;object-fit:contain}
-    .brand span{font-weight:800;font-size:28px;color:var(--hanna-blue)}
+    .brand img{width:96px;height:96px;object-fit:contain} /* logo mai mare */
+    .brand span{font-weight:800;font-size:30px;color:var(--hanna-blue)}
 
     /* nav desktop */
     .nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:var(--shadow)}
+    .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:var(--shadow);border:0;cursor:pointer}
     .call-btn{display:inline-flex;align-items:center;gap:8px;background:#0a63a6;color:#fff;padding:9px 14px;border-radius:999px;box-shadow:var(--shadow)}
     .call-btn svg{width:16px;height:16px}
     .menu-toggle{display:none;background:#fff;border:1px solid #cfe0f7;border-radius:10px;padding:6px;cursor:pointer}
@@ -44,7 +44,7 @@
     /* Badge */
     .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #cfe0f7;background:#ebf4ff;color:#0b2b52;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700}
 
-    /* HERO full-width background */
+    /* HERO */
     .hero-fw{
       position:relative;
       padding:70px 0;
@@ -81,6 +81,7 @@
     .card h3{font-size:22px}
     .price{font-size:21px;font-weight:800;margin:8px 0}
     .muted{color:#556}
+    .card .cta{margin-top:10px}
 
     /* Comparison */
     .compare-wrap{margin-top:22px;overflow:auto;border:1px solid #e7edf6;border-radius:var(--radius);box-shadow:var(--shadow)}
@@ -91,11 +92,18 @@
     .yes{font-weight:700;color:var(--ok)} .no{font-weight:700;color:var(--no)}
     .legend{font-size:13px;color:#556;margin-top:8px}
 
-    /* Price list */
+    /* Price list (ECHIDISTANT) */
     .price-box{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .prices{width:100%;border-collapse:collapse;margin-top:10px}
+    .prices{width:100%;border-collapse:collapse;margin-top:10px;table-layout:fixed}
+    .prices col.ind{width:40%}
+    .prices col.price{width:10%}
     .prices th,.prices td{border-bottom:1px solid #eef6ff;padding:10px}
     .prices th{background:#f7fbff}
+    /* Indicatorii aliniați la stânga, prețurile la dreapta pentru ambele perechi */
+    .prices td:nth-child(1), .prices th:nth-child(1),
+    .prices td:nth-child(3), .prices th:nth-child(3){ text-align:left }
+    .prices td:nth-child(2), .prices th:nth-child(2),
+    .prices td:nth-child(4), .prices th:nth-child(4){ text-align:right }
     .note{font-size:13px;color:#556;margin-top:10px}
 
     /* Order Form */
@@ -105,7 +113,16 @@
     input,select,textarea{width:100%;padding:10px;border:1px solid #cfe0f7;border-radius:10px;margin-top:6px}
     textarea{min-height:120px}
     .help{font-size:13px;color:#556;margin-top:8px}
-    .aside{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    /* Chenarul albastru din dreapta (exact cât textul) */
+    .aside{
+      display:inline-block;
+      max-width:520px;
+      background:var(--hanna-bg);
+      border-left:6px solid var(--hanna-blue);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
     .aside h3{margin-bottom:8px;color:#0b2b52}
     .aside ul{margin-left:18px}
     .aside li{margin:6px 0}
@@ -119,6 +136,12 @@
     /* Contact */
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     form.contact-form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px;position:relative;box-shadow:var(--shadow)}
+    /* Chenarul albastru din Contact micșorat la conținut */
+    #contact .hanna-card{
+      display:inline-block;
+      max-width:520px;
+      padding:18px;
+    }
 
     /* Reviews */
     .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
@@ -133,12 +156,23 @@
     .foot a{display:block;margin:4px 0}
     .copy{border-top:1px solid #cfe0f7;text-align:center;font-size:14px;color:#556;padding:12px 0}
     .foot .brand-small{display:flex;align-items:center;gap:10px}
-    .foot .brand-small img{width:40px;height:40px;object-fit:contain}
+    .foot .brand-small img{width:48px;height:48px;object-fit:contain} /* logo footer un pic mai mare */
+
+    /* Cum funcționează CENTRAT */
+    #cum-func .steps{
+      display:grid;
+      gap:18px;
+      justify-items:center;
+      text-align:center;
+    }
+    #cum-func .step{
+      max-width:520px;
+    }
 
     /* NAV responsive */
     @media (max-width: 900px){
-      .brand img{width:56px;height:56px}
-      .brand span{font-size:22px}
+      .brand img{width:72px;height:72px}
+      .brand span{font-size:24px}
       .menu-toggle{display:block}
       .nav-links{
         display:none;
@@ -230,7 +264,7 @@
     </div>
   </section>
 
-  <!-- PACHETE (NE-MODIFICATE) -->
+  <!-- PACHETE -->
   <section id="pachete" class="section">
     <div class="container">
       <h2>Pachete de analiză</h2>
@@ -241,28 +275,40 @@
           <h3>16 indicatori</h3>
           <div class="price">180 lei (TVA inclus)</div>
           <p class="muted">Screening esențial pentru apă din fântână/puț.</p>
+          <button class="cta order-btn" type="button"
+                  data-package="Pachet Fântână – 16 indicatori"
+                  data-sursa="Fântână / Puț">Comandă acest pachet</button>
         </div>
         <div class="card">
           <div class="pill">Standard</div>
           <h3>22 indicatori</h3>
           <div class="price">280 lei (TVA inclus)</div>
           <p class="muted">Toți din Fântână + 6 parametri suplimentari.</p>
+          <button class="cta order-btn" type="button"
+                  data-package="Pachet Standard – 22 indicatori"
+                  data-sursa="Rețea (apă potabilă)">Comandă acest pachet</button>
         </div>
         <div class="card">
           <div class="pill">Standard Plus</div>
           <h3>29 indicatori</h3>
           <div class="price">400 lei (TVA inclus)</div>
           <p class="muted">Toți din Standard + 7 parametri suplimentari.</p>
+          <button class="cta order-btn" type="button"
+                  data-package="Pachet Standard Plus – 29 indicatori"
+                  data-sursa="Rețea (apă potabilă)">Comandă acest pachet</button>
         </div>
         <div class="card">
           <div class="pill">Premium</div>
           <h3>50 indicatori</h3>
           <div class="price">800 lei (TVA inclus)</div>
           <p class="muted">Pachet complet extins (metale, anioni/cationi, alți indicatori).</p>
+          <button class="cta order-btn" type="button"
+                  data-package="Pachet Premium – 50 indicatori"
+                  data-sursa="Rețea (apă potabilă)">Comandă acest pachet</button>
         </div>
       </div>
 
-      <!-- Tabel comparativ (NE-MODIFICAT) -->
+      <!-- Tabel comparativ -->
       <div class="compare-wrap" style="margin-top:18px">
         <table>
           <thead>
@@ -335,12 +381,15 @@
     </div>
   </section>
 
-  <!-- PREȚURI INDIVIDUALE (NE-MODIFICATE) -->
+  <!-- PREȚURI INDIVIDUALE -->
   <section id="preturi" class="section">
     <div class="container">
       <h2>Analize individuale – prețuri (lei/probă, TVA inclus)</h2>
       <div class="price-box">
         <table class="prices">
+          <colgroup>
+            <col class="ind"><col class="price"><col class="ind"><col class="price">
+          </colgroup>
           <thead><tr><th>Parametru</th><th>Preț</th><th>Parametru</th><th>Preț</th></tr></thead>
           <tbody>
           <tr><td>pH</td><td>10</td><td>Clor total</td><td>17</td></tr>
@@ -366,20 +415,20 @@
     </div>
   </section>
 
-  <!-- CUM FUNCȚIONEAZĂ (NE-MODIFICAT) -->
+  <!-- CUM FUNCȚIONEAZĂ (CENTRAT) -->
   <section id="cum-func" class="section">
     <div class="container">
       <h2>Cum funcționează</h2>
       <div class="steps">
         <div class="step"><svg><use href="#ico-steps"/></svg><div><b>1. Alegi pachetul/indicatorii</b><p>Selectezi pachetul potrivit sau comanzi analize individuale.</p></div></div>
         <div class="step"><svg><use href="#ico-steps"/></svg><div><b>2. Recoltare</b><p>Trimiți proba prin curier sau programăm recoltare la locație (Cluj-Napoca și împrejurimi).</p></div></div>
-        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>3. Analiză</b><p>Analizam apa spectrofofotometric/potențiometric, oferind trasabilitate & siguranta.</p></div></div>
-        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>4. Raport & facturare</b><p>Primești factura pe email. După plată, livrăm buletinul oficial de analiza pe email sau telefon.</p></div></div>
+        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>3. Analiză</b><p>Analizăm apa spectrofotometric/potențiometric, cu trasabilitate & siguranță.</p></div></div>
+        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>4. Raport & facturare</b><p>Primești factura pe email. După plată, livrăm buletinul oficial de analiză.</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- FORMULAR COMANDĂ (NE-MODIFICAT) -->
+  <!-- FORMULAR COMANDĂ -->
   <section id="formular" class="section">
     <div class="container">
       <h2>Formular comandă analize</h2>
@@ -427,7 +476,7 @@
         <div class="aside">
           <h3>Informații utile</h3>
           <ul>
-            <li><b>Recoltare:</b> poți trimite proba sau programăm recoltare la locație in Cluj Napoca si imprejurimi (în funcție de zonă).</li>
+            <li><b>Recoltare:</b> poți trimite proba sau programăm recoltare la locație în Cluj-Napoca și împrejurimi (în funcție de zonă).</li>
             <li><b>Curier:</b> expediază proba bine închisă către <b>Str. Tineretului nr. 13A, Florești, Cluj</b>.</li>
             <li><b>Volum recomandat:</b> 1–2 L pentru fizico-chimice standard.</li>
             <li><b>Program recoltări la locație (Cluj):</b> la cerere, în funcție de rută.</li>
@@ -439,27 +488,27 @@
     </div>
   </section>
 
-  <!-- RECENZII (NOU) – înainte de Contact -->
+  <!-- RECENZII (înainte de Contact) -->
   <section id="recenzii" class="section">
     <div class="container">
       <h2>Recenzii despre <span style="color:var(--hanna-blue)">Doctorul Apei</span></h2>
-      <p class="muted" style="text-align:center;margin-bottom:10px"></p>
+      <p class="muted" style="text-align:center;margin-bottom:10px">Exemple demonstrative + formularul tău mai jos</p>
 
       <div class="reviews" id="reviewsList">
         <article class="review">
           <div class="stars">★★★★★</div>
           <p>Raportul a venit rapid, explicații pe înțelesul meu. Acum știu exact ce filtru îmi trebuie.</p>
-          <div class="muted">— Andreea P., Manastur (Haide U!) </div>
+          <div class="muted">— Andreea P.</div>
         </article>
         <article class="review">
           <div class="stars">★★★★★</div>
           <p>Am testat apa din fântână la Doctorul Apei. Serviciu profesionist, recomand!</p>
-          <div class="muted">— Sorin M., Apahida</div>
+          <div class="muted">— Sorin M.</div>
         </article>
         <article class="review">
           <div class="stars">★★★★☆</div>
           <p>Totul ok, mi-ar fi plăcut și o listă de filtre recomandate. În rest, super.</p>
-          <div class="muted">— Ioana T., Baciu</div>
+          <div class="muted">— Ioana T.</div>
         </article>
       </div>
 
@@ -491,7 +540,7 @@
     </div>
   </section>
 
-  <!-- CONTACT (NE-MODIFICAT) -->
+  <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container">
       <h2>Contact</h2>
@@ -514,18 +563,30 @@
           <div class="error" id="contactErr">Nu am putut trimite mesajul. Încearcă din nou sau scrie-ne direct pe email.</div>
           <p class="muted" style="font-size:12px;margin-top:6px">Prin trimitere ești de acord cu prelucrarea datelor în scopul soluționării solicitării.</p>
         </form>
+
         <div class="hanna-card">
           <p><b>Telefon:</b> <a href="tel:+40790002963">+40 790 002 963</a></p>
           <p><b>Email:</b> <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
           <p><b>Adresă livrare probe:</b><br>Str. Tineretului nr. 13A, Florești, Cluj</p>
           <a class="cta" href="#formular" style="display:inline-block;margin-top:10px">Comandă analize</a>
           <p class="muted" style="margin-top:10px">Program: Luni–Vineri 9:00–15:00 · Recoltări la cerere</p>
+
+          <!-- Facebook link + icon -->
+          <p style="margin-top:10px">
+            <a href="https://www.facebook.com/profile.php?id=61579955102250" target="_blank" rel="noopener"
+               style="display:inline-flex;align-items:center;gap:8px;color:#005baa;font-weight:600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#005baa" viewBox="0 0 24 24">
+                <path d="M22.675 0h-21.35C.596 0 0 .596 0 1.333v21.334C0 23.404.596 24 1.325 24h11.494v-9.294H9.691v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.716-1.795 1.764v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.404 24 24 23.404 24 22.667V1.333C24 .596 23.404 0 22.675 0z"/>
+              </svg>
+              Pagina noastră de Facebook
+            </a>
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER (brand actualizat) -->
+  <!-- FOOTER -->
   <footer>
     <div class="container foot-wrap">
       <div class="foot">
@@ -601,6 +662,30 @@
     }
     handleForm('orderForm','orderOk','orderErr');
     handleForm('contactForm','contactOk','contactErr');
+
+    // BUTOANE „Comandă acest pachet”: completează Observații și scroll la formular
+    (function(){
+      const buttons = document.querySelectorAll('.order-btn');
+      const obs = document.getElementById('observatii');
+      const sursa = document.getElementById('sursa');
+      function goToForm(){ document.querySelector('#formular').scrollIntoView({behavior:'smooth'}); }
+      buttons.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const pkg = btn.getAttribute('data-package') || 'pachetul selectat';
+          if (obs) {
+            obs.value = `Doresc să comand ${pkg}.`;
+            obs.focus();
+          }
+          const sVal = btn.getAttribute('data-sursa');
+          if (sursa && sVal){
+            for (const opt of sursa.options){
+              if (opt.text.trim() === sVal.trim()){ sursa.value = opt.value || opt.text; break; }
+            }
+          }
+          goToForm();
+        });
+      });
+    })();
 
     // Formular recenzie: adaugă recenzia în listă
     (function(){
