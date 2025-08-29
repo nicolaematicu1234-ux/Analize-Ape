@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AQUALAB – Analize Apă Cluj | Pachete, Prețuri & Comenzi</title>
-  <meta name="description" content="Analize profesionale de apă în Cluj-Napoca. Pachete clare, prețuri pe indicatori, comandă online, rezultate rapide și consultanță.">
-  <meta property="og:title" content="AQUALAB – Analize Apă Cluj">
+  <title>Doctorul Apei – Analize Apă Cluj | Pachete, Prețuri & Comenzi</title>
+  <meta name="description" content="Doctorul Apei: analize profesionale de apă în Cluj-Napoca. Pachete clare, prețuri pe indicatori, comandă online, rezultate rapide și consultanță.">
+  <meta property="og:title" content="Doctorul Apei – Analize Apă Cluj">
   <meta property="og:description" content="Analize profesionale de apă: pachete, prețuri pe indicatori, comandă online. Cluj-Napoca.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="./assets/banner.jpg">
@@ -20,6 +20,7 @@
       --ok:#1a7f37;
       --no:#b91c1c;
       --radius:16px;
+      --shadow:0 10px 28px rgba(0,0,0,.08);
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:Arial,Helvetica,sans-serif;color:var(--text);line-height:1.6;background:#fff}
@@ -35,8 +36,8 @@
 
     /* nav desktop */
     .nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px;white-space:nowrap}
-    .call-btn{display:inline-flex;align-items:center;gap:8px;background:#0a63a6;color:#fff;padding:9px 14px;border-radius:999px}
+    .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:var(--shadow)}
+    .call-btn{display:inline-flex;align-items:center;gap:8px;background:#0a63a6;color:#fff;padding:9px 14px;border-radius:999px;box-shadow:var(--shadow)}
     .call-btn svg{width:16px;height:16px}
     .menu-toggle{display:none;background:#fff;border:1px solid #cfe0f7;border-radius:10px;padding:6px;cursor:pointer}
 
@@ -59,7 +60,7 @@
     .hero-fw h1{font-size:46px;line-height:1.16;color:#0b2b52;margin:12px 0 6px}
     .hero-fw .subtitle{font-size:18px;color:#0b2b52;opacity:.9;margin-bottom:12px}
     .hero-fw p{color:#334;margin:10px 0 20px}
-    .city-callout{display:flex;align-items:flex-start;gap:12px;background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:16px;padding:16px;margin-top:16px}
+    .city-callout{display:flex;align-items:flex-start;gap:12px;background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:16px;padding:16px;margin-top:16px;box-shadow:var(--shadow)}
     .city-callout b{color:#0b2b52}
 
     /* Sections */
@@ -67,22 +68,22 @@
     .section h2{font-size:28px;color:#0b2b52;text-align:center;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px}
 
     /* Advantages */
-    .hanna-card{background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:var(--radius);padding:18px}
+    .hanna-card{background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .advantages{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
-    .adv{background:#fff;border:1px solid #e7edf6;border-radius:14px;padding:14px;display:flex;gap:10px;align-items:flex-start}
+    .adv{background:#fff;border:1px solid #e7edf6;border-radius:14px;padding:14px;display:flex;gap:10px;align-items:flex-start;box-shadow:var(--shadow)}
     .adv svg{flex:0 0 22px;margin-top:2px}
     .adv b{color:var(--hanna-blue)}
 
     /* Packages */
     .pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:16px}
-    .card{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:20px;text-align:center}
+    .card{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:20px;text-align:center;box-shadow:var(--shadow)}
     .pill{display:inline-flex;align-items:center;gap:8px;background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:14px;padding:8px 14px;margin-bottom:10px;font-weight:700;font-size:15px}
     .card h3{font-size:22px}
     .price{font-size:21px;font-weight:800;margin:8px 0}
     .muted{color:#556}
 
     /* Comparison */
-    .compare-wrap{margin-top:22px;overflow:auto;border:1px solid #e7edf6;border-radius:var(--radius)}
+    .compare-wrap{margin-top:22px;overflow:auto;border:1px solid #e7edf6;border-radius:var(--radius);box-shadow:var(--shadow)}
     table{width:100%;border-collapse:collapse;font-size:15px;background:#fff}
     thead th{position:sticky;top:0;background:#f7fbff}
     th,td{border-bottom:1px solid #eef6ff;padding:10px;text-align:center}
@@ -91,7 +92,7 @@
     .legend{font-size:13px;color:#556;margin-top:8px}
 
     /* Price list */
-    .price-box{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px}
+    .price-box{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .prices{width:100%;border-collapse:collapse;margin-top:10px}
     .prices th,.prices td{border-bottom:1px solid #eef6ff;padding:10px}
     .prices th{background:#f7fbff}
@@ -99,12 +100,12 @@
 
     /* Order Form */
     .order{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
-    .order form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px;position:relative}
+    .order form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px;position:relative;box-shadow:var(--shadow)}
     label{display:block;margin-top:10px;font-weight:700}
     input,select,textarea{width:100%;padding:10px;border:1px solid #cfe0f7;border-radius:10px;margin-top:6px}
     textarea{min-height:120px}
     .help{font-size:13px;color:#556;margin-top:8px}
-    .aside{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:18px}
+    .aside{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .aside h3{margin-bottom:8px;color:#0b2b52}
     .aside ul{margin-left:18px}
     .aside li{margin:6px 0}
@@ -117,7 +118,13 @@
 
     /* Contact */
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    form.contact-form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px;position:relative}
+    form.contact-form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px;position:relative;box-shadow:var(--shadow)}
+
+    /* Reviews */
+    .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .review{background:#fff;border:1px solid #e7edf6;border-radius:12px;padding:14px;box-shadow:var(--shadow)}
+    .stars{color:#f5a623;letter-spacing:1px}
+    .form-wrap{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
 
     /* Footer */
     footer{margin-top:0;background:var(--hanna-bg);border-top:1px solid #cfe0f7;color:#0b2b52}
@@ -134,7 +141,7 @@
       .brand span{font-size:22px}
       .menu-toggle{display:block}
       .nav-links{
-        display:none;               /* ascuns inițial */
+        display:none;
         position:fixed;
         top:72px; left:12px; right:12px;
         background:#fff;
@@ -151,7 +158,7 @@
       .nav-links a.cta{border:none}
       .nav-links .call-btn{justify-content:center}
       header .nav{padding:10px 0}
-      .hero-fw{padding-top:88px; /* ca panoul să nu acopere începutul */ }
+      .hero-fw{padding-top:88px;}
       .order{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
     }
@@ -170,8 +177,8 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="./assets/logo.png" alt="AQUALAB logo" loading="eager">
-        <span>AQUALAB</span>
+        <img src="./assets/logo.png" alt="Doctorul Apei logo" loading="eager">
+        <span>Doctorul Apei</span>
       </div>
 
       <!-- hamburger (mobil) -->
@@ -198,7 +205,7 @@
   <!-- HERO -->
   <section class="hero-fw">
     <div class="container hero-content">
-      <span class="badge">Laborator analize apă</span>
+      <span class="badge">Doctorul Apei • Laborator analize apă</span>
       <h1>Analize profesionale de apă</h1>
       <div class="subtitle">Analizăm apa ca să trăiești mai sigur.</div>
       <p>Rezultate rapide și precise pentru fântâni, puțuri, apă potabilă, piscine și apă uzată. Pachete clare, raport detaliat și consultanță.</p>
@@ -213,7 +220,7 @@
   <!-- AVANTAJE -->
   <section id="avantaje" class="section">
     <div class="container hanna-card">
-      <h2>De ce să ne alegi</h2>
+      <h2>De ce să alegi Doctorul Apei</h2>
       <div class="advantages">
         <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Profesional & standardizat</b><p>Metodologii conform standardelor internaționale, trasabilitate și QC documentat.</p></div></div>
         <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Echipamente performante</b><p>Detecții precise cu spectrofotometru, conductometru, titrator – instrumente calibrate periodic.</p></div></div>
@@ -223,7 +230,7 @@
     </div>
   </section>
 
-  <!-- PACHETE -->
+  <!-- PACHETE (NE-MODIFICATE) -->
   <section id="pachete" class="section">
     <div class="container">
       <h2>Pachete de analiză</h2>
@@ -255,7 +262,7 @@
         </div>
       </div>
 
-      <!-- Tabel comparativ -->
+      <!-- Tabel comparativ (NE-MODIFICAT) -->
       <div class="compare-wrap" style="margin-top:18px">
         <table>
           <thead>
@@ -268,7 +275,6 @@
           </tr>
           </thead>
           <tbody>
-          <!-- 16 de bază -->
           <tr><td>pH</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
           <tr><td>Conductivitate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
           <tr><td>Total solide dizolvate (TDS)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
@@ -286,7 +292,6 @@
           <tr><td>Turbiditate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
           <tr><td>Fier</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
 
-          <!-- +6 în Standard -->
           <tr><td>Pentoxid de fosfor</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
           <tr><td>Oxidabilitate (Oxigen dizolvat)</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
           <tr><td>Clor liber rezidual</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
@@ -294,7 +299,6 @@
           <tr><td>Alcalinitate</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
           <tr><td>Brom</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
 
-          <!-- +7 în Standard Plus -->
           <tr><td>Clor total</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
           <tr><td>Cloruri</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
           <tr><td>Calciu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
@@ -303,7 +307,6 @@
           <tr><td>Cupru</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
           <tr><td>Salinitate</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
 
-          <!-- doar Premium -->
           <tr><td>Mangan</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
           <tr><td>Permanganat de potasiu (KMnO₄)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
           <tr><td>Permanganat (MnO₄⁻)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
@@ -332,7 +335,7 @@
     </div>
   </section>
 
-  <!-- PREȚURI INDIVIDUALE -->
+  <!-- PREȚURI INDIVIDUALE (NE-MODIFICATE) -->
   <section id="preturi" class="section">
     <div class="container">
       <h2>Analize individuale – prețuri (lei/probă, TVA inclus)</h2>
@@ -363,7 +366,7 @@
     </div>
   </section>
 
-  <!-- CUM FUNCȚIONEAZĂ -->
+  <!-- CUM FUNCȚIONEAZĂ (NE-MODIFICAT) -->
   <section id="cum-func" class="section">
     <div class="container">
       <h2>Cum funcționează</h2>
@@ -376,7 +379,7 @@
     </div>
   </section>
 
-  <!-- FORMULAR COMANDĂ -->
+  <!-- FORMULAR COMANDĂ (NE-MODIFICAT) -->
   <section id="formular" class="section">
     <div class="container">
       <h2>Formular comandă analize</h2>
@@ -436,7 +439,59 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- RECENZII (NOU) – înainte de Contact -->
+  <section id="recenzii" class="section">
+    <div class="container">
+      <h2>Recenzii despre <span style="color:var(--hanna-blue)">Doctorul Apei</span></h2>
+      <p class="muted" style="text-align:center;margin-bottom:10px">Exemple demonstrative + formularul tău mai jos</p>
+
+      <div class="reviews" id="reviewsList">
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <p>Raportul a venit rapid, explicații pe înțelesul meu. Acum știu exact ce filtru îmi trebuie.</p>
+          <div class="muted">— Andreea P.</div>
+        </article>
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <p>Am testat apa din fântână la Doctorul Apei. Serviciu profesionist, recomand!</p>
+          <div class="muted">— Sorin M.</div>
+        </article>
+        <article class="review">
+          <div class="stars">★★★★☆</div>
+          <p>Totul ok, mi-ar fi plăcut și o listă de filtre recomandate. În rest, super.</p>
+          <div class="muted">— Ioana T.</div>
+        </article>
+      </div>
+
+      <!-- Formular recenzie -->
+      <div style="margin-top:24px" class="form-wrap">
+        <form id="reviewForm">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <label>Nume</label>
+              <input name="nume" required placeholder="Prenume și inițială">
+            </div>
+            <div>
+              <label>Rating</label>
+              <select name="rating" required>
+                <option value="5">★★★★★ – Excelent</option>
+                <option value="4">★★★★☆ – Foarte bun</option>
+                <option value="3">★★★☆☆ – Bun</option>
+                <option value="2">★★☆☆☆ – Slab</option>
+                <option value="1">★☆☆☆☆ – Foarte slab</option>
+              </select>
+            </div>
+          </div>
+          <label style="margin-top:10px">Recenzia ta</label>
+          <textarea name="mesaj" required placeholder="Spune-ne cum a fost experiența cu Doctorul Apei"></textarea>
+          <button class="cta" type="submit" style="margin-top:10px">Publică recenzia</button>
+          <div class="success" id="revOk">Mulțumim! Recenzia a fost adăugată.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (NE-MODIFICAT) -->
   <section id="contact" class="section">
     <div class="container">
       <h2>Contact</h2>
@@ -470,14 +525,14 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (brand actualizat) -->
   <footer>
     <div class="container foot-wrap">
       <div class="foot">
         <div class="brand-small">
-          <img src="./assets/logo.png" alt="AQUALAB logo">
+          <img src="./assets/logo.png" alt="Doctorul Apei logo">
           <div>
-            <h4>AQUALAB</h4>
+            <h4>Doctorul Apei</h4>
             <p>Analize profesionale de apă în Cluj-Napoca.</p>
           </div>
         </div>
@@ -495,11 +550,11 @@
       <div class="foot">
         <h4>Legal</h4>
         <a href="gdpr.html">GDPR</a>
-  <a href="termeni.html">Termeni și Condiții</a>
-  <a href="cookies.html">Politica de Cookies</a>
+        <a href="termeni.html">Termeni și Condiții</a>
+        <a href="cookies.html">Politica de Cookies</a>
       </div>
     </div>
-    <div class="copy">© <span id="y"></span> AQUALAB • Toate drepturile rezervate • RO51030820 • Cluj-Napoca</div>
+    <div class="copy">© <span id="y"></span> Doctorul Apei • Toate drepturile rezervate • RO51030820 • Cluj-Napoca</div>
   </footer>
 
   <!-- Floating CTA -->
@@ -546,6 +601,26 @@
     }
     handleForm('orderForm','orderOk','orderErr');
     handleForm('contactForm','contactOk','contactErr');
+
+    // Formular recenzie: adaugă recenzia în listă
+    (function(){
+      const form = document.getElementById('reviewForm');
+      if(!form) return;
+      form.addEventListener('submit', e=>{
+        e.preventDefault();
+        const fd = new FormData(form);
+        const nume = fd.get('nume') || 'Anonim';
+        const rating = +fd.get('rating') || 5;
+        const mesaj = fd.get('mesaj') || '';
+        const stars = '★★★★★'.slice(0,rating) + '☆☆☆☆☆'.slice(rating,5);
+        const card = document.createElement('article');
+        card.className='review';
+        card.innerHTML = `<div class="stars">${stars}</div><p>${mesaj}</p><div class="muted">— ${nume}</div>`;
+        document.getElementById('reviewsList').prepend(card);
+        document.getElementById('revOk').style.display='block';
+        form.reset();
+      });
+    })();
   </script>
 </body>
 </html>
