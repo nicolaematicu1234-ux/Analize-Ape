@@ -36,6 +36,7 @@
     /* nav desktop */
     .nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
     .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px;white-space:nowrap}
+    .cta.small{padding:8px 12px; display:inline-block; margin-top:10px}
     .call-btn{display:inline-flex;align-items:center;gap:8px;background:#0a63a6;color:#fff;padding:9px 14px;border-radius:999px}
     .call-btn svg{width:16px;height:16px}
     .menu-toggle{display:none;background:#fff;border:1px solid #cfe0f7;border-radius:10px;padding:6px;cursor:pointer}
@@ -43,17 +44,17 @@
     /* Badge */
     .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #cfe0f7;background:#ebf4ff;color:#0b2b52;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700}
 
-    /* HERO full-width background */
+    /* HERO full-width background (cu padding redus ca să nu pixelăm imaginea) */
     .hero-fw{
       position:relative;
-      padding:70px 0;
+      padding:70px 0; /* micșorat ca să nu forceze mărirea imaginii */
       background:
         linear-gradient(90deg,
           rgba(255,255,255,.92) 0 32%,
           rgba(255,255,255,.65) 32% 52%,
           rgba(255,255,255,0) 100%
         ),
-        url("./assets/banner.jpg?v=2") center right / contain no-repeat;
+        url("./assets/banner.jpg?v=2") center right / cover no-repeat;
     }
     .hero-content{max-width:640px}
     .hero-fw h1{font-size:46px;line-height:1.16;color:#0b2b52;margin:12px 0 6px}
@@ -151,11 +152,32 @@
       .nav-links a.cta{border:none}
       .nav-links .call-btn{justify-content:center}
       header .nav{padding:10px 0}
-      .hero-fw{padding-top:88px; /* ca panoul să nu acopere începutul */ }
+      .hero-fw{padding-top:88px}
       .order{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
     }
   </style>
+
+  <!-- LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"AQUALAB",
+    "url":"https://analizeape.ro/",
+    "telephone":"+40790002963",
+    "email":"contact@analizeape.ro",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Str. Tineretului nr. 13A",
+      "addressLocality":"Florești",
+      "addressRegion":"Cluj",
+      "addressCountry":"RO"
+    },
+    "areaServed":"Cluj-Napoca și împrejurimi",
+    "image":"https://analizeape.ro/assets/banner.jpg"
+  }
+  </script>
 </head>
 <body>
 
@@ -234,24 +256,28 @@
           <h3>16 indicatori</h3>
           <div class="price">180 lei (TVA inclus)</div>
           <p class="muted">Screening esențial pentru apă din fântână/puț.</p>
+          <a href="#formular" class="cta small" data-pkg="Fântână">Comandă pachetul Fântână</a>
         </div>
         <div class="card">
           <div class="pill">Standard</div>
           <h3>22 indicatori</h3>
           <div class="price">280 lei (TVA inclus)</div>
           <p class="muted">Toți din Fântână + 6 parametri suplimentari.</p>
+          <a href="#formular" class="cta small" data-pkg="Standard">Comandă pachetul Standard</a>
         </div>
         <div class="card">
           <div class="pill">Standard Plus</div>
           <h3>29 indicatori</h3>
           <div class="price">400 lei (TVA inclus)</div>
           <p class="muted">Toți din Standard + 7 parametri suplimentari.</p>
+          <a href="#formular" class="cta small" data-pkg="Standard Plus">Comandă pachetul Standard Plus</a>
         </div>
         <div class="card">
           <div class="pill">Premium</div>
           <h3>50 indicatori</h3>
           <div class="price">800 lei (TVA inclus)</div>
           <p class="muted">Pachet complet extins (metale, anioni/cationi, alți indicatori).</p>
+          <a href="#formular" class="cta small" data-pkg="Premium">Comandă pachetul Premium</a>
         </div>
       </div>
 
@@ -369,9 +395,9 @@
       <h2>Cum funcționează</h2>
       <div class="steps">
         <div class="step"><svg><use href="#ico-steps"/></svg><div><b>1. Alegi pachetul/indicatorii</b><p>Selectezi pachetul potrivit sau comanzi analize individuale.</p></div></div>
-        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>2. Recoltare</b><p>Trimiți proba prin curier sau programăm recoltare la locație (Cluj-Napoca și împrejurimi).</p></div></div>
-        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>3. Analiză</b><p>Analizam apa spectrofofotometric/potențiometric, oferind trasabilitate & siguranta.</p></div></div>
-        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>4. Raport & facturare</b><p>Primești factura pe email. După plată, livrăm buletinul oficial de analiza pe email sau telefon.</p></div></div>
+        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>2. Recoltare</b><p>Trimiți proba prin curier sau programăm recoltare la locație (în Cluj-Napoca și împrejurimi).</p></div></div>
+        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>3. Analiză</b><p>Analizăm apa spectrofotometric/potențiometric, oferind trasabilitate & calibrare.</p></div></div>
+        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>4. Raport & facturare</b><p>Primești rezultatele, apoi factura pe email. După plată, livrăm buletinul oficial.</p></div></div>
       </div>
     </div>
   </section>
@@ -381,13 +407,14 @@
     <div class="container">
       <h2>Formular comandă analize</h2>
       <div class="order">
+        <!-- Formspree ID al tău -->
         <form id="orderForm" action="https://formspree.io/f/xzzadkpp" method="POST" enctype="multipart/form-data" novalidate>
           <label for="nume">Nume și prenume *</label>
           <input id="nume" name="nume" required>
           <label for="email">Adresa de email *</label>
           <input id="email" type="email" name="email" required>
           <label for="telefon">Telefon *</label>
-          <input id="telefon" name="telefon" required>
+          <input id="telefon" name="telefon" type="tel" inputmode="tel" required>
           <label for="sursa">Sursa apei *</label>
           <select id="sursa" name="sursa" required>
             <option value="">Alege...</option>
@@ -415,7 +442,7 @@
             <input id="news" name="newsletter" type="checkbox">
             <label for="news">Vreau noutăți/sfaturi despre calitatea apei (opțional).</label>
           </div>
-          <p class="help">După prelucrarea probelor, <b>veți primi factura pe email</b>. După înregistrarea plății, <b>trimitem buletinul oficial de analiză</b>.</p>
+          <p class="help">După prelucrare, <b>veți primi factura pe email</b>. După înregistrarea plății, <b>trimitem buletinul oficial de analiză</b>.</p>
           <button class="cta submit" type="submit">Trimite comanda</button>
           <div class="success" id="orderOk">Comanda a fost trimisă cu succes. Revenim pe email în scurt timp!</div>
           <div class="error" id="orderErr">Ups, nu am putut trimite. Verifică datele sau încearcă mai târziu.</div>
@@ -424,8 +451,8 @@
         <div class="aside">
           <h3>Informații utile</h3>
           <ul>
-            <li><b>Recoltare:</b> poți trimite proba sau programăm recoltare la locație in Cluj Napoca si imprejurimi (în funcție de zonă).</li>
-            <li><b>Curier:</b> expediază proba bine închisă către <b>Str. Tineretului nr. 13A, Florești, Cluj</b>.</li>
+            <li><b>Recoltare:</b> poți trimite proba sau programăm recoltare la locație (în funcție de zonă).</li>
+            <li><b>Curier:</b> expediază proba bine închisă, în recipient curat (steril pentru microbiologie), către <b>Str. Tineretului nr. 13A, Florești, Cluj</b>.</li>
             <li><b>Volum recomandat:</b> 1–2 L pentru fizico-chimice standard.</li>
             <li><b>Program recoltări la locație (Cluj):</b> la cerere, în funcție de rută.</li>
             <li><b>Rezultate & plată:</b> primești factura pe email; după plată, livrăm buletinul oficial de analiză.</li>
@@ -441,13 +468,13 @@
     <div class="container">
       <h2>Contact</h2>
       <div class="contact">
-        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xzzadkzp" method="POST" novalidate>
+        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xzzadkpp" method="POST" novalidate>
           <label for="cnume">Nume</label>
           <input id="cnume" name="nume" required>
           <label for="cemail">Email</label>
           <input id="cemail" type="email" name="email" required>
           <label for="ctel">Telefon</label>
-          <input id="ctel" name="telefon">
+          <input id="ctel" name="telefon" type="tel" inputmode="tel" required>
           <label for="cmsg">Mesaj</label>
           <textarea id="cmsg" name="mesaj"></textarea>
           <div class="gdpr-row">
@@ -462,7 +489,11 @@
         <div class="hanna-card">
           <p><b>Telefon:</b> <a href="tel:+40790002963">+40 790 002 963</a></p>
           <p><b>Email:</b> <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
-          <p><b>Adresă livrare probe:</b><br>Str. Tineretului nr. 13A, Florești, Cluj</p>
+          <p><b>Adresă livrare probe:</b><br>
+            <a href="https://maps.google.com/?q=Str.+Tineretului+13A,+Florești,+Cluj" target="_blank" rel="noopener">
+              Str. Tineretului nr. 13A, Florești, Cluj
+            </a>
+          </p>
           <a class="cta" href="#formular" style="display:inline-block;margin-top:10px">Comandă analize</a>
           <p class="muted" style="margin-top:10px">Program: Luni–Vineri 9:00–15:00 · Recoltări la cerere</p>
         </div>
@@ -495,8 +526,8 @@
       <div class="foot">
         <h4>Legal</h4>
         <a href="gdpr.html">GDPR</a>
-  <a href="termeni.html">Termeni și Condiții</a>
-  <a href="cookies.html">Politica de Cookies</a>
+        <a href="termeni.html">Termeni și Condiții</a>
+        <a href="cookies.html">Politica de Cookies</a>
       </div>
     </div>
     <div class="copy">© <span id="y"></span> AQUALAB • Toate drepturile rezervate • RO51030820 • Cluj-Napoca</div>
@@ -506,7 +537,7 @@
   <a href="tel:+40790002963" class="float-cta" style="position:fixed;right:18px;bottom:18px;z-index:40;background:#0a63a6;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.18);font-weight:800">Sună acum</a>
 
   <script>
-    // an
+    // anul curent
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // nav toggle (mobil)
@@ -546,6 +577,27 @@
     }
     handleForm('orderForm','orderOk','orderErr');
     handleForm('contactForm','contactOk','contactErr');
+
+    // Prefill Observații când utilizatorul apasă „Comandă pachetul X”
+    (function(){
+      const obs = document.getElementById('observatii');
+      const formSection = document.getElementById('formular');
+      function setObservation(pkg) {
+        if(!obs) return;
+        obs.value = `Doresc să comand pachetul ${pkg}.`;
+      }
+      document.addEventListener('click', function(e){
+        const a = e.target.closest('a[data-pkg]');
+        if(!a) return;
+        const pkg = a.getAttribute('data-pkg');
+        setObservation(pkg);
+        if(formSection) formSection.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+      // suport și pentru link direct: ?pkg=Premium#formular
+      const params = new URLSearchParams(window.location.search);
+      const pkgParam = params.get('pkg');
+      if(pkgParam) setObservation(pkgParam);
+    })();
   </script>
 </body>
 </html>
