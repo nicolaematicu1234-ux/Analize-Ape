@@ -1,493 +1,551 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Doctorul Apei – Analize profesionale de apă</title>
-  <meta name="description" content="Doctorul Apei: analize profesionale pentru apa din fântână și rețea. Pachete rapide, rezultate corecte, rapoarte clare.">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AQUALAB – Analize Apă Cluj | Pachete, Prețuri & Comenzi</title>
+  <meta name="description" content="Analize profesionale de apă în Cluj-Napoca. Pachete clare, prețuri pe indicatori, comandă online, rezultate rapide și consultanță.">
+  <meta property="og:title" content="AQUALAB – Analize Apă Cluj">
+  <meta property="og:description" content="Analize profesionale de apă: pachete, prețuri pe indicatori, comandă online. Cluj-Napoca.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/banner.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" as="image" href="./assets/banner.jpg">
+  <link rel="icon" href="./assets/favicon.png">
   <style>
     :root{
-      --blue:#005baa; --bg:#f6f8fb; --ink:#0b1b2b; --muted:#5a6b7b;
-      --card:#fff; --radius:14px; --shadow:0 6px 22px rgba(0,0,0,.08);
-      --gold:#f5a623; --ok:#2e7d32; --bad:#c62828;
+      --hanna-blue:#005baa;
+      --hanna-bg:#e6f0fa;
+      --text:#222;
+      --ok:#1a7f37;
+      --no:#b91c1c;
+      --radius:16px;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
-    a{color:var(--blue);text-decoration:none}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--text);line-height:1.6;background:#fff}
+    a{color:var(--hanna-blue);text-decoration:none}
+    .container{max-width:1140px;margin:0 auto;padding:0 16px}
 
     /* Header */
-    header{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-    .wrap{max-width:1160px;margin:0 auto;padding:0 16px}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--blue);letter-spacing:.2px}
-    .drop{width:26px;height:26px;background:var(--blue);border-radius:8px 8px 12px 12px;display:grid;place-items:center;color:#fff;font-weight:900}
-    .nav a.btn{padding:10px 14px;border:2px solid var(--blue);border-radius:10px;font-weight:700}
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e7edf6;z-index:30}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:80px;height:80px;object-fit:contain}
+    .brand span{font-weight:800;font-size:28px;color:var(--hanna-blue)}
 
-    /* Hero */
-    .hero{background:linear-gradient(180deg,#e6f0fa 0%,#ffffff 70%);padding:48px 0 28px;border-bottom:1px solid #e9eef5}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
-    .hero h1{margin:0 0 10px;color:var(--blue);font-size:clamp(26px,3.2vw,40px)}
-    .hero p{margin:0 0 18px;color:var(--muted)}
-    .hero-img{width:100%;aspect-ratio:4/3;border-radius:var(--radius);
-      background:url('https://images.unsplash.com/photo-1524434536035-7c7f8680a93a?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;box-shadow:var(--shadow)}
-    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 0}
-    .badge{background:#fff;border:1px solid #dbe6f4;padding:6px 10px;border-radius:999px;font-size:13px}
+    /* nav desktop */
+    .nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px;white-space:nowrap}
+    .call-btn{display:inline-flex;align-items:center;gap:8px;background:#0a63a6;color:#fff;padding:9px 14px;border-radius:999px}
+    .call-btn svg{width:16px;height:16px}
+    .menu-toggle{display:none;background:#fff;border:1px solid #cfe0f7;border-radius:10px;padding:6px;cursor:pointer}
+
+    /* Badge */
+    .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #cfe0f7;background:#ebf4ff;color:#0b2b52;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700}
+
+    /* HERO full-width background */
+    .hero-fw{
+      position:relative;
+      padding:70px 0;
+      background:
+        linear-gradient(90deg,
+          rgba(255,255,255,.92) 0 32%,
+          rgba(255,255,255,.65) 32% 52%,
+          rgba(255,255,255,0) 100%
+        ),
+        url("./assets/banner.jpg?v=2") center right / contain no-repeat;
+    }
+    .hero-content{max-width:640px}
+    .hero-fw h1{font-size:46px;line-height:1.16;color:#0b2b52;margin:12px 0 6px}
+    .hero-fw .subtitle{font-size:18px;color:#0b2b52;opacity:.9;margin-bottom:12px}
+    .hero-fw p{color:#334;margin:10px 0 20px}
+    .city-callout{display:flex;align-items:flex-start;gap:12px;background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:16px;padding:16px;margin-top:16px}
+    .city-callout b{color:#0b2b52}
 
     /* Sections */
-    .section{padding:42px 0}
-    .title{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}
-    .title h2{margin:0;color:var(--blue)}
-    .muted{color:var(--muted);font-size:13px}
+    .section{padding:56px 0}
+    .section h2{font-size:28px;color:#0b2b52;text-align:center;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px}
 
-    /* Grid cards */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
-    .card .pic{width:100%;aspect-ratio:16/9;background:#eef5ff url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat}
-    .card:nth-child(2) .pic{background-image:url('https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop')}
-    .card:nth-child(3) .pic{background-image:url('https://images.unsplash.com/photo-1502741338009-cac2772e18bc?q=80&w=1200&auto=format&fit=crop')}
-    .card .body{padding:18px}
-    .card h3{margin:0 0 6px}
-    .pill{display:inline-block;background:#e6f0fa;color:var(--blue);padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800}
-    ul.clean{list-style:none;padding:0;margin:12px 0;color:#2b3a49}
-    ul.clean li{padding:6px 0;border-bottom:1px dashed #e6eef6}
-    .price{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding:14px 18px;border-top:1px solid #eef2f8}
-    .price strong{font-size:22px}
-    .btn,button{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:#fff;
-      padding:10px 14px;border:none;border-radius:10px;font-weight:800;cursor:pointer;transition:transform .05s ease,box-shadow .2s ease;box-shadow:0 6px 16px rgba(0,91,170,.2)}
-    .btn.outline{background:transparent;color:var(--blue);border:2px solid var(--blue);box-shadow:none}
-    .btn:active{transform:translateY(1px)}
+    /* Advantages */
+    .hanna-card{background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:var(--radius);padding:18px}
+    .advantages{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
+    .adv{background:#fff;border:1px solid #e7edf6;border-radius:14px;padding:14px;display:flex;gap:10px;align-items:flex-start}
+    .adv svg{flex:0 0 22px;margin-top:2px}
+    .adv b{color:var(--hanna-blue)}
 
-    /* Forms */
-    .form-wrap{background:#e6f0fa;border-left:6px solid var(--blue);border-radius:12px;padding:16px}
-    form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    form .full{grid-column:1/-1}
-    label{font-weight:700;font-size:14px}
-    input,textarea,select{width:100%;padding:10px 12px;border:1px solid #d5e1f0;border-radius:10px;background:#fff;font:inherit}
-    textarea{min-height:110px;resize:vertical}
-    .success,.error{display:none;margin-top:10px;font-weight:800}
-    .success{color:var(--ok)} .error{color:var(--bad)}
+    /* Packages */
+    .pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:16px}
+    .card{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:20px;text-align:center}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:14px;padding:8px 14px;margin-bottom:10px;font-weight:700;font-size:15px}
+    .card h3{font-size:22px}
+    .price{font-size:21px;font-weight:800;margin:8px 0}
+    .muted{color:#556}
 
-    /* Reviews */
-    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .review{background:#fff;border:1px solid #e7edf6;border-radius:12px;padding:14px;box-shadow:var(--shadow)}
-    .stars{color:var(--gold);letter-spacing:1px}
+    /* Comparison */
+    .compare-wrap{margin-top:22px;overflow:auto;border:1px solid #e7edf6;border-radius:var(--radius)}
+    table{width:100%;border-collapse:collapse;font-size:15px;background:#fff}
+    thead th{position:sticky;top:0;background:#f7fbff}
+    th,td{border-bottom:1px solid #eef6ff;padding:10px;text-align:center}
+    th:first-child,td:first-child{text-align:left;min-width:220px}
+    .yes{font-weight:700;color:var(--ok)} .no{font-weight:700;color:var(--no)}
+    .legend{font-size:13px;color:#556;margin-top:8px}
 
-    /* FAQ accordion */
-    details.faq{border:1px solid #e7edf6;background:#fff;border-radius:12px;padding:14px 16px;margin:10px 0;box-shadow:var(--shadow)}
-    details.faq summary{cursor:pointer;font-weight:700;color:var(--ink);outline:none}
-    details.faq[open]{border-color:#d5e1f0}
-    details.faq p{margin:10px 0 0}
+    /* Price list */
+    .price-box{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px}
+    .prices{width:100%;border-collapse:collapse;margin-top:10px}
+    .prices th,.prices td{border-bottom:1px solid #eef6ff;padding:10px}
+    .prices th{background:#f7fbff}
+    .note{font-size:13px;color:#556;margin-top:10px}
 
-    /* Steps list */
-    .steps{counter-reset:step}
-    .steps li{list-style:none;margin:10px 0;padding-left:36px;position:relative;background:#fff;border:1px solid #e7edf6;border-radius:12px;padding:12px 12px 12px 44px;box-shadow:var(--shadow)}
-    .steps li::before{counter-increment:step;content:counter(step);position:absolute;left:12px;top:12px;width:24px;height:24px;border-radius:50%;background:#e6f0fa;color:var(--blue);display:grid;place-items:center;font-weight:800}
+    /* Order Form */
+    .order{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    .order form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:18px;position:relative}
+    label{display:block;margin-top:10px;font-weight:700}
+    input,select,textarea{width:100%;padding:10px;border:1px solid #cfe0f7;border-radius:10px;margin-top:6px}
+    textarea{min-height:120px}
+    .help{font-size:13px;color:#556;margin-top:8px}
+    .aside{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:var(--radius);padding:18px}
+    .aside h3{margin-bottom:8px;color:#0b2b52}
+    .aside ul{margin-left:18px}
+    .aside li{margin:6px 0}
+    .aside{font-size:17px}
+    .submit{margin-top:14px}
+    .gdpr-row{display:flex;align-items:flex-start;gap:10px;margin-top:12px;font-size:14px}
+    .gdpr-row input{margin-top:3px}
+    .success{display:none;margin-top:12px;padding:10px;border-radius:10px;background:#e7f8ee;border:1px solid #bfe7cf;color:#115c2a;font-weight:700}
+    .error{display:none;margin-top:12px;padding:10px;border-radius:10px;background:#feefef;border:1px solid #ffd0d0;color:#8a1313;font-weight:700}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    form.contact-form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px;position:relative}
 
     /* Footer */
-    footer{padding:28px 0;color:#6a7b8f;border-top:1px solid #e9eef5;background:#fff}
+    footer{margin-top:0;background:var(--hanna-bg);border-top:1px solid #cfe0f7;color:#0b2b52}
+    .foot-wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:22px;padding:26px 0}
+    .foot h4{margin-bottom:8px}
+    .foot a{display:block;margin:4px 0}
+    .copy{border-top:1px solid #cfe0f7;text-align:center;font-size:14px;color:#556;padding:12px 0}
+    .foot .brand-small{display:flex;align-items:center;gap:10px}
+    .foot .brand-small img{width:40px;height:40px;object-fit:contain}
 
-    /* Responsive */
-    @media (max-width:960px){
-      .hero-grid{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr;gap:14px}
-      form{grid-template-columns:1fr}
-      .reviews{grid-template-columns:1fr}
+    /* NAV responsive */
+    @media (max-width: 900px){
+      .brand img{width:56px;height:56px}
+      .brand span{font-size:22px}
+      .menu-toggle{display:block}
+      .nav-links{
+        display:none;               /* ascuns inițial */
+        position:fixed;
+        top:72px; left:12px; right:12px;
+        background:#fff;
+        border:1px solid #e7edf6;
+        border-radius:16px;
+        box-shadow:0 16px 46px rgba(0,0,0,.08);
+        padding:14px;
+        flex-direction:column;
+        gap:12px;
+        z-index:35;
+      }
+      .nav-links.open{display:flex}
+      .nav-links a{width:100%; text-align:center; padding:10px 12px; border-radius:12px; border:1px solid #e7edf6}
+      .nav-links a.cta{border:none}
+      .nav-links .call-btn{justify-content:center}
+      header .nav{padding:10px 0}
+      .hero-fw{padding-top:88px; /* ca panoul să nu acopere începutul */ }
+      .order{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
     }
   </style>
-
-  <!-- Branding semantic / SEO -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Doctorul Apei",
-    "description":"Analize profesionale de apă (fântână și rețea).",
-    "url":"https://analizeape.ro",
-    "email":"contact@analizeape.ro",
-    "brand":{"@type":"Brand","name":"Doctorul Apei"},
-    "areaServed":"RO"
-  }
-  </script>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <div class="brand"><span class="drop">A</span> Doctorul Apei</div>
-    <nav style="display:flex;gap:8px;flex-wrap:wrap">
-      <a class="btn outline" href="#pachete">Pachete</a>
-      <a class="btn outline" href="#recoltare">Cum colectezi proba</a>
-      <a class="btn outline" href="#faq">Întrebări frecvente</a>
-      <a class="btn" href="#comanda">Comandă</a>
-    </nav>
-  </div>
-</header>
+  <!-- SVG icons -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="ico-check" viewBox="0 0 24 24"><path fill="#1a7f37" d="M9.2 16.2 4.9 12l1.4-1.4 2.9 2.9 8.5-8.5L19 6.4z"/></symbol>
+    <symbol id="ico-drop" viewBox="0 0 24 24"><path fill="#005baa" d="M12 2c3.9 5.2 6.5 8.7 6.5 12A6.5 6.5 0 1 1 5.5 14C5.5 10.7 8.1 7.2 12 2z"/></symbol>
+    <symbol id="ico-steps" viewBox="0 0 24 24"><path fill="#005baa" d="M4 20h4v-4H4v4zm6 0h4V8h-4v12zm6 0h4V4h-4v16z"/></symbol>
+  </svg>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <h1>Doctorul Apei – <br/>analize profesionale de apă</h1>
-      <p>Testăm corect apa din <strong>fântână</strong> și <strong>rețea</strong>, cu rapoarte clare și recomandări practice. Liniștea pentru familia ta începe cu un test.</p>
-      <div class="badges">
-        <span class="badge">Raport rapid</span>
-        <span class="badge">Trasabilitate</span>
-        <span class="badge">Consultanță inclusă</span>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="./assets/logo.png" alt="AQUALAB logo" loading="eager">
+        <span>AQUALAB</span>
       </div>
-      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn" href="#pachete">Vezi pachetele</a>
-        <a class="btn outline" href="#comanda">Comandă acum la Doctorul Apei</a>
+
+      <!-- hamburger (mobil) -->
+      <button class="menu-toggle" aria-label="Deschide meniul" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="#005baa" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav class="nav-links">
+        <a href="#avantaje">Avantaje</a>
+        <a href="#pachete">Pachete</a>
+        <a href="#preturi">Prețuri</a>
+        <a href="#cum-func">Cum funcționează</a>
+        <a href="#formular" class="cta">Formular comandă</a>
+        <a class="call-btn" href="tel:+40790002963" title="Sună acum">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="#fff" d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.5 2.7.7 4.1.7.7 0 1.3.6 1.3 1.3v3.5c0 .7-.6 1.3-1.3 1.3C9.7 21.8 2.2 14.3 2.2 4.3c0-.7.6-1.3 1.3-1.3h3.5c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.7 4.1.1.4 0 .8-.3 1.1l-2.1 2.3z"/></svg>
+          Sună acum
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-fw">
+    <div class="container hero-content">
+      <span class="badge">Laborator analize apă</span>
+      <h1>Analize profesionale de apă</h1>
+      <div class="subtitle">Analizăm apa ca să trăiești mai sigur.</div>
+      <p>Rezultate rapide și precise pentru fântâni, puțuri, apă potabilă, piscine și apă uzată. Pachete clare, raport detaliat și consultanță.</p>
+      <a href="#pachete" class="cta">Vezi pachete</a>
+      <div class="city-callout" style="margin-top:16px">
+        <svg width="22" height="22"><use href="#ico-drop"/></svg>
+        <p><b>Laborator în Cluj-Napoca</b> – recoltări la locație în municipiu și zonele limitrofe.</p>
       </div>
     </div>
-    <div class="hero-img" aria-label="Pahar cu apă limpede"></div>
-  </div>
-</section>
+  </section>
 
-<section id="pachete" class="section">
-  <div class="wrap">
-    <div class="title">
-      <h2>Pachete populare Doctorul Apei</h2>
-      <span class="muted">Alege pachetul, apoi comandă – formularul se completează automat.</span>
+  <!-- AVANTAJE -->
+  <section id="avantaje" class="section">
+    <div class="container hanna-card">
+      <h2>De ce să ne alegi</h2>
+      <div class="advantages">
+        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Profesional & standardizat</b><p>Metodologii conform standardelor internaționale, trasabilitate și QC documentat.</p></div></div>
+        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Echipamente performante</b><p>Detecții precise cu spectrofotometru, conductometru, titrator – instrumente calibrate periodic.</p></div></div>
+        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Rapid & transparent</b><p>Termene clare, prețuri vizibile, raport ușor de înțeles + recomandări de corecții/tratare.</p></div></div>
+        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Recoltare la locație</b><p>La cerere, în Cluj-Napoca și împrejurimi.</p></div></div>
+      </div>
     </div>
-    <div class="grid">
-      <!-- Card 1 -->
-      <article class="card">
-        <div class="pic"></div>
-        <div class="body">
-          <span class="pill">Apă din fântână</span>
-          <h3>Pachet Esențial</h3>
-          <ul class="clean">
-            <li>pH, Conductivitate, TDS, Turbiditate</li>
-            <li>Nitrați & Nitriți, Duritate totală</li>
-            <li>Fier, Amoniu</li>
-          </ul>
-        </div>
-        <div class="price">
-          <strong>199 RON</strong>
-          <button class="btn order-btn" data-package="Pachet Esențial">Comandă pachet</button>
-        </div>
-      </article>
-      <!-- Card 2 -->
-      <article class="card">
-        <div class="pic"></div>
-        <div class="body">
-          <span class="pill">Apă potabilă</span>
-          <h3>Pachet Complet</h3>
-          <ul class="clean">
-            <li>Toate din Esențial + Fosfați, Cloruri</li>
-            <li>Clor liber/total, Mangan</li>
-            <li>Culoare, Oxigen dizolvat</li>
-          </ul>
-        </div>
-        <div class="price">
-          <strong>349 RON</strong>
-          <button class="btn order-btn" data-package="Pachet Complet">Comandă pachet</button>
-        </div>
-      </article>
-      <!-- Card 3 -->
-      <article class="card">
-        <div class="pic"></div>
-        <div class="body">
-          <span class="pill">Apă uzată</span>
-          <h3>Pachet Uzată – Rapid</h3>
-          <ul class="clean">
-            <li>COD (oxidabilitate), Amoniac, Fosfor</li>
-            <li>Turbiditate, Culoare</li>
-            <li>Raport sumar + recomandări</li>
-          </ul>
-        </div>
-        <div class="price">
-          <strong>399 RON</strong>
-          <button class="btn order-btn" data-package="Pachet Uzată – Rapid">Comandă pachet</button>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="comanda" class="section">
-  <div class="wrap">
-    <div class="title"><h2>Comandă la <span style="color:var(--blue)">Doctorul Apei</span></h2></div>
-    <div class="form-wrap">
-      <form id="orderForm">
-        <div>
-          <label>Nume</label>
-          <input name="nume" required placeholder="Nume și prenume">
+  <!-- PACHETE -->
+  <section id="pachete" class="section">
+    <div class="container">
+      <h2>Pachete de analiză</h2>
+
+      <div class="pack-grid">
+        <div class="card">
+          <div class="pill">Fântână</div>
+          <h3>16 indicatori</h3>
+          <div class="price">180 lei (TVA inclus)</div>
+          <p class="muted">Screening esențial pentru apă din fântână/puț.</p>
         </div>
-        <div>
-          <label>Telefon</label>
-          <input name="telefon" required placeholder="07xx xxx xxx">
+        <div class="card">
+          <div class="pill">Standard</div>
+          <h3>22 indicatori</h3>
+          <div class="price">280 lei (TVA inclus)</div>
+          <p class="muted">Toți din Fântână + 6 parametri suplimentari.</p>
         </div>
-        <div>
-          <label>Email</label>
-          <input name="email" type="email" required placeholder="ex: contact@analizeape.ro">
+        <div class="card">
+          <div class="pill">Standard Plus</div>
+          <h3>29 indicatori</h3>
+          <div class="price">400 lei (TVA inclus)</div>
+          <p class="muted">Toți din Standard + 7 parametri suplimentari.</p>
         </div>
-        <div>
-          <label>Pachet selectat</label>
-          <select id="selectPachet" name="pachet">
-            <option>Pachet Esențial</option>
-            <option>Pachet Complet</option>
-            <option>Pachet Uzată – Rapid</option>
+        <div class="card">
+          <div class="pill">Premium</div>
+          <h3>50 indicatori</h3>
+          <div class="price">800 lei (TVA inclus)</div>
+          <p class="muted">Pachet complet extins (metale, anioni/cationi, alți indicatori).</p>
+        </div>
+      </div>
+
+      <!-- Tabel comparativ -->
+      <div class="compare-wrap" style="margin-top:18px">
+        <table>
+          <thead>
+          <tr>
+            <th>Indicator</th>
+            <th>Fântână</th>
+            <th>Standard</th>
+            <th>Standard Plus</th>
+            <th>Premium</th>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- 16 de bază -->
+          <tr><td>pH</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Conductivitate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Total solide dizolvate (TDS)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>ORP (potențial oxido-reducere)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Culoare</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Nitriți</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Nitriți de sodiu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Nitrați</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Duritate totală</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Amoniu</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Amoniac</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Azot amoniacal (NH3-N)</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Fosfați</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Fosfor</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Turbiditate</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Fier</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+
+          <!-- +6 în Standard -->
+          <tr><td>Pentoxid de fosfor</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Oxidabilitate (Oxigen dizolvat)</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Clor liber rezidual</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Sulfați</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Alcalinitate</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Brom</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+
+          <!-- +7 în Standard Plus -->
+          <tr><td>Clor total</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Cloruri</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Calciu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Magneziu</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Zinc</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Cupru</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+          <tr><td>Salinitate</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td><td class="yes">✅</td></tr>
+
+          <!-- doar Premium -->
+          <tr><td>Mangan</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Permanganat de potasiu (KMnO₄)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Permanganat (MnO₄⁻)</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Crom</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Dicromat</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Aluminiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Oxid de aluminiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Nichel</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Acid cianuric</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Dioxid de clor</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Fluor</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Iod</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Argint</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Potasiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Oxid de potasiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Dioxid de siliciu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Siliciu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Molibden</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Molibdat</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Molibdat de sodiu</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          <tr><td>Ozon</td><td class="no">❌</td><td class="no">❌</td><td class="no">❌</td><td class="yes">✅</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="legend">Legenda: <span class="yes">✅ inclus</span> · <span class="no">❌ neînclus</span></p>
+    </div>
+  </section>
+
+  <!-- PREȚURI INDIVIDUALE -->
+  <section id="preturi" class="section">
+    <div class="container">
+      <h2>Analize individuale – prețuri (lei/probă, TVA inclus)</h2>
+      <div class="price-box">
+        <table class="prices">
+          <thead><tr><th>Parametru</th><th>Preț</th><th>Parametru</th><th>Preț</th></tr></thead>
+          <tbody>
+          <tr><td>pH</td><td>10</td><td>Clor total</td><td>17</td></tr>
+          <tr><td>Conductivitate</td><td>10</td><td>Cloruri</td><td>20</td></tr>
+          <tr><td>Total solide dizolvate (TDS)</td><td>10</td><td>Calciu</td><td>17</td></tr>
+          <tr><td>Oxidabilitate / Oxigen dizolvat</td><td>20</td><td>Magneziu</td><td>35</td></tr>
+          <tr><td>Culoare</td><td>10</td><td>Zinc</td><td>37</td></tr>
+          <tr><td>Nitriți</td><td>25</td><td>Cupru</td><td>37</td></tr>
+          <tr><td>Nitrați</td><td>35</td><td>Salinitate</td><td>10</td></tr>
+          <tr><td>Duritate totală</td><td>25</td><td>Mangan</td><td>30</td></tr>
+          <tr><td>Amoniu</td><td>25</td><td>Aluminiu</td><td>30</td></tr>
+          <tr><td>Pentoxid de fosfor</td><td>15</td><td>Nichel</td><td>40</td></tr>
+          <tr><td>Turbiditate</td><td>24</td><td>Acid cianuric</td><td>30</td></tr>
+          <tr><td>Fier</td><td>30</td><td>Dioxid de clor</td><td>15</td></tr>
+          <tr><td>Clor liber rezidual</td><td>15</td><td>Fluor</td><td>25</td></tr>
+          <tr><td>Sulfați</td><td>42</td><td>Iod</td><td>25</td></tr>
+          <tr><td>Alcalinitate</td><td>17</td><td>Argint</td><td>70</td></tr>
+          <tr><td>Brom</td><td>20</td><td>Potasiu</td><td>35</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Prețurile includ TVA și se aplică pe probă/parametru. Pentru analize neenumerate sau volume mari, cere o ofertă personalizată.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUM FUNCȚIONEAZĂ -->
+  <section id="cum-func" class="section">
+    <div class="container">
+      <h2>Cum funcționează</h2>
+      <div class="steps">
+        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>1. Alegi pachetul/indicatorii</b><p>Selectezi pachetul potrivit sau comanzi analize individuale.</p></div></div>
+        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>2. Recoltare</b><p>Trimiți proba prin curier sau programăm recoltare la locație (Cluj-Napoca și împrejurimi).</p></div></div>
+        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>3. Analiză</b><p>Analizam apa spectrofofotometric/potențiometric, oferind trasabilitate & siguranta.</p></div></div>
+        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>4. Raport & facturare</b><p>Primești factura pe email. După plată, livrăm buletinul oficial de analiza pe email sau telefon.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULAR COMANDĂ -->
+  <section id="formular" class="section">
+    <div class="container">
+      <h2>Formular comandă analize</h2>
+      <div class="order">
+        <form id="orderForm" action="https://formspree.io/f/xzzadkpp" method="POST" enctype="multipart/form-data" novalidate>
+          <label for="nume">Nume și prenume *</label>
+          <input id="nume" name="nume" required>
+          <label for="email">Adresa de email *</label>
+          <input id="email" type="email" name="email" required>
+          <label for="telefon">Telefon *</label>
+          <input id="telefon" name="telefon" required>
+          <label for="sursa">Sursa apei *</label>
+          <select id="sursa" name="sursa" required>
+            <option value="">Alege...</option>
+            <option>Fântână / Puț</option>
+            <option>Rețea (apă potabilă)</option>
+            <option>Piscină</option>
+            <option>Apă uzată</option>
+            <option>Altă sursă</option>
           </select>
+          <label for="firma">Firmă (opțional)</label>
+          <input id="firma" name="firma" placeholder="Nume firmă (dacă este cazul)">
+          <label for="cui">CUI (opțional)</label>
+          <input id="cui" name="cui" placeholder="RO...">
+          <label for="facturare">Adresă de facturare (opțional)</label>
+          <textarea id="facturare" name="facturare" placeholder="Stradă, număr, localitate, județ"></textarea>
+          <label for="observatii">Observații (opțional)</label>
+          <textarea id="observatii" name="observatii" placeholder="Pachet dorit / indicatori, recoltare la locație etc."></textarea>
+          <label for="attach">Încarcă poză/raport existent (opțional)</label>
+          <input id="attach" name="attachment" type="file" accept=".pdf,.jpg,.jpeg,.png,.heic">
+          <div class="gdpr-row">
+            <input id="agree" name="gdpr" type="checkbox" required>
+            <label for="agree">Sunt de acord cu prelucrarea datelor conform <a href="gdpr.html" target="_blank" rel="noopener">Politicii GDPR</a> și înțeleg că buletinul de analiză va fi transmis pe email după înregistrarea plății.</label>
+          </div>
+          <div class="gdpr-row">
+            <input id="news" name="newsletter" type="checkbox">
+            <label for="news">Vreau noutăți/sfaturi despre calitatea apei (opțional).</label>
+          </div>
+          <p class="help">După prelucrarea probelor, <b>veți primi factura pe email</b>. După înregistrarea plății, <b>trimitem buletinul oficial de analiză</b>.</p>
+          <button class="cta submit" type="submit">Trimite comanda</button>
+          <div class="success" id="orderOk">Comanda a fost trimisă cu succes. Revenim pe email în scurt timp!</div>
+          <div class="error" id="orderErr">Ups, nu am putut trimite. Verifică datele sau încearcă mai târziu.</div>
+        </form>
+
+        <div class="aside">
+          <h3>Informații utile</h3>
+          <ul>
+            <li><b>Recoltare:</b> poți trimite proba sau programăm recoltare la locație in Cluj Napoca si imprejurimi (în funcție de zonă).</li>
+            <li><b>Curier:</b> expediază proba bine închisă către <b>Str. Tineretului nr. 13A, Florești, Cluj</b>.</li>
+            <li><b>Volum recomandat:</b> 1–2 L pentru fizico-chimice standard.</li>
+            <li><b>Program recoltări la locație (Cluj):</b> la cerere, în funcție de rută.</li>
+            <li><b>Rezultate & plată:</b> primești factura pe email; după plată, livrăm buletinul oficial de analiză.</li>
+          </ul>
+          <p class="help" style="margin-top:10px">Întrebări rapide? <b><a href="tel:+40790002963">+40 790 002 963</a></b> · <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
         </div>
-        <div class="full">
-          <label>Adresă de preluare/probă</label>
-          <input name="adresa" placeholder="Str. Exemplu nr. 10, Oraș">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact">
+        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xzzadkzp" method="POST" novalidate>
+          <label for="cnume">Nume</label>
+          <input id="cnume" name="nume" required>
+          <label for="cemail">Email</label>
+          <input id="cemail" type="email" name="email" required>
+          <label for="ctel">Telefon</label>
+          <input id="ctel" name="telefon">
+          <label for="cmsg">Mesaj</label>
+          <textarea id="cmsg" name="mesaj"></textarea>
+          <div class="gdpr-row">
+            <input id="agree2" name="gdpr" type="checkbox" required>
+            <label for="agree2">Sunt de acord cu prelucrarea datelor conform <a href="gdpr.html" target="_blank" rel="noopener">Politicii GDPR</a>.</label>
+          </div>
+          <button class="cta submit" type="submit">Trimite</button>
+          <div class="success" id="contactOk">Mesaj trimis. Îți răspundem pe email cât de repede!</div>
+          <div class="error" id="contactErr">Nu am putut trimite mesajul. Încearcă din nou sau scrie-ne direct pe email.</div>
+          <p class="muted" style="font-size:12px;margin-top:6px">Prin trimitere ești de acord cu prelucrarea datelor în scopul soluționării solicitării.</p>
+        </form>
+        <div class="hanna-card">
+          <p><b>Telefon:</b> <a href="tel:+40790002963">+40 790 002 963</a></p>
+          <p><b>Email:</b> <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
+          <p><b>Adresă livrare probe:</b><br>Str. Tineretului nr. 13A, Florești, Cluj</p>
+          <a class="cta" href="#formular" style="display:inline-block;margin-top:10px">Comandă analize</a>
+          <p class="muted" style="margin-top:10px">Program: Luni–Vineri 9:00–15:00 · Recoltări la cerere</p>
         </div>
-        <div class="full">
-          <label>Observații</label>
-          <textarea id="obs" name="observatii" placeholder="Detalii utile pentru Doctorul Apei"></textarea>
-          <div class="muted">* Se completează automat când alegi un pachet sau apeși pe „Comandă pachet”.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container foot-wrap">
+      <div class="foot">
+        <div class="brand-small">
+          <img src="./assets/logo.png" alt="AQUALAB logo">
+          <div>
+            <h4>AQUALAB</h4>
+            <p>Analize profesionale de apă în Cluj-Napoca.</p>
+          </div>
         </div>
-        <div class="full">
-          <button class="btn" type="submit">Trimite comanda către Doctorul Apei</button>
-          <div class="success" id="okMsg">Mulțumim! Te contactăm în scurt timp.</div>
-          <div class="error" id="errMsg">Ups, ceva nu a mers. Încearcă din nou.</div>
-        </div>
-      </form>
+        <p style="margin-top:10px"><b>Telefon:</b> <a href="tel:+40790002963">+40 790 002 963</a><br>
+          <b>Email:</b> <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a><br>
+          <b>Adresă probe:</b> Str. Tineretului nr. 13A, Florești, Cluj</p>
+      </div>
+      <div class="foot">
+        <h4>Pagini</h4>
+        <a href="#pachete">Pachete</a>
+        <a href="#preturi">Prețuri</a>
+        <a href="#formular">Formular comandă</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot">
+        <h4>Legal</h4>
+        <a href="gdpr.html">GDPR</a>
+  <a href="termeni.html">Termeni și Condiții</a>
+  <a href="cookies.html">Politica de Cookies</a>
+      </div>
     </div>
-  </div>
-</section>
+    <div class="copy">© <span id="y"></span> AQUALAB • Toate drepturile rezervate • RO51030820 • Cluj-Napoca</div>
+  </footer>
 
-<section id="recenzii" class="section">
-  <div class="wrap">
-    <div class="title">
-      <h2>Recenzii despre <span style="color:var(--blue)">Doctorul Apei</span></h2>
-      <span class="muted">Exemple demonstrative + formularul tău mai jos</span>
-    </div>
+  <!-- Floating CTA -->
+  <a href="tel:+40790002963" class="float-cta" style="position:fixed;right:18px;bottom:18px;z-index:40;background:#0a63a6;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.18);font-weight:800">Sună acum</a>
 
-    <!-- Recenzii existente (exemple) -->
-    <div class="reviews" id="reviewsList">
-      <article class="review">
-        <div class="stars">★★★★★</div>
-        <p>Raportul a venit rapid, explicații pe înțelesul meu. Acum știu exact ce filtru îmi trebuie.</p>
-        <div class="muted">— Andreea P.</div>
-      </article>
-      <article class="review">
-        <div class="stars">★★★★★</div>
-        <p>Am testat apa din fântână la Doctorul Apei. Serviciu profesionist, recomand!</p>
-        <div class="muted">— Sorin M.</div>
-      </article>
-      <article class="review">
-        <div class="stars">★★★★☆</div>
-        <p>Totul ok, mi-ar fi plăcut și o listă de filtre recomandate. În rest, super.</p>
-        <div class="muted">— Ioana T.</div>
-      </article>
-    </div>
+  <script>
+    // an
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-    <!-- Formular recenzie -->
-    <div style="margin-top:24px" class="form-wrap">
-      <form id="reviewForm">
-        <div>
-          <label>Nume</label>
-          <input name="nume" required placeholder="Prenume și inițială">
-        </div>
-        <div>
-          <label>Rating</label>
-          <select name="rating" required>
-            <option value="5">★★★★★ – Excelent</option>
-            <option value="4">★★★★☆ – Foarte bun</option>
-            <option value="3">★★★☆☆ – Bun</option>
-            <option value="2">★★☆☆☆ – Slab</option>
-            <option value="1">★☆☆☆☆ – Foarte slab</option>
-          </select>
-        </div>
-        <div class="full">
-          <label>Recenzia ta</label>
-          <textarea name="mesaj" required placeholder="Spune-ne cum a fost experiența cu Doctorul Apei"></textarea>
-        </div>
-        <div class="full">
-          <button class="btn" type="submit">Publică recenzia</button>
-          <div class="success" id="revOk">Mulțumim! Recenzia a fost adăugată.</div>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
+    // nav toggle (mobil)
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const links = document.querySelector('.nav-links');
+      if(!btn || !links) return;
+      function closeMenu(){ links.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+      function toggleMenu(){
+        const isOpen = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      }
+      btn.addEventListener('click', toggleMenu);
+      links.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
+    })();
 
-<!-- Cum colectezi proba -->
-<section id="recoltare" class="section">
-  <div class="wrap">
-    <div class="title">
-      <h2>Cum colectezi corect proba de apă</h2>
-      <span class="muted">Pași simpli ca rezultatele Doctorul Apei să fie corecte</span>
-    </div>
-
-    <div class="form-wrap" style="margin-bottom:18px">
-      <p><strong>Ai nevoie de:</strong> sticlă PET/HDPE alimentară (0,5–1 L) cu capac curat, marker pentru etichetă, punguță etanșă (zip), geantă termo/cu element rece.</p>
-      <p class="muted">Pentru analize <em>microbiologice</em> e necesar <strong>recipient steril</strong> sigilat – întreabă-ne înainte.</p>
-    </div>
-
-    <div class="title" style="margin-top:10px"><h3 style="margin:0">A) Apă din rețea (robinet)</h3></div>
-    <ol class="steps">
-      <li>Înlătură capul de duș/perlatorul. Alege un robinet simplu, fără filtre pe ieșire.</li>
-      <li>Lasă apa să curgă 2–3 minute (până e constantă ca temperatură).</li>
-      <li>Clătește sticla de 2–3 ori cu apa ce urmează a fi testată (nu folosi detergent).</li>
-      <li>Umple fără a atinge interiorul capacului/gâtului. Lasă cât mai puțin spațiu de aer.</li>
-      <li>Etichetează: adresă/loc, data și ora colectării, tipul sursei (rețea).</li>
-      <li>Păstrează la rece (≈4–8°C), ferit de soare. Livrează în aceeași zi (<24 h).</li>
-    </ol>
-
-    <div class="title" style="margin-top:18px"><h3 style="margin:0">B) Apă din fântână/puț</h3></div>
-    <ol class="steps">
-      <li>Dacă ai robinet pe instalația fântânii, urmează pașii de la „apă din rețea”.</li>
-      <li>Fără robinet: folosește un vas foarte curat (fără miros) pentru prelevare, apoi transferă în sticlă.</li>
-      <li>Evita contactul cu pereții, mâinile sau alte obiecte. Nu scufunda capacul.</li>
-      <li>Umple, etichetează și răcește imediat. Livrează <strong>cât mai repede</strong>.</li>
-    </ol>
-
-    <div class="title" style="margin-top:18px"><h3 style="margin:0">C) Dacă faci și analize microbiologice</h3></div>
-    <ol class="steps">
-      <li>Folosește <strong>doar flacon steril</strong> (nu îl clăti). Nu atinge interiorul.</li>
-      <li>Dezinfectează gura robinetului (alcool/șervețel dezinfectant) și lasă apa 2–3 minute.</li>
-      <li>Umple recipientul steril, închide imediat. Nu desface decât la laborator.</li>
-      <li>Transport la 2–8°C și predare în <strong>6–12 ore</strong> de la prelevare.</li>
-    </ol>
-
-    <div class="form-wrap" style="margin-top:18px">
-      <strong>Evită greșelile frecvente:</strong>
-      <ul class="clean" style="margin:8px 0 0">
-        <li>Sticle de suc/borcane cu miros (afectează rezultate la compuși organici).</li>
-        <li>Proba ținută cald/la soare sau colectată cu o zi înainte.</li>
-        <li>Atingerea interiorului capacului/gâtului sticlei.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Întrebări frecvente -->
-<section id="faq" class="section">
-  <div class="wrap">
-    <div class="title">
-      <h2>Întrebări frecvente (FAQ)</h2>
-      <span class="muted">Răspunsuri rapide de la <strong>Doctorul Apei</strong></span>
-    </div>
-
-    <details class="faq"><summary>Ce parametri analizați în pachete?</summary>
-      <p><strong>Esențial</strong>: pH, Conductivitate, TDS, Turbiditate, Nitrați, Nitriți, Duritate totală, Fier, Amoniu.<br>
-      <strong>Complet</strong>: Esențial + Fosfați, Cloruri, Clor liber/total, Mangan, Culoare, Oxigen dizolvat.<br>
-      <strong>Uzată – Rapid</strong>: COD (oxidabilitate), Amoniac, Fosfor, Turbiditate, Culoare.</p>
-    </details>
-
-    <details class="faq"><summary>Cât durează până primesc rezultatele?</summary>
-      <p>De regulă <strong>1–3 zile lucrătoare</strong>, în funcție de pachet și încărcarea laboratorului. Te anunțăm dacă este nevoie de timp suplimentar.</p>
-    </details>
-
-    <details class="faq"><summary>Ce volum de probă trebuie să aduc?</summary>
-      <p><strong>Minim 500 mL</strong>, ideal <strong>1 L</strong>. Pentru microbiologie și alți indicatori putem solicita recipiente dedicate.</p>
-    </details>
-
-    <details class="faq"><summary>În ce recipient colectez?</summary>
-      <p>Sticlă PET/HDPE <strong>curată</strong>, fără mirosuri, bine clătită cu apa ce urmează a fi testată. Pentru microbiologie – <strong>recipient steril</strong>.</p>
-    </details>
-
-    <details class="faq"><summary>Cum păstrez proba până ajunge la laborator?</summary>
-      <p>La <strong>rece (≈4–8°C)</strong>, ferită de soare. Ideal livrezi în aceeași zi, dar <strong>nu mai târziu de 24 h</strong>.</p>
-    </details>
-
-    <details class="faq"><summary>Pot trimite proba prin curier?</summary>
-      <p>Da. Sigilează sticla, pune-o într-o punguță etanșă și apoi într-o cutie. Adaugă element rece/ghiuleți și trimite cu livrare rapidă. Anunță-ne înainte.</p>
-    </details>
-
-    <details class="faq"><summary>Primești și recomandări după testare?</summary>
-      <p>Da. Pe lângă rezultate, vei primi <strong>recomandări practice</strong> (ex. filtre, pași de remediere) și, dacă e nevoie, un plan de retestare.</p>
-    </details>
-
-    <details class="faq"><summary>Rezultatele sunt conforme cu standardele?</summary>
-      <p>Metodele folosite sunt aliniate standardelor în vigoare (acolo unde este cazul). În raport precizăm <strong>limitele de referință</strong> pentru interpretare.</p>
-    </details>
-
-    <details class="faq"><summary>Faceți recoltare la domiciliu?</summary>
-      <p>La cerere, în anumite localități. Scrie-ne pe <strong>contact@analizeape.ro</strong> pentru disponibilitate și cost.</p>
-    </details>
-
-    <details class="faq"><summary>Emiteți factură pentru persoane fizice?</summary>
-      <p>Da, emitem factură pentru persoane fizice și juridice. Poți plăti online sau prin transfer bancar.</p>
-    </details>
-
-    <details class="faq"><summary>Ce fac dacă un parametru este peste limită?</summary>
-      <p>Îți indicăm soluția (ex. filtrare/demineralizare) și recomandăm <strong>retestare</strong> după implementarea măsurii.</p>
-    </details>
-
-    <details class="faq"><summary>Trebuie programare?</summary>
-      <p>Pentru <em>predare probă</em> nu e necesară programare. Pentru <em>recoltare la domiciliu</em> – da, stabilim împreună data/ora.</p>
-    </details>
-
-    <details class="faq"><summary>Testați și pesticide/metale grele?</summary>
-      <p>Da, la cerere. Anumite analize necesită <strong>recipiente și conservare specifice</strong> – contactează-ne înainte de recoltare.</p>
-    </details>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
-    <div class="brand"><span class="drop">A</span> Doctorul Apei</div>
-    <div class="muted">© <span id="y"></span> Doctorul Apei • contact@analizeape.ro • +40 7xx xxx xxx</div>
-  </div>
-</footer>
-
-<script>
-  // Precompletare Observații la click pe "Comandă pachet"
-  const orderBtns = document.querySelectorAll('.order-btn');
-  const obs = document.getElementById('obs');
-  const selectPachet = document.getElementById('selectPachet');
-  orderBtns.forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const p = btn.dataset.package;
-      selectPachet.value = p;
-      obs.value = `Doresc să comand pachetul ${p}.`;
-      document.getElementById('comanda').scrollIntoView({behavior:'smooth'});
-    });
-  });
-
-  // Trimitere demo formular comandă
-  document.getElementById('orderForm').addEventListener('submit',e=>{
-    e.preventDefault();
-    document.getElementById('okMsg').style.display='block';
-    document.getElementById('errMsg').style.display='none';
-    e.target.reset();
-  });
-
-  // Formular recenzie: adaugă recenzia în listă
-  document.getElementById('reviewForm').addEventListener('submit',e=>{
-    e.preventDefault();
-    const fd = new FormData(e.target);
-    const nume = fd.get('nume') || 'Anonim';
-    const rating = +fd.get('rating') || 5;
-    const mesaj = fd.get('mesaj') || '';
-    const fullStars = '★★★★★';
-    const stars = fullStars.slice(0,rating) + '☆☆☆☆☆'.slice(rating,5);
-    const card = document.createElement('article');
-    card.className='review';
-    card.innerHTML = `<div class="stars">${stars}</div><p>${mesaj}</p><div class="muted">— ${nume}</div>`;
-    document.getElementById('reviewsList').prepend(card);
-    document.getElementById('revOk').style.display='block';
-    e.target.reset();
-  });
-
-  // An curent în footer
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
-
-<!-- SEO: FAQPage structured data -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Ce parametri analizați în pachete?","acceptedAnswer":{"@type":"Answer","text":"Esențial: pH, Conductivitate, TDS, Turbiditate, Nitrați, Nitriți, Duritate totală, Fier, Amoniu. Complet: + Fosfați, Cloruri, Clor liber/total, Mangan, Culoare, Oxigen dizolvat. Uzată – Rapid: COD, Amoniac, Fosfor, Turbiditate, Culoare."}},
-    {"@type":"Question","name":"Cât durează până primesc rezultatele?","acceptedAnswer":{"@type":"Answer","text":"De regulă 1–3 zile lucrătoare, în funcție de pachet și încărcarea laboratorului."}},
-    {"@type":"Question","name":"Ce volum de probă trebuie să aduc?","acceptedAnswer":{"@type":"Answer","text":"Minim 500 mL, ideal 1 L. Pentru microbiologie solicităm recipient steril."}},
-    {"@type":"Question","name":"În ce recipient colectez?","acceptedAnswer":{"@type":"Answer","text":"Sticlă PET/HDPE curată, fără mirosuri, clătită cu apa ce se testează. Pentru microbiologie: flacon steril."}},
-    {"@type":"Question","name":"Pot trimite proba prin curier?","acceptedAnswer":{"@type":"Answer","text":"Da. Sigilează bine, punguță etanșă, cutie cu element rece și livrează rapid. Anunță-ne înainte."}},
-    {"@type":"Question","name":"Primești și recomandări după testare?","acceptedAnswer":{"@type":"Answer","text":"Da, primești recomandări practice și plan de retestare dacă este necesar."}},
-    {"@type":"Question","name":"Faceți recoltare la domiciliu?","acceptedAnswer":{"@type":"Answer","text":"La cerere, în anumite localități. Scrie la contact@analizeape.ro."}},
-    {"@type":"Question","name":"Ce fac dacă un parametru este peste limită?","acceptedAnswer":{"@type":"Answer","text":"Îți propunem soluții (ex. filtrare) și retestare după implementare."}},
-    {"@type":"Question","name":"Trebuie programare?","acceptedAnswer":{"@type":"Answer","text":"Pentru predarea probei nu. Pentru recoltare la domiciliu – da, prin programare."}},
-    {"@type":"Question","name":"Testați și pesticide/metale grele?","acceptedAnswer":{"@type":"Answer","text":"Da, la cerere; sunt necesare recipiente și conservare specifice."}}
-  ]
-}
-</script>
+    // submit AJAX pentru formulare (mesaje de succes/eroare)
+    async function handleForm(formId, okId, errId){
+      const form = document.getElementById(formId);
+      const ok = document.getElementById(okId);
+      const err = document.getElementById(errId);
+      if(!form) return;
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        if(ok) ok.style.display='none';
+        if(err) err.style.display='none';
+        const action = form.getAttribute('action');
+        const method = (form.getAttribute('method') || 'POST').toUpperCase();
+        try{
+          const data = new FormData(form);
+          const resp = await fetch(action, { method, body:data, headers:{ 'Accept':'application/json' }});
+          if(resp.ok){ if(ok) ok.style.display='block'; form.reset(); }
+          else{ if(err) err.style.display='block'; }
+        }catch(_){ if(err) err.style.display='block'; }
+      });
+    }
+    handleForm('orderForm','orderOk','orderErr');
+    handleForm('contactForm','contactOk','contactErr');
+  </script>
 </body>
 </html>
