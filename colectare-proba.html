@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cum colectez corect proba de apă | Doctorul Apei</title>
-  <meta name="description" content="Ghid pas cu pas pentru colectarea corectă a probei de apă: recipiente, igienizare robinet, umplere, etichetare, transport și păstrare la rece.">
+  <title>Cum colectez proba de apă (simplu) | Doctorul Apei</title>
+  <meta name="description" content="Ghid foarte simplu pentru colectarea probei de apă. Doar câțiva pași ușori, fără echipamente speciale.">
   <link rel="icon" href="./assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png">
@@ -14,8 +14,6 @@
       --hanna-blue:#005baa;
       --hanna-bg:#e6f0fa;
       --text:#222;
-      --ok:#1a7f37;
-      --no:#b91c1c;
       --radius:16px;
       --shadow:0 10px 28px rgba(0,0,0,.08);
     }
@@ -24,64 +22,40 @@
     a{color:var(--hanna-blue);text-decoration:none}
     .container{max-width:1140px;margin:0 auto;padding:0 16px}
 
-    /* Header mini (link înapoi) */
     header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e7edf6;z-index:30}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{width:72px;height:72px;object-fit:contain}
     .brand span{font-weight:800;font-size:22px;color:var(--hanna-blue)}
-    .nav a.cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px;box-shadow:var(--shadow)}
+    .cta{background:var(--hanna-blue);color:#fff;padding:10px 16px;border-radius:999px;border:0;cursor:pointer;box-shadow:var(--shadow);display:inline-block}
 
-    /* HERO */
     .hero{
-      position:relative;
+      padding:48px 0;
       background:
         linear-gradient(90deg, rgba(255,255,255,.96) 0 55%, rgba(255,255,255,0) 100%),
-        radial-gradient(1200px 400px at right, #eaf4ff, transparent 60%);
-      padding:54px 0;
-      overflow:hidden;
+        radial-gradient(1000px 360px at right, #eaf4ff, transparent 60%);
     }
-    .hero h1{font-size:42px;line-height:1.16;color:#0b2b52;margin:6px 0 10px}
+    .hero h1{font-size:40px;line-height:1.16;color:#0b2b52;margin:6px 0 10px}
     .hero p{max-width:680px;color:#334}
-    .hero-illustr{
-      position:absolute; right:-40px; top:10px; width:520px; height:260px; opacity:.9;
-    }
 
-    /* Badge/crumbs */
-    .crumbs{font-size:14px;color:#556;margin-bottom:8px}
-    .crumbs a{color:#0b2b52}
-
-    /* Sections */
-    .section{padding:42px 0}
-    .section h2{font-size:28px;color:#0b2b52;text-align:center;margin-bottom:18px}
-
-    /* Card + bullets */
+    .section{padding:40px 0}
+    .section h2{font-size:28px;color:#0b2b52;text-align:center;margin-bottom:16px}
     .hanna-card{background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 
-    /* Steps */
     .step{background:#fff;border:1px solid #e7edf6;border-radius:16px;padding:16px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start}
     .numb{flex:0 0 36px;height:36px;border-radius:50%;background:var(--hanna-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
     .step svg{width:28px;height:28px;flex:0 0 28px}
     .step b{color:#0b2b52}
 
-    .note{font-size:14px;color:#556}
-    .cta{background:var(--hanna-blue);color:#fff;padding:10px 16px;border-radius:999px;border:0;cursor:pointer;box-shadow:var(--shadow);display:inline-block}
+    .tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:12px}
+    .tip{background:#fff;border:1px solid #e7edf6;border-radius:16px;padding:14px;box-shadow:var(--shadow)}
 
-    /* Do / Don't */
-    .list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .good,.bad{border:1px solid #e7edf6;border-radius:16px;padding:16px;box-shadow:var(--shadow)}
-    .good h3{color:var(--ok)} .bad h3{color:var(--no)}
-    .good li,.bad li{margin:6px 0}
-
-    /* Footer mini */
     footer{margin-top:24px;background:var(--hanna-bg);border-top:1px solid #cfe0f7;color:#0b2b52}
     .copy{max-width:1140px;margin:0 auto;padding:12px 16px;font-size:14px;color:#556;text-align:center}
 
     @media (max-width: 900px){
       .hero{padding-top:82px}
-      .hero-illustr{opacity:.25; right:-120px}
-      .list{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -95,20 +69,14 @@
     <symbol id="ico-tap" viewBox="0 0 24 24">
       <path fill="#005baa" d="M7 10h6V8h3V6h3v2h2v3h-4v3c0 2.2-1.8 4-4 4H7v-2h6a2 2 0 0 0 2-2v-3H7v-2z"/>
     </symbol>
-    <symbol id="ico-spark" viewBox="0 0 24 24">
-      <path fill="#005baa" d="M12 2l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4z"/>
-    </symbol>
-    <symbol id="ico-thermo" viewBox="0 0 24 24">
-      <path fill="#005baa" d="M15 14.5V6a3 3 0 1 0-6 0v8.5a4.5 4.5 0 1 0 6 0zM12 4a2 2 0 0 1 2 2v9.17a3.5 3.5 0 1 1-4 0V6a2 2 0 0 1 2-2z"/>
-    </symbol>
     <symbol id="ico-pen" viewBox="0 0 24 24">
       <path fill="#005baa" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
     </symbol>
-    <symbol id="ico-ice" viewBox="0 0 24 24">
-      <path fill="#005baa" d="M12 2l8 4v12l-8 4-8-4V6l8-4zm0 2.2L6 6.9v8.2l6 2.7 6-2.7V6.9l-6-2.7z"/>
+    <symbol id="ico-check" viewBox="0 0 24 24">
+      <path fill="#1a7f37" d="M9.2 16.2 4.9 12l1.4-1.4 2.9 2.9 8.5-8.5L19 6.4z"/>
     </symbol>
-    <symbol id="ico-no" viewBox="0 0 24 24">
-      <path fill="#b91c1c" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM5 12a7 7 0 0 1 11.9-4.9L7.1 16.9A6.96 6.96 0 0 1 5 12zm7 7a7 7 0 0 1-4.9-1.9L18.9 5.3A7 7 0 0 1 12 19z"/>
+    <symbol id="ico-info" viewBox="0 0 24 24">
+      <path fill="#005baa" d="M11 7h2v2h-2V7zm0 4h2v6h-2v-6zm1-9a10 10 0 100 20 10 10 0 000-20z"/>
     </symbol>
   </svg>
 
@@ -126,109 +94,68 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div class="crumbs"><a href="/">Acasă</a> · Cum colectez corect proba</div>
-      <h1>Cum colectez corect proba de apă</h1>
-      <p>Urmărește pașii de mai jos pentru a trimite o probă reprezentativă. O colectare corectă înseamnă rezultate corecte și recomandări utile.</p>
+      <h1>Cum colectez proba de apă (simplu)</h1>
+      <p>Doar câțiva pași ușori. Nu ai nevoie de echipamente speciale.</p>
     </div>
-
-    <!-- ilustratie simpla -->
-    <svg class="hero-illustr" viewBox="0 0 520 260" aria-hidden="true">
-      <defs>
-        <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stop-color="#e6f0fa"/>
-          <stop offset="100%" stop-color="#ffffff"/>
-        </linearGradient>
-      </defs>
-      <rect x="0" y="0" width="520" height="260" fill="url(#g1)"/>
-      <circle cx="420" cy="90" r="60" fill="#cfe0f7"/>
-      <rect x="330" y="70" width="140" height="22" rx="11" fill="#0a63a6" opacity=".9"/>
-      <rect x="260" y="120" width="180" height="12" rx="6" fill="#9cc3f1" opacity=".8"/>
-      <rect x="300" y="140" width="180" height="12" rx="6" fill="#9cc3f1" opacity=".6"/>
-      <rect x="340" y="160" width="160" height="12" rx="6" fill="#9cc3f1" opacity=".4"/>
-    </svg>
   </section>
 
   <!-- CE AI NEVOIE -->
   <section class="section">
     <div class="container hanna-card">
-      <h2>De ce ai nevoie</h2>
+      <h2>Ai nevoie de</h2>
       <div class="grid" style="margin-top:12px">
-        <div class="step"><svg><use href="#ico-bottle"/></svg><div><b>Recipient curat, alimentar</b><p>Sticlă/PET 1–2 L cu capac etanș. Pentru microbiologie: flacon steril (îl oferim noi la cerere).</p></div></div>
-        <div class="step"><svg><use href="#ico-spark"/></svg><div><b>Șervețele + alcool/dezinfectant</b><p>Pentru igienizarea gurii robinetului înainte de recoltare.</p></div></div>
-        <div class="step"><svg><use href="#ico-ice"/></svg><div><b>Pachet frigorific & geantă termo</b><p>Păstrează proba la 4–8°C până ajunge la laborator.</p></div></div>
-        <div class="step"><svg><use href="#ico-pen"/></svg><div><b>Etichetă & marker</b><p>Pentru numele tău, adresa locației, sursa apei, data și ora.</p></div></div>
+        <div class="step"><svg><use href="#ico-bottle"/></svg><div><b>Recipient curat, alimentar</b><p>Sticlă sau PET de <b>1–2 L</b>, bine spălat/limpezit și cu capac care închide bine.</p></div></div>
+        <div class="step"><svg><use href="#ico-pen"/></svg><div><b>Etichetă/marker (opțional)</b><p>Pentru nume și localitate, ca să știm de unde e proba.</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- PAS CU PAS -->
+  <!-- PAS CU PAS (simplificat) -->
   <section class="section">
     <div class="container">
-      <h2>Colectarea probei – pas cu pas</h2>
+      <h2>Colectarea probei – în 5 pași</h2>
       <div class="grid" style="margin-top:12px">
-        <div class="step"><div class="numb">1</div><svg><use href="#ico-tap"/></svg><div><b>Alege robinetul potrivit</b><p>Ideal, un robinet metalic, fără perlatoare/filtre. Dacă ai filtre montate, colectează înainte de filtrare (dacă vrei să testezi apa brută).</p></div></div>
+        <div class="step"><div class="numb">1</div><svg><use href="#ico-tap"/></svg><div><b>Alege un robinet obișnuit</b><p>De preferat unul simplu (fără filtru la cap). Dacă vrei să testezi apa din fântână, folosește robinetul conectat la acea sursă.</p></div></div>
 
-        <div class="step"><div class="numb">2</div><svg><use href="#ico-spark"/></svg><div><b>Igienizează gura robinetului</b><p>Șterge cu alcool/dezinfectant și lasă să se evapore 30–60 secunde.</p></div></div>
+        <div class="step"><div class="numb">2</div><svg><use href="#ico-tap"/></svg><div><b>Lasă apa să curgă 2–3 minute</b><p>Asta „înnoiește” apa din țeavă/puț. Debitul normal, nu contează cronometrul exact.</p></div></div>
 
-        <div class="step"><div class="numb">3</div><svg><use href="#ico-tap"/></svg><div><b>Lasă apa să curgă 2–3 minute</b><p>Stabilește debitul mediu. Scopul este să ajungă apa „proaspătă” din coloană/puț.</p></div></div>
+        <div class="step"><div class="numb">3</div><svg><use href="#ico-bottle"/></svg><div><b>Clătește sticla (de 2–3 ori)</b><p>Clătește cu aceeași apă pe care o testezi. (Dacă ai o sticlă nouă de apă plată goală, poți să sari peste clătire.)</p></div></div>
 
-        <div class="step"><div class="numb">4</div><svg><use href="#ico-bottle"/></svg><div><b>Clătește recipientul (chimie)</b><p>Clătește sticla de 2–3 ori cu apa care urmează a fi colectată. <b>Nu clăti recipientele sterile</b> pentru microbiologie.</p></div></div>
+        <div class="step"><div class="numb">4</div><svg><use href="#ico-bottle"/></svg><div><b>Umple sticla</b><p>Pune sticla sub jet și umple-o aproape plină. Închide capacul bine.</p></div></div>
 
-        <div class="step"><div class="numb">5</div><svg><use href="#ico-bottle"/></svg><div><b>Umple corect</b><p>Ține sticla sub jet, fără să atingi gura robinetului. Umple ~90–95% (lasă puțin spațiu de aer).</p></div></div>
-
-        <div class="step"><div class="numb">6</div><svg><use href="#ico-pen"/></svg><div><b>Închide și etichetează</b><p>Strânge bine capacul. Eticheta: nume, sursă (fântână/puț/rețea), adresă/localitate, data & ora.</p></div></div>
-
-        <div class="step"><div class="numb">7</div><svg><use href="#ico-thermo"/></svg><div><b>Păstrează la rece</b><p>Pune proba în geantă termo cu gheață/ice-pack. Temperatura ideală: 4–8°C.</p></div></div>
-
-        <div class="step"><div class="numb">8</div><svg><use href="#ico-ice"/></svg><div><b>Transport rapid</b><p>Trimite/adu proba în maxim 24 h (pentru microbiologie, <b>ideal &lt; 6–12 h</b>).</p></div></div>
+        <div class="step"><div class="numb">5</div><svg><use href="#ico-pen"/></svg><div><b>Notează pe etichetă (opțional)</b><p>Numele tău și localitatea (de exemplu „fântână – Florești”).</p></div></div>
       </div>
 
-      <p class="note" style="margin-top:12px">Volum recomandat: <b>1–2 L</b> pentru analize fizico-chimice standard; <b>250–500 mL</b> în flacon steril pentru microbiologie.</p>
-      <div style="margin-top:14px">
+      <div style="margin-top:14px; text-align:center">
         <a class="cta" href="/#formular">Trimite comanda de analize</a>
       </div>
     </div>
   </section>
 
-  <!-- DO/DON'T -->
+  <!-- SFATURI UTILE -->
   <section class="section">
     <div class="container">
-      <h2>Recomandări rapide</h2>
-      <div class="list" style="margin-top:12px">
-        <div class="good">
-          <h3>✅ De făcut</h3>
-          <ul>
-            <li>Folosește recipient alimentar curat (sau steril pentru microbiologie).</li>
-            <li>Notează clar data, ora și locația prelevării.</li>
-            <li>Păstrează și transportă proba la rece (4–8°C).</li>
-            <li>Dacă ai clorinare pe rețea, cere flacon cu tiosulfat (neutralizează clorul pentru microbiologie).</li>
-          </ul>
+      <h2>Simplu și clar</h2>
+      <div class="tips">
+        <div class="tip">
+          <p><svg style="vertical-align:middle" width="20" height="20"><use href="#ico-check"/></svg>
+            <b>Volum recomandat:</b> 1–2 L sunt suficienți pentru analizele noastre.</p>
         </div>
-        <div class="bad">
-          <h3>🚫 De evitat</h3>
-          <ul>
-            <li>Nu atinge interiorul capacului/recipientului.</li>
-            <li>Nu folosi sticle de băuturi carbogazoase/sucuri aromate.</li>
-            <li>Nu umple până la refuz; lasă puțin spațiu de aer.</li>
-            <li>Nu întârzia livrarea probei, mai ales pentru microbiologie.</li>
-          </ul>
+        <div class="tip">
+          <p><svg style="vertical-align:middle" width="20" height="20"><use href="#ico-info"/></svg>
+            <b>De la fântână/puț:</b> ia proba cât mai aproape de sursă, dintr-un robinet folosit uzual.</p>
+        </div>
+        <div class="tip">
+          <p><svg style="vertical-align:middle" width="20" height="20"><use href="#ico-info"/></svg>
+            <b>Livrare:</b> adu proba când poți sau trimite prin curier – nu e problemă dacă ajunge a doua zi.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- INFO MICROBILOGIE -->
-  <section class="section">
-    <div class="container hanna-card">
-      <h2>Probele pentru microbiologie</h2>
-      <p style="margin-top:8px">Pentru determinări bacteriologice (E. coli, Coliformi etc.), ai nevoie de <b>recipient steril</b>. Dacă apa e clorinată (rețea/piscină), folosește flacon steril cu <b>tiosulfat de sodiu</b> (neutralizează clorul). Solicită flacoanele sterile înainte de recoltare.</p>
-      <p class="note" style="margin-top:8px">Contact rapid: <a href="tel:+40790002963">+40 790 002 963</a> · <a href="mailto:doctor@analizeape.ro">doctor@analizeape.ro</a></p>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer>
-    <div class="copy">© <span id="y"></span> Doctorul Apei • Ghid colectare probă</div>
+    <div class="copy">© <span id="y"></span> Doctorul Apei • Ghid colectare probă (simplificat)</div>
   </footer>
 
   <script>
