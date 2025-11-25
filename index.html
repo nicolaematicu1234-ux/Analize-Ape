@@ -19,8 +19,8 @@
   <link rel="icon" href="./assets/favicon.png">
   <style>
     :root{
-      --hanna-blue:#005baa;
-      --hanna-bg:#e6f0fa;
+      --aqua-blue:#005baa;
+      --aqua-bg:#e6f0fa;
       --text:#222;
       --ok:#1a7f37;
       --no:#b91c1c;
@@ -29,7 +29,7 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:Arial,Helvetica,sans-serif;color:var(--text);line-height:1.6;background:#fff}
-    a{color:var(--hanna-blue);text-decoration:none}
+    a{color:var(--aqua-blue);text-decoration:none}
     .container{max-width:1140px;margin:0 auto;padding:0 16px}
 
     /* Header */
@@ -37,11 +37,11 @@
     .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{width:128px;height:128px;object-fit:contain} /* logo mai mare */
-    .brand span{font-weight:800;font-size:30px;color:var(--hanna-blue)}
+    .brand span{font-weight:800;font-size:30px;color:var(--aqua-blue)}
 
     /* nav desktop */
     .nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .cta{background:var(--hanna-blue);color:#fff;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:var(--shadow);border:0;cursor:pointer}
+    .cta{background:var(--aqua-blue);color:#fff;padding:9px 16px;border-radius:999px;white-space:nowrap;box-shadow:var(--shadow);border:0;cursor:pointer}
     .call-btn{display:inline-flex;align-items:center;gap:8px;background:#0a63a6;color:#fff;padding:9px 14px;border-radius:999px;box-shadow:var(--shadow)}
     .call-btn svg{width:16px;height:16px}
     .menu-toggle{display:none;background:#fff;border:1px solid #cfe0f7;border-radius:10px;padding:6px;cursor:pointer}
@@ -62,7 +62,7 @@
   overflow:hidden; /* taie orice depășește secțiunea */
 }
 
-/* pattern-ul Hanna (cercuri + dungi) DOAR pe stânga */
+/* pattern-ul brandului (cercuri + dungi) DOAR pe stânga */
 .hero-fw::before{
   content:"";
   position:absolute;
@@ -83,7 +83,7 @@
 .hero-fw p{color:#334;margin:10px 0 20px}
 .city-callout{
   display:flex;align-items:flex-start;gap:12px;
-  background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);
+  background:var(--aqua-bg);border-left:8px solid var(--aqua-blue);
   border-radius:16px;padding:16px;margin-top:16px;box-shadow:var(--shadow)
 }
 .city-callout b{color:#0b2b52}
@@ -92,16 +92,16 @@
     .section h2{font-size:28px;color:#0b2b52;text-align:center;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px}
 
     /* Advantages */
-    .hanna-card{background:var(--hanna-bg);border-left:8px solid var(--hanna-blue);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .aqua-card{background:var(--aqua-bg);border-left:8px solid var(--aqua-blue);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
     .advantages{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
     .adv{background:#fff;border:1px solid #e7edf6;border-radius:14px;padding:14px;display:flex;gap:10px;align-items:flex-start;box-shadow:var(--shadow)}
     .adv svg{flex:0 0 22px;margin-top:2px}
-    .adv b{color:var(--hanna-blue)}
+    .adv b{color:var(--aqua-blue)}
 
     /* Packages */
     .pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:16px}
     .card{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:20px;text-align:center;box-shadow:var(--shadow)}
-    .pill{display:inline-flex;align-items:center;gap:8px;background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:14px;padding:8px 14px;margin-bottom:10px;font-weight:700;font-size:15px}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:var(--aqua-bg);border-left:6px solid var(--aqua-blue);border-radius:14px;padding:8px 14px;margin-bottom:10px;font-weight:700;font-size:15px}
     .card h3{font-size:22px}
     .price{font-size:21px;font-weight:800;margin:8px 0}
     .muted{color:#556}
@@ -141,8 +141,8 @@
     .aside{
       display:inline-block;
       max-width:520px;
-      background:var(--hanna-bg);
-      border-left:6px solid var(--hanna-blue);
+      background:var(--aqua-bg);
+      border-left:6px solid var(--aqua-blue);
       border-radius:var(--radius);
       padding:18px;
       box-shadow:var(--shadow);
@@ -161,7 +161,7 @@
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     form.contact-form{background:#fff;border:1px solid #e7edf6;border-radius:var(--radius);padding:16px;position:relative;box-shadow:var(--shadow)}
     /* Chenarul albastru din Contact micșorat la conținut */
-    #contact .hanna-card{
+    #contact .aqua-card{
       display:inline-block;
       max-width:520px;
       padding:18px;
@@ -171,10 +171,10 @@
     .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
     .review{background:#fff;border:1px solid #e7edf6;border-radius:12px;padding:14px;box-shadow:var(--shadow)}
     .stars{color:#f5a623;letter-spacing:1px}
-    .form-wrap{background:var(--hanna-bg);border-left:6px solid var(--hanna-blue);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+    .form-wrap{background:var(--aqua-bg);border-left:6px solid var(--aqua-blue);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
 
     /* Footer */
-    footer{margin-top:0;background:var(--hanna-bg);border-top:1px solid #cfe0f7;color:#0b2b52}
+    footer{margin-top:0;background:var(--aqua-bg);border-top:1px solid #cfe0f7;color:#0b2b52}
     .foot-wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:22px;padding:26px 0}
     .foot h4{margin-bottom:8px}
     .foot a{display:block;margin:4px 0}
@@ -221,6 +221,9 @@
       .contact{grid-template-columns:1fr}
     }
   </style>
+
+  <!-- Contentsquare / tracking script -->
+  <script src="https://t.contentsquare.net/uxa/eea51b7a3933e.js"></script>
 </head>
 <body>
 
@@ -277,7 +280,7 @@
 
   <!-- AVANTAJE -->
   <section id="avantaje" class="section">
-    <div class="container hanna-card">
+    <div class="container aqua-card">
       <h2>De ce să alegi Doctorul Apei</h2>
       <div class="advantages">
         <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Profesional & standardizat</b><p>Metodologii conform standardelor internaționale, trasabilitate și QC documentat.</p></div></div>
@@ -518,7 +521,7 @@
   <!-- RECENZII (înainte de Contact) -->
   <section id="recenzii" class="section">
     <div class="container">
-      <h2>Recenzii despre <span style="color:var(--hanna-blue)">Doctorul Apei</span></h2>
+      <h2>Recenzii despre <span style="color:var(--aqua-blue)">Doctorul Apei</span></h2>
       <p class="muted" style="text-align:center;margin-bottom:10px">Lasa recenzia ta mai jos!</p>
 
       <div class="reviews" id="reviewsList">
@@ -591,7 +594,7 @@
           <p class="muted" style="font-size:12px;margin-top:6px">Prin trimitere ești de acord cu prelucrarea datelor în scopul soluționării solicitării.</p>
         </form>
 
-        <div class="hanna-card">
+        <div class="aqua-card">
           <p><b>Telefon:</b> <a href="tel:+40790002963">+40 790 002 963</a></p>
           <p><b>Email:</b> <a href="mailto:doctor@analizeape.ro">doctor@analizeape.ro</a></p>
            <p><b>Email:</b> <a href="mailto:contact@analizeape.ro">contact@analizeape.ro</a></p>
