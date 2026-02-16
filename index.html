@@ -559,28 +559,40 @@
 
       <!-- Formular recenzie -->
       <div style="margin-top:24px" class="form-wrap">
-        <form id="reviewForm">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-            <div>
-              <label>Nume</label>
-              <input name="nume" required placeholder="Prenume și inițială">
-            </div>
-            <div>
-              <label>Rating</label>
-              <select name="rating" required>
-                <option value="5">★★★★★ – Excelent</option>
-                <option value="4">★★★★☆ – Foarte bun</option>
-                <option value="3">★★★☆☆ – Bun</option>
-                <option value="2">★★☆☆☆ – Slab</option>
-                <option value="1">★☆☆☆☆ – Foarte slab</option>
-              </select>
-            </div>
-          </div>
-          <label style="margin-top:10px">Recenzia ta</label>
-          <textarea name="mesaj" required placeholder="Spune-ne cum a fost experiența cu Doctorul Apei"></textarea>
-          <button class="cta" type="submit" style="margin-top:10px">Publică recenzia</button>
-          <div class="success" id="revOk">Mulțumim! Recenzia a fost adăugată.</div>
-        </form>
+       <form id="reviewForm" action="https://formspree.io/f/mykdjyke" method="POST" novalidate>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div>
+      <label>Nume</label>
+      <input name="nume" required placeholder="Prenume și inițială (ex: Andreea P.)">
+    </div>
+    <div>
+      <label>Rating</label>
+      <select name="rating" required>
+        <option value="5">★★★★★ – Excelent</option>
+        <option value="4">★★★★☆ – Foarte bun</option>
+        <option value="3">★★★☆☆ – Bun</option>
+        <option value="2">★★☆☆☆ – Slab</option>
+        <option value="1">★☆☆☆☆ – Foarte slab</option>
+      </select>
+    </div>
+  </div>
+
+  <label style="margin-top:10px">Recenzia ta</label>
+  <textarea name="mesaj" required placeholder="Spune-ne cum a fost experiența cu Doctorul Apei"></textarea>
+
+  <input type="hidden" name="_subject" value="Recenzie nouă - Doctorul Apei">
+
+  <button class="cta" type="submit" style="margin-top:10px">Trimite recenzia</button>
+
+  <div class="success" id="revOk" style="display:none;margin-top:10px">
+    Mulțumim! Recenzia a fost trimisă și intră la moderare.
+  </div>
+
+  <div class="error" id="revErr" style="display:none;margin-top:10px">
+    Nu am putut trimite recenzia. Încearcă din nou.
+  </div>
+</form>
+
       </div>
     </div>
   </section>
