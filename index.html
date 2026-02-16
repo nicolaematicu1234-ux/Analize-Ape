@@ -221,9 +221,6 @@
       .contact{grid-template-columns:1fr}
     }
   </style>
-
-  <!-- Contentsquare / tracking script -->
-  <script src="https://t.contentsquare.net/uxa/eea51b7a3933e.js"></script>
 </head>
 <body>
 
@@ -283,7 +280,7 @@
     <div class="container aqua-card">
       <h2>De ce să alegi Doctorul Apei</h2>
       <div class="advantages">
-        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Profesional & standardizat</b><p>Metodologii conform standardelor internaționale, trasabilitate și QC documentat.</p></div></div>
+        <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Profesional & standardizat</b><p>Metodologii standardizate, proceduri interne de control al calității (QC) și calibrare periodică.</p></div></div>
         <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Echipamente performante</b><p>Detecții precise cu spectrofotometru, conductometru, titrator – instrumente calibrate periodic.</p></div></div>
         <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Rapid & transparent</b><p>Termene clare, prețuri vizibile, raport ușor de înțeles + recomandări de corecții/tratare.</p></div></div>
         <div class="adv"><svg><use href="#ico-check"/></svg><div><b>Recoltare la locație</b><p>La cerere, în Cluj-Napoca și împrejurimi.</p></div></div>
@@ -450,7 +447,7 @@
         <div class="step"><svg><use href="#ico-steps"/></svg><div><b>1. Alegi pachetul/indicatorii</b><p>Selectezi pachetul potrivit sau comanzi analize individuale.</p></div></div>
         <div class="step"><svg><use href="#ico-steps"/></svg><div><b>2. Recoltare</b><p>Trimiți proba prin curier sau programăm recoltare la locație (Cluj-Napoca și împrejurimi).</p></div></div>
         <div class="step"><svg><use href="#ico-steps"/></svg><div><b>3. Analiză</b><p>Analizăm apa spectrofotometric/potențiometric, cu trasabilitate & siguranță.</p></div></div>
-        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>4. Raport & facturare</b><p>Primești factura pe email. După plată, livrăm raportul de analiză.</p></div></div>
+        <div class="step"><svg><use href="#ico-steps"/></svg><div><b>4. Raport & facturare</b><p>Primești factura pe email. După plată, livrăm raportul de analiză informativ.</p></div></div>
       </div>
     </div>
   </section>
@@ -509,13 +506,13 @@
           <input id="attach" name="attachment" type="file" accept=".pdf,.jpg,.jpeg,.png,.heic">
           <div class="gdpr-row">
             <input id="agree" name="gdpr" type="checkbox" required>
-            <label for="agree">Sunt de acord cu prelucrarea datelor conform <a href="gdpr.html" target="_blank" rel="noopener">Politicii GDPR</a> și înțeleg că raportul de analiză va fi transmis pe email după înregistrarea plății.</label>
+            <label for="agree">Sunt de acord cu prelucrarea datelor conform <a href="gdpr.html" target="_blank" rel="noopener">Politicii GDPR</a> și înțeleg că raportul de analiză informativ va fi transmis pe email după înregistrarea plății.</label>
           </div>
           <div class="gdpr-row">
             <input id="news" name="newsletter" type="checkbox">
             <label for="news">Vreau noutăți/sfaturi despre calitatea apei (opțional).</label>
           </div>
-          <p class="help">După prelucrarea probelor, <b>veți primi factura pe email</b>. După înregistrarea plății, <b>trimitem raportul de analiză</b>.</p>
+          <p class="help">După prelucrarea probelor, <b>veți primi factura pe email</b>. După înregistrarea plății, <b>trimitem raportul de analiză informativ</b>.</p>
           <button class="cta submit" type="submit">Trimite comanda</button>
           <div class="success" id="orderOk">Comanda a fost trimisă cu succes. Revenim pe email în scurt timp!</div>
           <div class="error" id="orderErr">Ups, nu am putut trimite. Verifică datele sau încearcă mai târziu.</div>
@@ -757,5 +754,110 @@
       });
     })();
   </script>
+  <!-- COOKIE BANNER -->
+<div id="cookieBanner" style="
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  display: none;
+">
+  <div style="
+    max-width: 1140px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #e7edf6;
+    border-left: 6px solid #005baa;
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.12);
+    padding: 14px 16px;
+    font-family: Arial, sans-serif;
+    color: #223;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  ">
+    <div style="flex: 1 1 520px; min-width: 260px;">
+      <b style="color:#0b2b52;">Cookies & confidențialitate</b>
+      <div style="font-size: 14px; line-height: 1.4; margin-top: 4px; color:#334;">
+        Folosim cookie-uri necesare pentru funcționarea site-ului și, opțional, cookie-uri de analiză (ex. Contentsquare)
+        pentru a îmbunătăți experiența. Poți alege dacă le accepți.
+        <a href="cookies.html" style="color:#005baa; font-weight:700;">Află mai multe</a>.
+      </div>
+    </div>
+
+    <div style="display:flex; gap:10px; align-items:center;">
+      <button id="cookieReject" type="button" style="
+        background: #ffffff;
+        color: #005baa;
+        border: 1px solid #cfe0f7;
+        padding: 10px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 800;
+      ">Refuz</button>
+
+      <button id="cookieAccept" type="button" style="
+        background: #005baa;
+        color: #ffffff;
+        border: 0;
+        padding: 10px 16px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 900;
+        box-shadow: 0 10px 28px rgba(0,0,0,.08);
+      ">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    const KEY = 'cookie_consent_v1'; // 'accepted' | 'rejected'
+    const banner = document.getElementById('cookieBanner');
+    const btnAccept = document.getElementById('cookieAccept');
+    const btnReject = document.getElementById('cookieReject');
+
+    function loadContentsquare() {
+      if (document.getElementById('cs-script')) return;
+      const s = document.createElement('script');
+      s.id = 'cs-script';
+      s.src = 'https://t.contentsquare.net/uxa/eea51b7a3933e.js';
+      s.async = true;
+      document.head.appendChild(s);
+    }
+
+    function hideBanner() { if (banner) banner.style.display = 'none'; }
+    function showBanner() { if (banner) banner.style.display = 'block'; }
+
+    const consent = localStorage.getItem(KEY);
+
+    if (consent === 'accepted') {
+      loadContentsquare();
+      hideBanner();
+    } else if (consent === 'rejected') {
+      hideBanner();
+    } else {
+      showBanner();
+    }
+
+    if (btnAccept) {
+      btnAccept.addEventListener('click', function () {
+        localStorage.setItem(KEY, 'accepted');
+        loadContentsquare();
+        hideBanner();
+      });
+    }
+
+    if (btnReject) {
+      btnReject.addEventListener('click', function () {
+        localStorage.setItem(KEY, 'rejected');
+        hideBanner();
+      });
+    }
+  })();
+</script>
 </body>
 </html>
