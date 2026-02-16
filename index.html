@@ -328,7 +328,7 @@
           <p class="muted">Pachet complet extins (metale, anioni/cationi, alți indicatori).</p>
           <button class="cta order-btn" type="button"
                   data-package="Pachet Premium – 50 indicatori"
-                  data-sursa="Apa de consum)">Comandă acest pachet</button>
+                  data-sursa="Apa de consum">Comandă acest pachet</button>
         </div>
       </div>
 
@@ -681,91 +681,106 @@
   <a href="tel:+40790002963" class="float-cta" style="position:fixed;right:18px;bottom:18px;z-index:40;background:#0a63a6;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.18);font-weight:800">Sună acum</a>
 
   <script>
-    // an
-    document.getElementById('y').textContent = new Date().getFullYear();
+  // an
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-    // nav toggle (mobil)
-    (function(){
-      const btn = document.querySelector('.menu-toggle');
-      const links = document.querySelector('.nav-links');
-      if(!btn || !links) return;
-      function closeMenu(){ links.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
-      function toggleMenu(){
-        const isOpen = links.classList.toggle('open');
-        btn.setAttribute('aria-expanded', String(isOpen));
-      }
-      btn.addEventListener('click', toggleMenu);
-      links.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
-      document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
-    })();
+  // nav toggle (mobil)
+  (function(){
+    const btn = document.querySelector('.menu-toggle');
+    const links = document.querySelector('.nav-links');
+    if(!btn || !links) return;
 
-    // submit AJAX pentru formulare (mesaje de succes/eroare)
-    async function handleForm(formId, okId, errId){
-      const form = document.getElementById(formId);
-      const ok = document.getElementById(okId);
-      const err = document.getElementById(errId);
-      if(!form) return;
-      form.addEventListener('submit', async (e)=>{
-        e.preventDefault();
-        if(ok) ok.style.display='none';
-        if(err) err.style.display='none';
-        const action = form.getAttribute('action');
-        const method = (form.getAttribute('method') || 'POST').toUpperCase();
-        try{
-          const data = new FormData(form);
-          const resp = await fetch(action, { method, body:data, headers:{ 'Accept':'application/json' }});
-          if(resp.ok){ if(ok) ok.style.display='block'; form.reset(); }
-          else{ if(err) err.style.display='block'; }
-        }catch(_){ if(err) err.style.display='block'; }
-      });
+    function closeMenu(){
+      links.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
     }
-    handleForm('orderForm','orderOk','orderErr');
-    handleForm('contactForm','contactOk','contactErr');
+    function toggleMenu(){
+      const isOpen = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
 
-    // BUTOANE „Comandă acest pachet”: completează Observații și scroll la formular
-    (function(){
-      const buttons = document.querySelectorAll('.order-btn');
-      const obs = document.getElementById('observatii');
-      const sursa = document.getElementById('sursa');
-      function goToForm(){ document.querySelector('#formular').scrollIntoView({behavior:'smooth'}); }
-      buttons.forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          const pkg = btn.getAttribute('data-package') || 'pachetul selectat';
-          if (obs) {
-            obs.value = `Doresc să comand ${pkg}.`;
-            obs.focus();
-          }
-          const sVal = btn.getAttribute('data-sursa');
-          if (sursa && sVal){
-            for (const opt of sursa.options){
-              if (opt.text.trim() === sVal.trim()){ sursa.value = opt.value || opt.text; break; }
+    btn.addEventListener('click', toggleMenu);
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMenu(); });
+  })();
+
+  // submit AJAX pentru formulare (mesaje de succes/eroare)
+  async function handleForm(formId, okId, errId){
+    const form = document.getElementById(formId);
+    const ok = document.getElementById(okId);
+    const err = document.getElementById(errId);
+    if(!form) return;
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      if(ok) ok.style.display = 'none';
+      if(err) err.style.display = 'none';
+
+      const action = form.getAttribute('action');
+      const method = (form.getAttribute('method') || 'POST').toUpperCase();
+
+      try{
+        const data = new FormData(form);
+        const resp = await fetch(action, {
+          method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if(resp.ok){
+          if(ok) ok.style.display = 'block';
+          form.reset();
+        } else {
+          if(err) err.style.display = 'block';
+        }
+      }catch(_){
+        if(err) err.style.display = 'block';
+      }
+    });
+  }
+
+  // Formspree forms
+  handleForm('orderForm','orderOk','orderErr');
+  handleForm('contactForm','contactOk','contactErr');
+  handleForm('reviewForm','revOk','revErr');
+
+  // BUTOANE „Comandă acest pachet”: completează Observații și scroll la formular
+  (function(){
+    const buttons = document.querySelectorAll('.order-btn');
+    const obs = document.getElementById('observatii');
+    const sursa = document.getElementById('sursa');
+
+    function goToForm(){
+      const section = document.querySelector('#formular');
+      if(section) section.scrollIntoView({behavior:'smooth'});
+    }
+
+    buttons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const pkg = btn.getAttribute('data-package') || 'pachetul selectat';
+
+        if (obs) {
+          obs.value = `Doresc să comand ${pkg}.`;
+          obs.focus();
+        }
+
+        const sVal = btn.getAttribute('data-sursa');
+        if (sursa && sVal){
+          // setăm direct value dacă există opțiunea (match pe text)
+          for (const opt of sursa.options){
+            if ((opt.text || '').trim() === sVal.trim()){
+              sursa.value = opt.value || opt.text;
+              break;
             }
           }
-          goToForm();
-        });
-      });
-    })();
+        }
 
-    // Formular recenzie: adaugă recenzia în listă
-    (function(){
-      const form = document.getElementById('reviewForm');
-      if(!form) return;
-      form.addEventListener('submit', e=>{
-        e.preventDefault();
-        const fd = new FormData(form);
-        const nume = fd.get('nume') || 'Anonim';
-        const rating = +fd.get('rating') || 5;
-        const mesaj = fd.get('mesaj') || '';
-        const stars = '★★★★★'.slice(0,rating) + '☆☆☆☆☆'.slice(rating,5);
-        const card = document.createElement('article');
-        card.className='review';
-        card.innerHTML = `<div class="stars">${stars}</div><p>${mesaj}</p><div class="muted">— ${nume}</div>`;
-        document.getElementById('reviewsList').prepend(card);
-        document.getElementById('revOk').style.display='block';
-        form.reset();
+        goToForm();
       });
-    })();
-  </script>
+    });
+  })();
+</script>
+
   <!-- COOKIE BANNER -->
 <div id="cookieBanner" style="
   position: fixed;
